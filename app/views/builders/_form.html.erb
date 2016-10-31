@@ -1,0 +1,28 @@
+<%= form_for(builder) do |builder_form| %>
+   <% if builder.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(builder.errors.count, "error") %> prohibited this builder from being saved:</div>
+
+        <ul>
+        <% builder.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="card-panel">
+      <%= label_tag(:group_name, "Group Name") %>
+      <%= builder_form.text_field :group_name, :placeholder => "DLF" %>
+    </div>
+    
+    <h6>Builder Companies</h6>
+    <ul class="collapsible popout" data-collapsible="accordion" watch>
+      <%= render :partial => 'builders/company_fields', :locals => { :builder => builder, :builder_form => builder_form }  %>
+      <%= link_to_add_companies "+", builder, builder_form, :companies %>
+    </ul>
+    
+    <% if access_builders_edit %>
+      <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+    
+<% end %>

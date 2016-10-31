@@ -1,0 +1,1 @@
+json.array! @flat_stage_sub_stages, partial: 'flat_stage_sub_stages/flat_stage_sub_stage', as: :flat_stage_sub_stage

@@ -1,0 +1,37 @@
+<h6>Managers</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% @managers.each do |manager| %>
+        <li>
+            <div class="collapsible-header header-info <% if manager.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s4">
+                                <%= manager.name %>
+                            </div>
+                            <div class="col s4">
+                                <%= manager.email %>
+                            </div>
+                            <div class="col s3">
+                                <%= manager.phone %>
+                            </div>
+                            <div class="right">
+                                <%= manager.role.name %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :manager => manager }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>
+
+

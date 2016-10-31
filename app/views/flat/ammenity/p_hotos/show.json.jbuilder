@@ -1,0 +1,1 @@
+json.partial! "flat_ammenity_p_hotos/flat_ammenity_p_hoto", flat_ammenity_p_hoto: @flat_ammenity_p_hoto

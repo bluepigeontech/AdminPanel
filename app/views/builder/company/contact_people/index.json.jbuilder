@@ -1,0 +1,1 @@
+json.array! @builder_company_contact_people, partial: 'builder_company_contact_people/builder_company_contact_person', as: :builder_company_contact_person

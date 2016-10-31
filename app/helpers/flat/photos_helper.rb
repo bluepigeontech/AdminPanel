@@ -1,0 +1,2 @@
+module Flat::PhotosHelper
+end

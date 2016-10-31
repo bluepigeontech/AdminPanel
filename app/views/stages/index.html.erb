@@ -1,0 +1,46 @@
+<h6>Stages</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout bp-popin" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+     <li>
+        <div class="collapsible-header <% if @stage.errors.any? %>active<% end %>">
+            Add a new Stage
+        </div>
+        <div class="collapsible-body">
+            <%= render :partial => 'form', :locals => { :stage => @stage }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @stages.each do |stage| %>
+        <li>
+            <div class="collapsible-header header-info <% if stage.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s2">
+                              <%= stage.order %>
+                            </div>
+                            <div class="col s2">
+                              <%= stage.name %>
+                            </div>
+                            <div class="col s2">
+                              <%= stage.percentage %>
+                            </div>
+                            <div class="col s2">
+                              <%= stage.stage_parent %>
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body">
+                <%= render :partial => 'form', :locals => { :stage => stage }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>

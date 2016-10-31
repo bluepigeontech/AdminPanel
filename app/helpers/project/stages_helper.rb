@@ -1,0 +1,2 @@
+module Project::StagesHelper
+end

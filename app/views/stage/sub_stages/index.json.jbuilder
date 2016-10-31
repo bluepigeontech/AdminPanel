@@ -1,0 +1,1 @@
+json.array! @stage_sub_stages, partial: 'stage_sub_stages/stage_sub_stage', as: :stage_sub_stage

@@ -1,0 +1,1 @@
+json.array! @floor_ammenity_photos, partial: 'floor_ammenity_photos/floor_ammenity_photo', as: :floor_ammenity_photo

@@ -1,0 +1,17 @@
+<%= form_for(@floor_ammenity) do |f| %>
+  <% if @floor_ammenity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@floor_ammenity.errors.count, "error") %> prohibited this floor_ammenity from being saved:</h2>
+
+      <ul>
+      <% @floor_ammenity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

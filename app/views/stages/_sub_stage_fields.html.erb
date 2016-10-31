@@ -1,0 +1,16 @@
+<%= stage_form.fields_for :sub_stages  do |sub_stage_form| %>
+  <li class="card-panel fields">
+    
+    <%= label_tag(:order, "Order") %>
+    <%= sub_stage_form.number_field :order, :placeholder => "1" %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= sub_stage_form.text_field :name, :placeholder => "Pre Possession" %>
+
+    <%= label_tag(:percentage, "Percentage") %>
+    <%= sub_stage_form.number_field :percentage, :placeholder => "34" %>
+
+    <%= link_to_remove_sub_stages "-", sub_stage_form %>
+  </li>
+  <br/>
+<% end %>

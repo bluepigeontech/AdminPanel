@@ -1,0 +1,1 @@
+json.array! @flat_ammenity_p_hotos, partial: 'flat_ammenity_p_hotos/flat_ammenity_p_hoto', as: :flat_ammenity_p_hoto

@@ -1,0 +1,26 @@
+<%= form_for(country) do |country_form| %>
+   <% if country.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(country.errors.count, "error") %> prohibited this country from being saved:</div>
+
+        <ul>
+        <% country.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= country_form.text_field :name, :placeholder => "India" %>
+    
+    <%= label_tag(:short_form, "Short Form") %>
+    <%= country_form.text_field :short_form, :placeholder => "IN" %>
+    
+    <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => country_form }  %>
+    
+      
+    <% if access_locations_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

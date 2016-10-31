@@ -1,0 +1,30 @@
+<%= form_for(tax) do |tax_form| %>
+   <% if tax.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(tax.errors.count, "error") %> prohibited this tax from being saved:</div>
+
+        <ul>
+        <% tax.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= tax_form.text_field :name, :placeholder => "India" %>
+    
+    <%= label_tag(:percentage, "Percentage") %>
+    <%= tax_form.number_field :percentage, :placeholder => "12.4", step: :any %>
+   
+   <%= label_tag(:state_id, "Country") %>
+    <%= tax_form.select(:state_id, options_for_select(@states, :selected => tax_form.object.state_id), :prompt => 'Select State') %>
+
+    <%= label_tag(:city_id, "City") %>
+    <%= tax_form.select(:city_id, options_for_select(@cities, :selected => tax_form.object.city_id), :prompt => 'Select City') %>
+    <br/>
+    <% if access_taxes_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+    
+<% end %>

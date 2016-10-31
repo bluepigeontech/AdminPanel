@@ -1,0 +1,1 @@
+json.partial! "floor_stage_sub_stages/floor_stage_sub_stage", floor_stage_sub_stage: @floor_stage_sub_stage

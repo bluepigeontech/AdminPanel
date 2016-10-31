@@ -1,0 +1,1 @@
+json.array! @floor_ammenities, partial: 'floor_ammenities/floor_ammenity', as: :floor_ammenity

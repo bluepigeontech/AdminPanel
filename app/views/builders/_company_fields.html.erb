@@ -1,0 +1,17 @@
+<%= builder_form.fields_for :companies  do |company_form| %>
+  <li class="card-panel fields">
+    <%= label_tag(:name, "Name") %>
+    <%= company_form.text_field :name, :placeholder => "DLF Gurgaon" %>
+    
+    <%= label_tag(:about, "About") %>
+    <%= company_form.text_field :about, :placeholder => "DLF was established in..." %>
+    
+    <br/>
+    <h6>Contact Person Details</h6>
+    <ul>
+      <%= render :partial => 'builders/contact_person_fields', :locals => { :company_form => company_form}  %>
+    </ul>
+    <%= link_to_remove_companies "-", company_form %>
+  </li>
+  <br/>
+<% end %>

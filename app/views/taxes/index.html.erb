@@ -1,0 +1,41 @@
+
+<h6>Taxes</h6>
+<p id="notice"><%= notice %></p>
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_taxes_edit %>
+     <li>
+        <div class="collapsible-header <% if @tax.errors.any? %>active<% end %>">
+            Add a new Tax
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :tax => @tax }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @taxes.each do |tax| %>
+        <li>
+            <div class="collapsible-header header-info <% if tax.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s2">
+                                <%= tax.name %>
+                            </div>
+                            <div class="col s2">
+                                <%= tax.percentage %>
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :tax => tax }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>

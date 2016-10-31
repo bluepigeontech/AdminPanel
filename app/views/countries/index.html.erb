@@ -1,0 +1,46 @@
+<%= render :partial => 'layouts/partials/location_header' %>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_locations_edit %>
+     <li>
+        <div class="collapsible-header <% if @country.errors.any? %>active<% end %>">
+            Add a new Country
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :country => @country }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @countries.each do |country| %>
+        <li>
+            <div class="collapsible-header header-info <% if country.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s1">
+                                <%= country.short_form %>
+                            </div>
+                            <div class="col s4">
+                                <%= country.name %>
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :country => country }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>
+
+

@@ -1,0 +1,1 @@
+json.array! @flat_ammenities, partial: 'flat_ammenities/flat_ammenity', as: :flat_ammenity

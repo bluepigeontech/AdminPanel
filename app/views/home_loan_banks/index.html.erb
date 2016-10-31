@@ -1,0 +1,46 @@
+<h6>Home Loan Banks</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_home_loan_banks_edit %>
+    <li>
+        <div class="collapsible-header <% if @home_loan_bank.errors.any? %>active<% end %>">
+            Add a new Home Loan Bank
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :home_loan_bank => @home_loan_bank }  %>
+        </div>
+    </li>
+    <% end %>
+    <% @home_loan_banks.each do |home_loan_bank| %>
+        <li>
+            <div class="collapsible-header header-info <% if home_loan_bank.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s2">
+                                <%= home_loan_bank.name %>
+                            </div>
+                            <div class="col s2">
+
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :home_loan_bank => home_loan_bank }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>
+
+

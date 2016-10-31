@@ -1,0 +1,27 @@
+var builder_companies = new Array();
+<% for builder_company in @builder_companies %>
+  builder_companies.push(new Array(<%= builder_company.builder_id %>, '<%=h builder_company.name %>', <%= builder_company.id %>));
+<% end %>
+
+function builderSelected() {
+  debugger
+  var builder_id = $('project_builder_id').getValue();
+  var options = $('project_company_id').options;
+  options.length = 1;
+  builder_companies.each(function(builder_company) {
+    if (builder_company[0] == builder_id) {
+      options[options.length] = new Option(builder_company[1], builder_company[2]);
+    }
+  });
+  if (options.length == 1) {
+    $('project_company_id').hide();
+  } else {
+    $('project_company_id').show();
+  }
+}
+
+$(document).ready(function(){
+  // builderSelected();
+  $('project_builder_id').on('change', builderSelected);
+  
+})

@@ -1,0 +1,1 @@
+json.partial! "floor_photos/floor_photo", floor_photo: @floor_photo

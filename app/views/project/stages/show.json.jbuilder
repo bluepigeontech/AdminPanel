@@ -1,0 +1,1 @@
+json.partial! "project_stages/project_stage", project_stage: @project_stage

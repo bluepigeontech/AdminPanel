@@ -1,0 +1,25 @@
+function remove_fields(link) {
+  $(link)[0].previousSibling.value = "1"
+  $(link).parent('.fields').hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  content = content.replace(regexp, new_id);
+
+  var regexp = new RegExp("\\["+ association+"\\]", "g");
+  content = content.replace(regexp, "");
+
+  var regexp = new RegExp("\\[flats\\]", "g");
+  content = content.replace(regexp, "[flats_attributes][0]");
+
+  var regexp = new RegExp("\\[floors\\]", "g");
+  content = content.replace(regexp, "[floors_attributes][0]");
+
+  var regexp = new RegExp("\\[buildings_attributes\\]\\[_destroy\\]", "g");
+  content = content.replace(regexp, "[buildings_attributes]["+new_id+"][_destroy]");
+
+  $(link).before(content);
+}
+

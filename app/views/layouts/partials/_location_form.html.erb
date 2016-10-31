@@ -1,0 +1,29 @@
+<br/>
+<br/>
+<h6>Location info</h6>
+
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s3">
+                
+<%= label_tag(:country_id, "Country") %>
+<%= f.select(:country_id, options_for_select(get_countries, :selected => f.object.country_id), :prompt => 'Select Country') %>
+
+            </div>
+            <div class="col s3">
+<%= label_tag(:state_id, "State") %>
+<%= f.select(:state_id, options_for_select(get_states_for(f.object.country_id), :selected => f.object.state_id), :prompt => 'Select State') %>
+  
+            </div>
+            <div class="col s3">
+<%= label_tag(:city_id, "City") %>
+<%= f.select(:city_id, options_for_select(get_cities_for(f.object.state_id), :selected => f.object.city_id), :prompt => 'Select City') %>
+            </div>
+            <div class="col s3">
+<%= label_tag(:locality_id, "Locality") %>
+<%= f.select(:locality_id, options_for_select(get_localities_for(f.object.city_id), :selected => f.object.locality_id), :prompt => 'Select Locality') %>          
+            </div>
+        </div>
+    </div>
+</div>

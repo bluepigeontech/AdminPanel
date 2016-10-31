@@ -1,0 +1,23 @@
+
+<br/>
+<br/>
+<h6>Map info</h6>
+
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s3">
+                
+<%= label_tag(:latitude, "Latitude") %>
+<%= f.number_field :latitude, :placeholder => "45.63", step: :any %>
+
+            </div>
+            <div class="col s3">
+
+<%= label_tag(:longitude, "Longitude") %>
+<%= f.number_field :longitude, :placeholder => "54.31", step: :any %>
+  
+            </div>
+        </div>
+    </div>
+</div>

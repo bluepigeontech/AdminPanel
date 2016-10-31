@@ -1,0 +1,42 @@
+<h6>Projects</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout bp-popin" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+     <li>
+        <div class="collapsible-header <% if @project.errors.any? %>active<% end %>">
+            Add a new Project
+        </div>
+        <div class="collapsible-body">
+            <%= render :partial => 'form', :locals => { :project => @project }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @projects.each do |project| %>
+        <li>
+            <div class="collapsible-header header-info <% if project.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s4">
+                                <%= project.name %>
+                            </div>
+                            <div class="col s4">
+                                
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body">
+                <%= render :partial => 'form', :locals => { :project => project }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>

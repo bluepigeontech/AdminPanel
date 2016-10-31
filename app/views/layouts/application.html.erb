@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="msapplication-tap-highlight" content="no">
+  	<meta name="description" content="BluePigeon">
+  	<meta name="keywords" content="BluePigeon">
+  	<title>BluePigeon | Admin Panel</title>
+
+  	<!-- Favicons-->
+  	<link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+  	<!-- Favicons-->
+  	<link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+  	<!-- For iPhone -->
+  	<meta name="msapplication-TileColor" content="#00bcd4">
+  	<meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+  	<!-- For Windows Phone -->
+
+
+  	<!-- CORE CSS-->
+  
+  	<link href="/assets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+  	<link href="/assets/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+
+  	<!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+  	<link href="/assets/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
+  	<link href="/assets/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  	<link href="/assets/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+</head>
+
+<body>
+	<!-- START MAIN -->
+	<%= render :partial => 'layouts/header'%>
+  	<!-- START LEFT SIDEBAR NAV-->
+  	<%= render :partial => 'layouts/left_sidenav'%>
+  	<!-- END LEFT SIDEBAR NAV-->
+  	<div id="main">
+    	<!-- START WRAPPER -->
+		  <div class="wrapper">
+
+
+	      	<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+	      	<!-- START CONTENT -->
+	      	<section id="content">
+	      		<div class="container">
+	      			<%= yield %>
+	      			
+	      		</div>
+      		</section>
+	      	<!-- END CONTENT -->
+
+	      	<!-- //////////////////////////////////////////////////////////////////////////// -->
+	      	<!-- START RIGHT SIDEBAR NAV-->
+	      	
+	  		<!-- LEFT RIGHT SIDEBAR NAV-->
+
+	    </div>
+    	<!-- END WRAPPER -->
+
+	</div>
+
+	<!-- END MAIN -->      
+	<!-- START FOOTER -->
+	<footer class="page-footer">
+	    <div class="footer-copyright">
+	      	<div class="container">
+	        	<span>Copyright © 2016 BluePigeon All rights reserved.</span>
+	        </div>
+	    </div>
+	</footer>
+	<!-- END FOOTER -->
+
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+    
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="/assets/jquery-3.1.1.min.js"></script>    
+    <!--materialize js-->
+    <script type="text/javascript" src="/assets/materialize.js"></script>
+    <!--prism-->
+    <script type="text/javascript" src="/assets/prism.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <!-- chartist -->
+    <script type="text/javascript" src="/assets/plugins/chartist-js/chartist.min.js"></script>   
+    
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="/assets/plugins.js"></script>
+
+    <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
+    <%= javascript_include_tag "application", params[:controller] %>
+    
+</body>
+
+</html>           

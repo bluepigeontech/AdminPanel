@@ -1,0 +1,1 @@
+json.array! @project_stages, partial: 'project_stages/project_stage', as: :project_stage

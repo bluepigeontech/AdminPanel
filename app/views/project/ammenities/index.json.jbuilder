@@ -1,0 +1,1 @@
+json.array! @project_ammenities, partial: 'project_ammenities/project_ammenity', as: :project_ammenity

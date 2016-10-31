@@ -1,0 +1,58 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require turbolinks
+
+var builder_companies = new Array();
+<% for builder_company in Builder::Company.all %>
+  builder_companies.push(new Array(<%= builder_company.builder_id %>, '<%= builder_company.name %>', <%= builder_company.id %>));
+<% end %>
+
+function builderSelected() {
+  var builder_id = $('#project_builder_id').val();
+  // $('project_company_id').options;
+  // var options = $('project_company_id').options;
+  // options.length = 1;
+  var options = new Array();
+  for(var index=0; index < builder_companies.length; index++){
+    var builder_company = builder_companies[index];
+    if (builder_company[0] == builder_id) {
+      options.push(builder_company);
+      // options[options.length] = new Option(builder_company[1], builder_company[2]);
+    }
+  }
+  
+  if (options.length > 0) {
+    $('#project_company_id').show();
+    $('#project_company_id option').each(function(index, value){
+      $(value).hide();
+    });
+
+    $('#project_company_id option').each(function(index, value){
+      for(var i=0; i < options.length; i++){
+        var val = $(value).val();
+        console.log(" val "+val+" options "+options[i]);
+        if(val == options[i][2]){
+          $(value).show();
+        }
+      }
+    });
+  } else {
+    $('#project_company_id').hide();
+  }
+}
+
+$(document).ready(function(){
+  // builderSelected();
+  $('#project_builder_id').on('change', builderSelected);
+  
+})

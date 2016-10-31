@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Building Ammenities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @building_ammenities.each do |building_ammenity| %>
+      <tr>
+        <td><%= link_to 'Show', building_ammenity %></td>
+        <td><%= link_to 'Edit', edit_building_ammenity_path(building_ammenity) %></td>
+        <td><%= link_to 'Destroy', building_ammenity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ammenity', new_building_ammenity_path %>

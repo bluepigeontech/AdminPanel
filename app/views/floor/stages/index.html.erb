@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Floor Stages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @floor_stages.each do |floor_stage| %>
+      <tr>
+        <td><%= link_to 'Show', floor_stage %></td>
+        <td><%= link_to 'Edit', edit_floor_stage_path(floor_stage) %></td>
+        <td><%= link_to 'Destroy', floor_stage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stage', new_floor_stage_path %>

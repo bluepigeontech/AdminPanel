@@ -1,0 +1,2 @@
+module Flat::StagesHelper
+end

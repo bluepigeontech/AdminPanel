@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Flat Ammenities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flat_ammenities.each do |flat_ammenity| %>
+      <tr>
+        <td><%= link_to 'Show', flat_ammenity %></td>
+        <td><%= link_to 'Edit', edit_flat_ammenity_path(flat_ammenity) %></td>
+        <td><%= link_to 'Destroy', flat_ammenity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ammenity', new_flat_ammenity_path %>

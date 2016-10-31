@@ -1,0 +1,1 @@
+json.array! @approval_types, partial: 'approval_types/approval_type', as: :approval_type

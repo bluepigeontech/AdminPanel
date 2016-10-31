@@ -1,0 +1,1 @@
+json.partial! "floor_ammenities/floor_ammenity", floor_ammenity: @floor_ammenity

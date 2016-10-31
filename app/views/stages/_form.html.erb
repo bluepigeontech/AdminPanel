@@ -1,0 +1,38 @@
+<%= form_for(stage) do |stage_form| %>
+   <% if stage.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(stage.errors.count, "error") %> prohibited this stage from being saved:</div>
+
+        <ul>
+        <% stage.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="card-panel">
+      <%= label_tag(:stage_parent, "Belongs to") %>
+      <%= stage_form.select(:stage_parent, options_for_select(get_stage_parents, :selected => stage_form.object.stage_parent), :prompt => 'Belongs to') %>
+      
+      <%= label_tag(:order, "Order") %>
+      <%= stage_form.number_field :order, :placeholder => "1" %>
+
+      <%= label_tag(:name, "Name") %>
+      <%= stage_form.text_field :name, :placeholder => "Pre Possession" %>
+
+      <%= label_tag(:percentage, "Percentage") %>
+      <%= stage_form.number_field :percentage, :placeholder => "34" %>
+
+    </div>
+    
+    <h6>Sub Stages</h6>
+    <ul class="collapsible popout" data-collapsible="accordion" watch>
+      <%= render :partial => 'stages/sub_stage_fields', :locals => { :stage => stage, :stage_form => stage_form }  %>
+      <%= link_to_add_sub_stages "+", stage, stage_form, :sub_stages %>
+    </ul>
+    
+    <% if access_projects_edit %>
+    <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+    
+<% end %>

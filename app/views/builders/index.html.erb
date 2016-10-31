@@ -1,0 +1,43 @@
+<h6>Builders</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout bp-popin" data-collapsible="accordion" watch>
+    <% if access_builders_edit %>
+     <li>
+        <div class="collapsible-header <% if @builder.errors.any? %>active<% end %>">
+            Add a new Builder
+        </div>
+        <div class="collapsible-body">
+            <%= render :partial => 'form', :locals => { :builder => @builder }  %>
+        </div>
+     </li>
+    <% end %>
+
+    <% @builders.each do |builder| %>
+        <li>
+            <div class="collapsible-header header-info <% if builder.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s1">
+                                <%= builder.group_name %>
+                            </div>
+                            <div class="col s4">
+                                
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body">
+                <%= render :partial => 'form', :locals => { :builder => builder }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>

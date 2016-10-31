@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Builder Company Contact People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @builder_company_contact_people.each do |builder_company_contact_person| %>
+      <tr>
+        <td><%= link_to 'Show', builder_company_contact_person %></td>
+        <td><%= link_to 'Edit', edit_builder_company_contact_person_path(builder_company_contact_person) %></td>
+        <td><%= link_to 'Destroy', builder_company_contact_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact person', new_builder_company_contact_person_path %>

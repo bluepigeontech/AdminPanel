@@ -1,0 +1,1 @@
+json.partial! "building_ammenities/building_ammenity", building_ammenity: @building_ammenity

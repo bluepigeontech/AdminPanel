@@ -1,0 +1,30 @@
+<%= form_for(locality) do |locality_form| %>
+   <% if locality.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(locality.errors.count, "error") %> prohibited this locality from being saved:</div>
+
+        <ul>
+        <% locality.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:city_id, "City") %>
+    <%= locality_form.select(:city_id, options_for_select(@cities, :selected => locality_form.object.city_id), :prompt => 'Select City') %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= locality_form.text_field :name, :placeholder => "Galleria" %>
+    
+    <%= label_tag(:short_form, "Short Form") %>
+    <%= locality_form.text_field :short_form, :placeholder => "Ga" %>
+    
+    <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => locality_form }  %>
+    
+    <% if access_locations_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+   <% end %>
+    
+<% end %>
+

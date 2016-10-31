@@ -1,0 +1,2 @@
+module Project::AmmenitiesHelper
+end

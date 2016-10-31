@@ -1,0 +1,8 @@
+class CreateBuildingPhotos < ActiveRecord::Migration
+  def change
+    create_table :building_photos do |t|
+
+      t.timestamps null: false
+    end
+  end
+end

@@ -1,0 +1,32 @@
+<%= form_for(city) do |city_form| %>
+   <% if city.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</div>
+
+        <ul>
+        <% city.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    
+
+    <%= label_tag(:state_id, "State") %>
+    <%= city_form.select(:state_id, options_for_select(@states, :selected => city_form.object.state_id), :prompt => 'Select State') %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= city_form.text_field :name, :placeholder => "Pune" %>
+    
+    <%= label_tag(:short_form, "Short Form") %>
+    <%= city_form.text_field :short_form, :placeholder => "Pu" %>
+    
+    <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => city_form }  %>
+    
+    <% if access_locations_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+    
+<% end %>
+

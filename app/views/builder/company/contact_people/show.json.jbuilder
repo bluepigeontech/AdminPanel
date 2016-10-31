@@ -1,0 +1,1 @@
+json.partial! "builder_company_contact_people/builder_company_contact_person", builder_company_contact_person: @builder_company_contact_person

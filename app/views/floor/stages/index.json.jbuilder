@@ -1,0 +1,1 @@
+json.array! @floor_stages, partial: 'floor_stages/floor_stage', as: :floor_stage

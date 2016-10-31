@@ -1,0 +1,50 @@
+<%= floor_form.fields_for :flats  do |flat_form| %>
+  <li class="card-panel fields pink lighten-4">
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s6">
+                  <%= flat_form.label(:name, "Name") %>
+                  <%= flat_form.text_field :name, :placeholder => "Flat 1" %>
+                </div>
+                <div class="col s3">
+                    <div class="row">
+                      <%= flat_form.check_box :status, :placeholder => "true" %>
+                      <%= flat_form.label(:status, "Status") %>
+                    </div>
+                </div>
+                <div class="col s3">
+                  <%= flat_form.label(:possession_date, "Possession Date") %>
+                  <%= flat_form.date_field :possession_date, :placeholder => "Select Possession Date" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s6">
+                  <%#= flat_form.label(:flat_configuration, "Flat Configuration") %>
+                  <%#= flat_form.select(:flat_configuration, options_for_select(get_flat_configurations, :selected => flat_form.object.flat_configuration), :prompt => 'Select Flat Configuration') %>
+                </div>
+                <div class="col s3">
+                    <p>
+                      <%= flat_form.label(:saleable_area, "Saleable Area (Sqft)") %>
+                      <%= flat_form.text_field :saleable_area, :placeholder => "123" %>
+                    </p>
+                </div>
+                <div class="col s3">
+                  <p>
+                    <%= flat_form.label(:carpet_area, "Carpet Area (Sqft)") %>
+                    <%= flat_form.text_field :carpet_area, :placeholder => "123" %>
+                  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%= link_to_remove_flats "-", flat_form %>
+  </li>
+  <br/>
+<% end %>

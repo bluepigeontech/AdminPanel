@@ -1,0 +1,53 @@
+<%= form_for(home_loan_bank) do |home_loan_bank_form| %>
+   <% if home_loan_bank.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(home_loan_bank.errors.count, "error") %> prohibited this home_loan_bank from being saved:</div>
+
+        <ul>
+        <% home_loan_bank.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= home_loan_bank_form.text_field :name, :placeholder => "ICICI" %>
+<br/>
+<br/>
+<h6>Add Location</h6>
+<br/>
+
+     <%= label_tag(:country_id, "Country") %>
+    <%= home_loan_bank_form.select(:country_id, options_for_select(@countries, :selected => home_loan_bank_form.object.country_id), :prompt => 'Select Country') %>
+
+     <%= label_tag(:state_id, "State") %>
+    <%= home_loan_bank_form.select(:state_id, options_for_select(@states, :selected => home_loan_bank_form.object.state_id), :prompt => 'Select State') %>
+
+     <%= label_tag(:city_id, "City") %>
+    <%= home_loan_bank_form.select(:city_id, options_for_select(@cities, :selected => home_loan_bank_form.object.city_id), :prompt => 'Select City') %>
+
+    <%= label_tag(:locality_id, "Locality") %>
+    <%= home_loan_bank_form.select(:locality_id, options_for_select(@localities, :selected => home_loan_bank_form.object.locality_id), :prompt => 'Select Locality') %>
+
+    
+    <%= label_tag(:address, "Address") %>
+    <%= home_loan_bank_form.text_field :address, :placeholder => "23, Near to XYZ Chowk" %>
+ <br/>   
+ <br/>   
+ <h6>Add Contact Person Details</h6>
+ <br/>
+    <%= label_tag(:contact_person_name, "Contact Person Name") %>
+  <%= home_loan_bank_form.text_field :contact_person_name, :placeholder => "Lorem Ipsum"%>
+
+    <%= label_tag(:contact_person_email, "Contact Person Email") %>
+    <%= home_loan_bank_form.email_field :contact_person_email, :placeholder => "writeanemail@gmail.com"%>
+    
+    <%= label_tag(:contact_person_phone, "Contact Person Phone") %>
+    <%= home_loan_bank_form.telephone_field :contact_person_phone, :placeholder => "+91-988881212"%>
+    
+    <% if access_home_loan_banks_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>
+

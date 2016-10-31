@@ -1,0 +1,2 @@
+module Floor::AmmenitiesHelper
+end

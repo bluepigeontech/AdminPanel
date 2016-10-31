@@ -1,0 +1,12 @@
+<%= company_form.fields_for :contact_people do |contact_person| %>
+    <li>
+      	<%= label_tag(:name, "Name") %>
+      	<%= contact_person.text_field :name, :placeholder => "Loreum Ipsum" %>
+      
+      	<%= label_tag(:email, "Email") %>
+      	<%= contact_person.email_field :email, :placeholder => "loreumipsum@gmail.com" %>
+
+      	<%= label_tag(:phone_number, "Phone Number") %>
+      	<%= contact_person.telephone_field :phone_number, :placeholder => "+91-9912992912" %>
+    </li>
+<% end %>

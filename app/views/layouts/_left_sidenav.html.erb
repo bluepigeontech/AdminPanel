@@ -1,0 +1,108 @@
+<aside id="left-sidebar-nav">
+  	<ul id="slide-out" class="side-nav fixed leftside-navigation">
+      	<!-- <li class="user-details">
+          	<div class="row">
+              	<div>
+                  	<p>
+                        <div>Bharat Lodha</div>
+                        <div>[Administrator]</div>
+                    </p>
+                    <a  href="/logout">Logout</a>
+              	</div>
+          	</div>
+      	</li> -->
+      	<li class="bold">
+            <a href="/dashboard" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+      	</li>
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              	<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Projects </a>
+                    <div class="collapsible-body">
+                        <ul>
+                          <% if access_projects_view %>
+                            <li><a href="/projects">List</a>
+                            </li>
+                          <% end %>
+                          <% if access_projects_view %>
+                            <li><a href="/stages">Stages</a>
+                            </li>
+                          <% end %>
+                        </ul>
+                    </div>
+              	</li>
+                
+            </ul>
+        </li>
+        <% if access_builders_view %>
+        	<li class="bold"><a href="/builders" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Builders</a>
+        	</li>
+        <% end %>
+        <% if access_locations_view %>
+          <li class="no-padding">
+              <ul class="collapsible collapsible-accordion">
+                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-communication-location-on"></i> Location</a>
+                      <div class="collapsible-body">
+                        	<ul>
+                            	<li><a href="/countries">Countries</a>
+                            	</li>                                        
+                            	<li><a href="/states">States</a>
+                            	</li>
+                            	<li><a href="/cities">Cities</a>
+                            	</li>
+                              <li><a href="/localities">Localities</a>
+                              </li>
+                        	</ul>
+                      </div>
+                  </li>
+              </ul>
+          </li>
+        <% end %>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-navigation-apps"></i> Others</a>
+                    <div class="collapsible-body">
+                        <ul>
+                          <% if access_taxes_view %>
+                            <li><a href="/taxes">Taxes</a>
+                            </li>
+                          <% end %>
+                          <% if access_home_loan_banks_view %>
+                            <li><a href="/home_loan_banks">Home Loan Banks</a>
+                            </li>
+                          <% end %>
+                          <% if access_approval_types_view %>
+                            <li><a href="/approval_types">Approval Types</a>
+                            </li>
+                          <% end %>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-border-all"></i> Admin</a>
+                    <div class="collapsible-body">
+                        <ul>
+                          <% if access_managers_view %>
+                            <li><a href="/managers">Managers</a>
+                            </li>
+                          <% end %>
+                          <% if access_roles_view %>
+                            <li><a href="/roles">Roles</a>
+                            </li>
+                          <% end %>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <% if access_leads_view %>
+          <li class="bold"><a href="/leads" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Leads <span class="new badge"></span></a>
+          </li>
+        <% end %>
+  	</ul>
+  	<!-- <li class="li-hover"><div class="divider"></div></li> -->
+</aside>

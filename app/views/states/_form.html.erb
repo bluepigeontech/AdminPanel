@@ -1,0 +1,29 @@
+<%= form_for(state) do |state_form| %>
+    <% if state.errors.any? %>
+        <div id="error_explanation">
+            <div><%= pluralize(state.errors.count, "error") %> prohibited this state from being saved:</div>
+
+            <ul>
+                <% state.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= label_tag(:country_id, "Country") %>
+    <%= state_form.select(:country_id, options_for_select(@countries, :selected => state_form.object.country_id), :prompt => 'Select country') %>
+
+
+    <%= label_tag(:name, "Name") %>
+    <%= state_form.text_field :name, :placeholder => "Maharashtra" %>
+    
+    <%= label_tag(:short_form, "Short Form") %>
+    <%= state_form.text_field :short_form, :placeholder => "Ma" %>
+    
+    <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => state_form }  %>
+    
+    <% if access_locations_edit %>
+    <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

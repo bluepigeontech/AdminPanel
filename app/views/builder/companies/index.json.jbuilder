@@ -1,0 +1,1 @@
+json.array! @builder_companies, partial: 'builder_companies/builder_company', as: :builder_company

@@ -1,0 +1,17 @@
+<%= form_for(@flat_ammenity_p_hoto) do |f| %>
+  <% if @flat_ammenity_p_hoto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flat_ammenity_p_hoto.errors.count, "error") %> prohibited this flat_ammenity_p_hoto from being saved:</h2>
+
+      <ul>
+      <% @flat_ammenity_p_hoto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
