@@ -25,6 +25,14 @@
       <h6>Floor Stages</h6>
       <%= render :partial => 'floors/stage_fields', :locals => {:floor_form => floor_form }  %>
     <% end %>
+
+    <% if floor_form.object && floor_form.object.id.present?  %>
+      <br/>
+      <h6>Floor Ammenities</h6>
+      <%= render :partial => 'projects/ammenity_fields', :locals => {:f => floor_form}  %>
+    <% end %>
+
+
     <br/>
     <h6>Flat</h6>
     <ul>

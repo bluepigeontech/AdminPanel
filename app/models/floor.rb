@@ -10,6 +10,9 @@ class Floor < ActiveRecord::Base
   	has_many :stages, :class_name => "Floor::Stage"
 	accepts_nested_attributes_for :stages
 
+	has_many :ammenities, :class_name => "Floor::Ammenity"
+	accepts_nested_attributes_for :ammenities
+
 	after_create :add_stages
 	after_create :add_ammenities
 
@@ -30,5 +33,9 @@ class Floor < ActiveRecord::Base
 	end
 
 	def add_ammenities
+		Ammenity.where(:ammenity_type => "Building").each do |ammenity|
+			building_ammenity = Building::Ammenity.new(:building_id => self.id, :ammenity_id => ammenity.id)
+			building_ammenity.save
+		end
 	end
 end

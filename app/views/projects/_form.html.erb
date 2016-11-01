@@ -83,6 +83,15 @@
       <%= render :partial => 'projects/stage_fields', :locals => { :project => project, :project_form => project_form }  %>
     <% end %>
     <br/>
+
+
+    <h6>Project Ammenities</h6>
+    <% if project.id.present? %>
+      <%= render :partial => 'projects/ammenity_fields', :locals => { :f => project_form }  %>
+    <% end %>
+    <br/>
+
+
     <h6>Project Buildings</h6>
 
     <div>

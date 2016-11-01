@@ -5,6 +5,9 @@ class Flat < ActiveRecord::Base
 	has_many :stages, :class_name => "Flat::Stage"
 	accepts_nested_attributes_for :stages
 
+	has_many :ammenities, :class_name => "Flat::Ammenity"
+	accepts_nested_attributes_for :ammenities
+
 	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
@@ -23,6 +26,10 @@ class Flat < ActiveRecord::Base
 	end
 
 	def add_ammenities
+		Ammenity.where(:ammenity_type => "Flat").each do |ammenity|
+			flat_ammenity = Flat::Ammenity.new(:flat_id => self.id, :ammenity_id => ammenity.id)
+			flat_ammenity.save
+		end
 	end
 
 end

@@ -1,0 +1,19 @@
+<div class="grey-text card-panel">
+  <%= f.fields_for :ammenities  do |ammenity_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+
+                  <%= ammenity_form.object.ammenity.name %>
+                </div>
+                <div class="col s3">
+                  <%= ammenity_form.check_box :status, :placeholder => "true" %>
+                  <%= ammenity_form.label(:status, "Status") %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

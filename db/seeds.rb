@@ -23,6 +23,32 @@ localities = Locality.create([{:name => "Sector-49", :city_id => cities.first.id
 
 Builder.create([:group_name => "DLF", :companies_attributes => {0 => {:name => "DLF Company"}}])
 
+
+Ammenity.create([
+	{:name => "Play area", :ammenity_type => "Project"},
+	{:name => "Community Hall", :ammenity_type => "Project"},
+	{:name => "Club house", :ammenity_type => "Project"},
+	{:name => "Park", :ammenity_type => "Project"},
+	{:name => "Game court", :ammenity_type => "Project"},
+	{:name => "Lift", :ammenity_type => "Building"},
+	{:name => "Parking", :ammenity_type => "Building"},
+	{:name => "Power Backup", :ammenity_type => "Building"},
+	{:name => "CCTV", :ammenity_type => "Building"},
+	{:name => "Fire Alarm", :ammenity_type => "Floor"},
+	{:name => "Fire Extiguisher", :ammenity_type => "Floor"},
+	{:name => "CCTV", :ammenity_type => "Floor"},
+	{:name => "Assembly point", :ammenity_type => "Floor"},
+	{:name => "Balcony", :ammenity_type => "Flat"},
+	{:name => "Terrace", :ammenity_type => "Flat"},
+	{:name => "AC", :ammenity_type => "Flat"},
+	{:name => "Fridge", :ammenity_type => "Flat"},
+	{:name => "Modular Kitchen", :ammenity_type => "Flat"},
+	{:name => "Power Backup", :ammenity_type => "Flat"}
+])
+
+
+
+
 Stage.create([{:name => " Project Stage 1", :order => 1, :stage_parent => "Project", :percentage => 23.4, :sub_stages_attributes => {0 => {:order => 1, :name => " Project 1 Sub Stage 1", :percentage => 10.5}, 
 		1 => {:order => 2, :name => " Sub Stage 2", :percentage => 15.5}
 		}
@@ -103,7 +129,7 @@ Project.create([
 	{
 		:builder_id => Builder.first.id, :company_id => Builder::Company.first.id, :name => "Project 2", :status => true, :seller_type => "Seller Type", :description => "description", :usp => "usp", :launch_data => "13/10/2016", :project_type => "industrial", :property_type => "weekend hoems", :number_of_buildings => 3, :country_id => Country.first.id, :state_id => State.first.id, :city_id => City.first.id, :locality_id => Locality.first.id, :address => "address", :latitude => 23.4, :longitude => 23.5, :buildings_attributes => {0 => {:name => "Building 1", :status => true, :number_of_floors => 4, :floors_attributes => {0 => {:name => "Floor 1", :status => true, :number_of_flats => 4, :flats_attributes => {0 => {:name => "Flat 1", :status => true, :possession_date => "", :saleable_area => 12, :carpet_area => 24}}}}}}
 	}
-	])	
+	])
 
 
 
@@ -146,4 +172,17 @@ Flat.all.each do |flat|
 			Flat::Stage::SubStage.new(:stage_id => flat_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
 		end
 	end
+end
+
+Ammenity.where(:ammenity_type => "Project").each do |ammenity|
+	Project::Ammenity.create([{:ammenity_id => ammenity.id, :project_id => Project.first.id}])
+end
+Ammenity.where(:ammenity_type => "Building").each do |ammenity|
+	Building::Ammenity.create([{:ammenity_id => ammenity.id, :building_id => Building.first.id}])
+end
+Ammenity.where(:ammenity_type => "Floor").each do |ammenity|
+	Floor::Ammenity.create([{:ammenity_id => ammenity.id, :floor_id => Floor.first.id}])
+end
+Ammenity.where(:ammenity_type => "Flat").each do |ammenity|
+	Flat::Ammenity.create([{:ammenity_id => ammenity.id, :flat_id => Flat.first.id}])
 end

@@ -51,6 +51,12 @@
       <%= render :partial => 'flats/stage_fields', :locals => {:flat_form => flat_form }  %>
     <% end %>
 
+    <% if flat_form.object && flat_form.object.id.present?  %>
+      <br/>
+      <h6>Flat Ammenities</h6>
+      <%= render :partial => 'projects/ammenity_fields', :locals => {:f => flat_form}  %>
+    <% end %>
+
     <%= link_to_remove_flats "-", flat_form %>
   </li>
   <br/>

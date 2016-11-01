@@ -1,5 +1,9 @@
-module Flat::Ammenity
-  def self.table_name_prefix
-    'flat_ammenity_'
-  end
+class Flat::Ammenity < ActiveRecord::Base
+
+	belongs_to :flat, :class_name => "::Flat"
+	belongs_to :ammenity, :class_name => "::Ammenity"
+
+	attr_accessible :status, :flat_id, :ammenity_id
+
+	
 end

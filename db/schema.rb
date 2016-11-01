@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030133416) do
+ActiveRecord::Schema.define(version: 20161101132048) do
+
+  create_table "ammenities", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.boolean  "status"
+    t.string   "ammenity_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "approval_types", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -42,8 +50,11 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "building_ammenities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "building_id"
+    t.integer  "ammenity_id"
+    t.boolean  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "building_ammenity_photos", force: :cascade do |t|
@@ -106,8 +117,11 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "flat_ammenities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "flat_id"
+    t.integer  "ammenity_id"
+    t.boolean  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "flat_ammenity_p_hotos", force: :cascade do |t|
@@ -149,8 +163,11 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "floor_ammenities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "floor_id"
+    t.integer  "ammenity_id"
+    t.boolean  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "floor_ammenity_photos", force: :cascade do |t|
@@ -231,8 +248,11 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true
 
   create_table "project_ammenities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "project_id"
+    t.integer  "ammenity_id"
+    t.boolean  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "project_ammenity_photos", force: :cascade do |t|

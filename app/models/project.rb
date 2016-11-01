@@ -9,6 +9,9 @@ class Project < ActiveRecord::Base
 
 	has_many :stages, :class_name => "Project::Stage"
 	accepts_nested_attributes_for :stages
+
+	has_many :ammenities, :class_name => "Project::Ammenity"
+	accepts_nested_attributes_for :ammenities
 	
 	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes
 
@@ -30,6 +33,10 @@ class Project < ActiveRecord::Base
 	end
 
 	def add_ammenities
+		Ammenity.where(:ammenity_type => "Project").each do |ammenity|
+			project_ammenity = Project::Ammenity.new(:project_id => self.id, :ammenity_id => ammenity.id)
+			project_ammenity.save
+		end
 	end
 
 end
