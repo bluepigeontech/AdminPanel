@@ -17,10 +17,25 @@ class ProjectsController < ApplicationController
       end
     end
 
+    # @project_stages.each do |stage|
+    #   @project.stages.build
+    #   # puts "DEBUG #{@project.stages.count}"
+    #   @project.stages.each do |project_stage|
+    #     stage.sub_stages.count.times do
+    #       project_stage.sub_stages.build
+    #     end
+    #   end
+    # end
+
+    @project_stage = Project::Stage.new
+
     @projects = Project.all
     @projects.each do |project|
+      # ProjectsStages.build project
+
       collection = Building.where(:project_id => project.id)
       collection.any? ? collection : project.buildings.build
+
       project.buildings.each do |building|
         collection = Floor.where(:building_id => building.id)
         collection.any? ? collection : building.floors.build
@@ -30,6 +45,8 @@ class ProjectsController < ApplicationController
         end
       end
     end
+
+
 
   end
 
@@ -106,5 +123,19 @@ class ProjectsController < ApplicationController
       @builders = Builder.all.map { |builder| [builder.group_name, builder.id] }
       @builder_companies = Builder::Company.all.map { |builder_company| [builder_company.name, builder_company.id] }
       @countries = Country.all.map { |country| [country.name, country.id] }
+
+      @project_stages = Stage.where(:stage_parent => "Project")
+      @project_stages_array = @project_stages.map { |stage| [stage.name, stage.id] }
+
+      @building_stages = Stage.where(:stage_parent => "Building")
+      @building_stages_array = @building_stages.map { |stage| [stage.name, stage.id] }
+
+
+      @floor_stages = Stage.where(:stage_parent => "Floor")
+      @floor_stages_array = @floor_stages.map { |stage| [stage.name, stage.id] }
+
+      @flat_stages = Stage.where(:stage_parent => "Flat")
+      @flat_stages_array = @flat_stages.map { |stage| [stage.name, stage.id] }
+
     end
 end

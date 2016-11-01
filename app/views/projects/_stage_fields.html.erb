@@ -1,0 +1,20 @@
+<div class=" card-panel">
+  <%= project_form.fields_for :stages  do |stage_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= label_tag(:stage_id, "Stage") %>
+                  <%= stage_form.select(:stage_id, options_for_select(@project_stages_array, :selected => stage_form.object.stage_id), :prompt => 'Select Stage') %>
+                  
+                </div>
+                <div class="col s3">
+                  <%= stage_form.label(:percentage, "Percentage") %>
+                  <%= stage_form.number_field :percentage, :placeholder => "34" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= render :partial => 'projects/sub_stage_fields', :locals => { :stage_form => stage_form}  %>
+  <% end %>
+</div>

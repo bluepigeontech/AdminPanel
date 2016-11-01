@@ -1,0 +1,19 @@
+<%= building_form.fields_for :stages  do |building_stage_form| %>
+  <div class="row">
+      <div class="col s12">
+          <div class="row">
+              <div class="col s3">
+                <%= label_tag(:stage_id, "Stage") %>
+                <%= building_stage_form.select(:stage_id, options_for_select(@building_stages_array, :selected => building_stage_form.object.stage_id), :prompt => 'Select Stage') %>
+                
+              </div>
+              <div class="col s3">
+                <%= building_stage_form.label(:percentage, "Percentage") %>
+                <%= building_stage_form.number_field :percentage, :placeholder => "34" %>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <%= render :partial => 'buildings/sub_stage_fields', :locals => { :building_stage_form => building_stage_form}  %>
+<% end %>

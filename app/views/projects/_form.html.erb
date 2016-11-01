@@ -73,16 +73,22 @@
       <%= label_tag(:address, "Address") %>
       <%= project_form.text_field :address, :placeholder => "Address..." %>
 
+     
 
       <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => project_form }  %>
     </div>
     <br/>
+   <h6>Stages</h6>
+    <% if project.id.present? %>
+      <%= render :partial => 'projects/stage_fields', :locals => { :project => project, :project_form => project_form }  %>
+    <% end %>
+    <br/>
     <h6>Project Buildings</h6>
 
-    <ul class="collapsible popout" data-collapsible="accordion" watch>
+    <div>
       <%= render :partial => 'projects/building_fields', :locals => { :project => project, :project_form => project_form }  %>
       <%= link_to_add_buildings "Add Buildings", project, project_form, :buildings %>
-    </ul>
+    </div>
     <% if access_projects_edit %>
       <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
     <% end %>

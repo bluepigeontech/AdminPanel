@@ -62,4 +62,11 @@ module ProjectsHelper
   		output
 	end
 
+	def get_sub_stages stage_id
+		stage = Stage.find(stage_id)
+		# puts "#{stage.name} #{stage.stage_parent} #{Stage::SubStage.where(:stage_id =>  stage_id).map {|a| [a.name, a.id]}}"
+	    sub_stages = Stage::SubStage.where(:stage_id =>  stage_id).map {|a| [a.name, a.id]}
+	    sub_stages
+	end
+
 end

@@ -57,13 +57,19 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "building_stage_sub_stages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "stage_id"
+    t.integer  "sub_stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "building_stages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "building_id"
+    t.integer  "stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -115,11 +121,17 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "flat_stage_sub_stages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "stage_id"
+    t.integer  "sub_stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "flat_stages", force: :cascade do |t|
+    t.integer  "flat_id"
+    t.integer  "stage_id"
+    t.float    "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -152,11 +164,17 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "floor_stage_sub_stages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "stage_id"
+    t.integer  "sub_stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "floor_stages", force: :cascade do |t|
+    t.integer  "floor_id"
+    t.integer  "stage_id"
+    t.float    "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -228,11 +246,17 @@ ActiveRecord::Schema.define(version: 20161030133416) do
   end
 
   create_table "project_stage_sub_stages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "stage_id"
+    t.integer  "sub_stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "project_stages", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "stage_id"
+    t.float    "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

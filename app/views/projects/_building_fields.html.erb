@@ -8,11 +8,12 @@
                   <%= building_form.text_field :name, :placeholder => "Building 1" %>
                 </div>
                 <div class="col s3">
-                    <div class="row">
+                    <p>
                       <%= building_form.check_box :status, :placeholder => "true" %>
                       <%= building_form.label(:status, "Status") %>
                       
-                    </div>
+                    </p>
+                    
                 </div>
                 <div class="col s3">
                   <%= building_form.label(:number_of_floors, "Number of Floors") %>
@@ -21,6 +22,12 @@
             </div>
         </div>
     </div>
+
+    <% if building_form.object && building_form.object.id.present? %>
+      <br/>
+      <h6>Stages</h6>
+      <%= render :partial => 'buildings/stage_fields', :locals => {:building_form => building_form }  %>
+    <% end %>
     
     <br/>
     <h6>Floor</h6>
