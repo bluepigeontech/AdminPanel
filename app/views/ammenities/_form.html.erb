@@ -1,0 +1,25 @@
+<%= form_for(ammenity) do |ammenity_form| %>
+    <% if ammenity.errors.any? %>
+        <div id="error_explanation">
+            <div><%= pluralize(ammenity.errors.count, "error") %> prohibited this ammenity from being saved:</div>
+
+            <ul>
+                <% ammenity.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= label_tag(:ammenity_type, "Type") %>
+    <%= ammenity_form.select(:ammenity_type, options_for_select(get_ammenity_types, :selected => ammenity_form.object.ammenity_type), :prompt => 'Select Ammenity Type') %>
+
+
+    <%= label_tag(:name, "Name") %>
+    <%= ammenity_form.text_field :name, :placeholder => "Ammenity Name" %>
+    
+    
+    <% if access_projects_edit %>
+    <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

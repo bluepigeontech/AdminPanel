@@ -9,6 +9,6 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-%w( countries states cities localities builders taxes home_loan_banks panel stages projects users managers roles leads).each do |controller|
+%w( countries states cities localities builders taxes home_loan_banks panel stages projects users managers roles leads ammenities).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.css"]
 end

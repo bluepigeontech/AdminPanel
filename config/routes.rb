@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ammenities
   resources :managers
   get 'dynamic_builder_companies' => 'javascripts#dynamic_builder_companies'
 

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+     <li>
+        <div class="collapsible-header <% if @ammenity.errors.any? %>active<% end %>">
+            Add a new Ammenity
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :ammenity => @ammenity }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @ammenities.each do |ammenity| %>
+        <li>
+            <div class="collapsible-header header-info <% if ammenity.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s4">
+                                <%= ammenity.name %>
+                            </div>
+                            <div class="col s3">
+                            <%= ammenity.ammenity_type %>
+                            </div>
+                            <div class="right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :ammenity => ammenity }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>
+
+
