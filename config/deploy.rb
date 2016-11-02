@@ -23,6 +23,8 @@ set :deploy_to, '/var/www/bluepigeon'
 # set :pty, true
 
 # Default value for :linked_files is []
+before  'deploy:assets:precompile', 'deploy:migrate'
+
 set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
