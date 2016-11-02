@@ -54,3 +54,12 @@ group :development do
   gem 'spring'
 end
 
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+
+# Add this if you're using rbenv
+# gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
+# Add this if you're using rvm
+gem 'capistrano-rvm', github: "capistrano/rvm"

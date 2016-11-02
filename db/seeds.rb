@@ -8,8 +8,7 @@
 # Project::Stage.new
 # Building::Stage.new
 
-roles = Role.create([{:name => "CEO", :access_control_list=>"111111111111111111111111111111"}, 
-	{:name => "Restricted", :access_control_list=>"000000000000000000000000000000"},
+roles = Role.create([{:name => "CEO", :access_control_list=>"111111111111111111111111111111"},  {:name => "Restricted", :access_control_list=>"000000000000000000000000000000"},
 	{:name => "View Only", :access_control_list=>"100100100100100100100100100100"}])
 Manager.create([{:name => "Bhuwan", :email => "b@bluepigeon.com", :role_id => roles.first.id, :password => "ad", :phone => 99912122323, :verified => true}, 
 	{:name => "Bhuwan", :email => "b2@bluepigeon.com", :role_id => Role.where(:name => "Restricted").first.id, :password => "ad", :phone => 99912122323, :verified => true},
@@ -133,56 +132,16 @@ Project.create([
 
 
 
-Project.all.each do |project|
-	Stage.where(:stage_parent => "Project").each do |stage|
-		project_stage = Project::Stage.new(:project_id => project.id, :stage_id => stage.id, :percentage => rand(5..30))
-		project_stage.save
-		Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-			Project::Stage::SubStage.new(:stage_id => project_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-		end
-	end
-end
+Project.all.each do |project| Stage.where(:stage_parent => "Project").each do |stage| 	project_stage = Project::Stage.new(:project_id => project.id, :stage_id => stage.id, :percentage => rand(5..30)) 	project_stage.save 	Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage| 		Project::Stage::SubStage.new(:stage_id => project_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save 	end end end
 
-Building.all.each do |building|
-	Stage.where(:stage_parent => "Building").each do |stage|
-		building_stage = Building::Stage.new(:building_id => building.id, :stage_id => stage.id, :percentage => rand(5..30))
-		building_stage.save
-		Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-			Building::Stage::SubStage.new(:stage_id => building_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-		end
-	end
-end
+Building.all.each do |building| Stage.where(:stage_parent => "Building").each do |stage| 	building_stage = Building::Stage.new(:building_id => building.id, :stage_id => stage.id, :percentage => rand(5..30)) 	building_stage.save 	Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage| 		Building::Stage::SubStage.new(:stage_id => building_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save 	end end end
 
-Floor.all.each do |floor|
-	Stage.where(:stage_parent => "Floor").each do |stage|
-		floor_stage = Floor::Stage.new(:floor_id => floor.id, :stage_id => stage.id, :percentage => rand(5..30))
-		floor_stage.save
-		Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-			Floor::Stage::SubStage.new(:stage_id => floor_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-		end
-	end
-end
+Floor.all.each do |floor| Stage.where(:stage_parent => "Floor").each do |stage| 	floor_stage = Floor::Stage.new(:floor_id => floor.id, :stage_id => stage.id, :percentage => rand(5..30)) 	floor_stage.save 	Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage| 		Floor::Stage::SubStage.new(:stage_id => floor_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save 	end end end
 
 
-Flat.all.each do |flat|
-	Stage.where(:stage_parent => "Flat").each do |stage|
-		flat_stage = Flat::Stage.new(:flat_id => flat.id, :stage_id => stage.id, :percentage => rand(5..30))
-		flat_stage.save
-		Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-			Flat::Stage::SubStage.new(:stage_id => flat_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-		end
-	end
-end
+Flat.all.each do |flat| Stage.where(:stage_parent => "Flat").each do |stage| 	flat_stage = Flat::Stage.new(:flat_id => flat.id, :stage_id => stage.id, :percentage => rand(5..30)) 	flat_stage.save 	Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage| 		Flat::Stage::SubStage.new(:stage_id => flat_stage.id, :sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save 	end end end
 
-Ammenity.where(:ammenity_type => "Project").each do |ammenity|
-	Project::Ammenity.create([{:ammenity_id => ammenity.id, :project_id => Project.first.id}])
-end
-Ammenity.where(:ammenity_type => "Building").each do |ammenity|
-	Building::Ammenity.create([{:ammenity_id => ammenity.id, :building_id => Building.first.id}])
-end
-Ammenity.where(:ammenity_type => "Floor").each do |ammenity|
-	Floor::Ammenity.create([{:ammenity_id => ammenity.id, :floor_id => Floor.first.id}])
-end
-Ammenity.where(:ammenity_type => "Flat").each do |ammenity|
-	Flat::Ammenity.create([{:ammenity_id => ammenity.id, :flat_id => Flat.first.id}])
-end
+Ammenity.where(:ammenity_type => "Project").each do |ammenity| Project::Ammenity.create([{:ammenity_id => ammenity.id, :project_id => Project.first.id}]) end
+Ammenity.where(:ammenity_type => "Building").each do |ammenity| Building::Ammenity.create([{:ammenity_id => ammenity.id, :building_id => Building.first.id}]) end
+Ammenity.where(:ammenity_type => "Floor").each do |ammenity| Floor::Ammenity.create([{:ammenity_id => ammenity.id, :floor_id => Floor.first.id}]) end
+Ammenity.where(:ammenity_type => "Flat").each do |ammenity| Flat::Ammenity.create([{:ammenity_id => ammenity.id, :flat_id => Flat.first.id}]) end
