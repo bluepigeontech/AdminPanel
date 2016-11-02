@@ -77,20 +77,25 @@
 
       <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => project_form }  %>
     </div>
-    <br/>
-   <h6>Stages</h6>
     <% if project.id.present? %>
+      <br/>
+      <h6>Stages</h6>
       <%= render :partial => 'projects/stage_fields', :locals => { :project => project, :project_form => project_form }  %>
-    <% end %>
-    <br/>
-
-
-    <h6>Project Ammenities</h6>
-    <% if project.id.present? %>
+      <br/>
+      <h6>Project Ammenities</h6>
       <%= render :partial => 'projects/ammenity_fields', :locals => { :f => project_form }  %>
+      <br/>
+      <h6>Project Photos</h6>
+      <div class="card-panel">
+        <%= project_form.label :photos_files %>
+        <%= project_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        <% project.photos.each do |photo|%>
+          <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
+        <% end %>
+      </div>
     <% end %>
-    <br/>
 
+    <br/>
 
     <h6>Project Buildings</h6>
 

@@ -3,7 +3,7 @@ class Floor < ActiveRecord::Base
 	has_many :flats, :class_name => "Flat"
 	accepts_nested_attributes_for :flats, allow_destroy: true
 
-	attr_accessible :name, :status, :number_of_flats, :flats_attributes, :floor_id, :stages_attributes
+	attr_accessible :name, :status, :number_of_flats, :flats_attributes, :floor_id, :stages_attributes, :ammenities_attributes, :photos_files
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
 
@@ -12,6 +12,9 @@ class Floor < ActiveRecord::Base
 
 	has_many :ammenities, :class_name => "Floor::Ammenity"
 	accepts_nested_attributes_for :ammenities
+
+	has_many :photos, :class_name => "Floor::Photo", dependent: :destroy
+	accepts_attachments_for :photos
 
 	after_create :add_stages
 	after_create :add_ammenities

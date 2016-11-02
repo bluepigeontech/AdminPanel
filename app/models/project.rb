@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+	# require 'refile'
 
 	has_many :buildings, :class_name => "Building"
 	belongs_to :builder
@@ -12,8 +13,11 @@ class Project < ActiveRecord::Base
 
 	has_many :ammenities, :class_name => "Project::Ammenity"
 	accepts_nested_attributes_for :ammenities
+
+	has_many :photos, :class_name => "Project::Photo", dependent: :destroy
+	accepts_attachments_for :photos
 	
-	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes
+	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
 

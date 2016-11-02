@@ -27,12 +27,19 @@
       <br/>
       <h6>Stages</h6>
       <%= render :partial => 'buildings/stage_fields', :locals => {:building_form => building_form }  %>
-    <% end %>
 
-    <% if building_form.object && building_form.object.id.present?  %>
       <br/>
       <h6>Building Ammenities</h6>
       <%= render :partial => 'projects/ammenity_fields', :locals => {:f => building_form}  %>
+
+      <h6>Building Photos</h6>
+      <div class="card-panel">
+        <%= building_form.label :photos_files %>
+        <%= building_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        <% building_form.object.photos.each do |photo|%>
+          <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
+        <% end %>
+      </div>
     <% end %>
     <br/>
     

@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'protected_attributes'
 # gem "cocoon"
-
+gem 'refile', require: "refile/rails", git: 'https://github.com/refile/refile.git', branch: 'master'
+gem "refile-mini_magick"
+gem "refile-s3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

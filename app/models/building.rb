@@ -11,7 +11,10 @@ class Building < ActiveRecord::Base
 	has_many :ammenities, :class_name => "Building::Ammenity"
 	accepts_nested_attributes_for :ammenities
 
-	attr_accessible :name, :status, :number_of_floors, :floors_attributes, :project_id, :stages_attributes
+	has_many :photos, :class_name => "Building::Photo", dependent: :destroy
+	accepts_attachments_for :photos
+
+	attr_accessible :name, :status, :number_of_floors, :floors_attributes, :project_id, :stages_attributes, :ammenities_attributes, :photos_files
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
 

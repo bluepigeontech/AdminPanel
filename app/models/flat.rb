@@ -8,7 +8,10 @@ class Flat < ActiveRecord::Base
 	has_many :ammenities, :class_name => "Flat::Ammenity"
 	accepts_nested_attributes_for :ammenities
 
-	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes
+	has_many :photos, :class_name => "Flat::Photo", dependent: :destroy
+	accepts_attachments_for :photos
+
+	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
   	after_create :add_stages

@@ -49,12 +49,19 @@
       <br/>
       <h6>Flat Stages</h6>
       <%= render :partial => 'flats/stage_fields', :locals => {:flat_form => flat_form }  %>
-    <% end %>
 
-    <% if flat_form.object && flat_form.object.id.present?  %>
       <br/>
       <h6>Flat Ammenities</h6>
       <%= render :partial => 'projects/ammenity_fields', :locals => {:f => flat_form}  %>
+
+      <h6>Flat Photos</h6>
+      <div class="card-panel">
+        <%= flat_form.label :photos_files %>
+        <%= flat_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        <% flat_form.object.photos.each do |photo|%>
+          <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
+        <% end %>
+      </div>
     <% end %>
 
     <%= link_to_remove_flats "-", flat_form %>

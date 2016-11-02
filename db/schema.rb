@@ -63,8 +63,12 @@ ActiveRecord::Schema.define(version: 20161101152714) do
   end
 
   create_table "building_photos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.text     "address"
+    t.integer  "building_id"
+    t.integer  "file_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "building_stage_sub_stages", force: :cascade do |t|
@@ -130,6 +134,10 @@ ActiveRecord::Schema.define(version: 20161101152714) do
   end
 
   create_table "flat_photos", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.integer  "flat_id"
+    t.integer  "file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -176,6 +184,10 @@ ActiveRecord::Schema.define(version: 20161101152714) do
   end
 
   create_table "floor_photos", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.integer  "floor_id"
+    t.integer  "file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -261,6 +273,10 @@ ActiveRecord::Schema.define(version: 20161101152714) do
   end
 
   create_table "project_photos", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.integer  "project_id"
+    t.integer  "file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -24,12 +24,19 @@
       <br/>
       <h6>Floor Stages</h6>
       <%= render :partial => 'floors/stage_fields', :locals => {:floor_form => floor_form }  %>
-    <% end %>
 
-    <% if floor_form.object && floor_form.object.id.present?  %>
       <br/>
       <h6>Floor Ammenities</h6>
       <%= render :partial => 'projects/ammenity_fields', :locals => {:f => floor_form}  %>
+
+      <h6>Floor Photos</h6>
+      <div class="card-panel">
+        <%= floor_form.label :photos_files %>
+        <%= floor_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        <% floor_form.object.photos.each do |photo|%>
+          <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
+        <% end %>
+      </div>
     <% end %>
 
 
