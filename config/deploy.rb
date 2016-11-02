@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:bluepigeontech/AdminPanel.git'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/bluepigeon'
-set :bundle_flags, '--deployment --verbose'
+# set :bundle_flags, '--deployment --verbose'
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -32,7 +32,7 @@ set :linked_files, %w{config/database.yml}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 namespace :deploy do
 
