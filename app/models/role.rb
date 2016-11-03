@@ -42,4 +42,8 @@ class Role < ActiveRecord::Base
 		response = val ? "1" : "0"
 		response
 	end
+
+	def get_key
+		
+	end
 end

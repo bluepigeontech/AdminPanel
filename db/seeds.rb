@@ -16,8 +16,13 @@ Manager.create([{:name => "Bhuwan", :email => "b@bluepigeon.com", :role_id => ro
 
 
 countries = Country.create([{:name => "India", :short_form => "IN"}])
-states = State.create([:name => "Haryana", :country_id => countries.first.id])
-cities = City.create([{:name => "Faridabad", :state_id => states.first.id}])
+states = State.create([{:name => "Haryana", :country_id => countries.first.id}, 
+	{:name => "Maharashtra", :country_id => countries.first.id}])
+cities = City.create([{:name => "Faridabad", :state_id => states.first.id},
+	{:name => "Pune", :state_id => states[1].id},
+	{:name => "Mumbai", :state_id => states[1].id},
+	{:name => "Gurgaon", :state_id => states.first.id}])
+
 localities = Locality.create([{:name => "Sector-49", :city_id => cities.first.id}])
 
 Builder.create([:group_name => "DLF", :companies_attributes => {0 => {:name => "DLF Company"}}])

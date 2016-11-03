@@ -30,16 +30,16 @@
                     Projects
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="0" name="0" value="<%= get_access_control_list_value(0, role) %>">
-                    <label for="0"></label>
+                    <input type="checkbox" name="0" id="role_<%= role.id %>_0" <% if get_access_control_list_value(0, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_0"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="1" name="1" value="<%= get_access_control_list_value(1, role) %>">
-                    <label for="1"></label>
+                    <input type="checkbox" name="1" id="role_<%= role.id %>_1" <% if get_access_control_list_value(1, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_1"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="2" name="2" value="<%= get_access_control_list_value(2, role) %>">
-                    <label for="2"></label>
+                    <input type="checkbox" name="2" id="role_<%= role.id %>_2" <% if get_access_control_list_value(2, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_2"></label>
                 </div>
             </div>
         </div>
@@ -51,16 +51,16 @@
                     Builders
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="3" name="3" value="<%= get_access_control_list_value(3, role) %>">
-                    <label for="3"></label>
+                    <input type="checkbox" name="3" id="role_<%= role.id %>_3" <% if get_access_control_list_value(3, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_3"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="4" name="4" value="<%= get_access_control_list_value(4, role) %>">
-                    <label for="4"></label>
+                    <input type="checkbox" name="4" id="role_<%= role.id %>_4" <% if get_access_control_list_value(4, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_4"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="5" name="5" value="<%= get_access_control_list_value(5, role) %>">
-                    <label for="5"></label>
+                    <input type="checkbox" name="5" id="role_<%= role.id %>_5" <% if get_access_control_list_value(5, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_5"></label>
                 </div>
             </div>
         </div>
@@ -72,16 +72,16 @@
                     Buyers
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="6" name="6" value="<%= get_access_control_list_value(6, role) %>">
-                    <label for="6"></label>
+                    <input type="checkbox" name="6" id="role_<%= role.id %>_6" <% if get_access_control_list_value(6, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_6"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="7" name="7" value="<%= get_access_control_list_value(7, role) %>">
-                    <label for="7"></label>
+                    <input type="checkbox" name="7" id="role_<%= role.id %>_7" <% if get_access_control_list_value(7, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_7"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="8" name="8" value="<%= get_access_control_list_value(8, role) %>">
-                    <label for="8"></label>
+                    <input type="checkbox" name="8" id="role_<%= role.id %>_8" <% if get_access_control_list_value(8, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_8"></label>
                 </div>
             </div>
         </div>
@@ -93,16 +93,16 @@
                     Managers
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="9" name="9" value="<%= get_access_control_list_value(9, role) %>">
-                    <label for="9"></label>
+                    <input type="checkbox" name="9" id="role_<%= role.id %>_9" <% if get_access_control_list_value(9, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_9"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="10" name="10" value="<%= get_access_control_list_value(10, role) %>">
-                    <label for="10"></label>
+                    <input type="checkbox" name="10" id="role_<%= role.id %>_10" <% if get_access_control_list_value(10, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_10"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="11" name="11" value="<%= get_access_control_list_value(11, role) %>">
-                    <label for="11"></label>
+                    <input type="checkbox" name="11" id="role_<%= role.id %>_11" <% if get_access_control_list_value(11, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_11"></label>
                 </div>
             </div>
         </div>
@@ -114,16 +114,16 @@
                     Roles
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="12" name="12" value="<%= get_access_control_list_value(12, role) %>">
-                    <label for="12"></label>
+                    <input type="checkbox" name="12" id="role_<%= role.id %>_12" <% if get_access_control_list_value(12, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_12"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="13" name="13" value="<%= get_access_control_list_value(13, role) %>">
-                    <label for="13"></label>
+                    <input type="checkbox" name="13" id="role_<%= role.id %>_13" <% if get_access_control_list_value(13, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_13"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="14" name="14" value="<%= get_access_control_list_value(14, role) %>">
-                    <label for="14"></label>
+                    <input type="checkbox" name="14" id="role_<%= role.id %>_14" <% if get_access_control_list_value(14, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_14"></label>
                 </div>
             </div>
         </div>
@@ -135,16 +135,16 @@
                     Leads
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="15" name="15" value="<%= get_access_control_list_value(15, role) %>">
-                    <label for="15"></label>
+                    <input type="checkbox" name="15" id="role_<%= role.id %>_15" <% if get_access_control_list_value(15, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_15"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="16" name="16" value="<%= get_access_control_list_value(16, role) %>">
-                    <label for="16"></label>
+                    <input type="checkbox" name="16" id="role_<%= role.id %>_16" <% if get_access_control_list_value(16, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_16"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="17" name="17" value="<%= get_access_control_list_value(17, role) %>">
-                    <label for="17"></label>
+                    <input type="checkbox" name="17" id="role_<%= role.id %>_17" <% if get_access_control_list_value(17, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_17"></label>
                 </div>
             </div>
         </div>
@@ -157,16 +157,16 @@
                     Taxes
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="18" name="18" value="<%= get_access_control_list_value(18, role) %>">
-                    <label for="18"></label>
+                    <input type="checkbox" name="18" id="role_<%= role.id %>_18" <% if get_access_control_list_value(18, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_18"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="19" name="19" value="<%= get_access_control_list_value(19, role) %>">
-                    <label for="19"></label>
+                    <input type="checkbox" name="19" id="role_<%= role.id %>_19" <% if get_access_control_list_value(19, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_19"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="20" name="20" value="<%= get_access_control_list_value(20, role) %>">
-                    <label for="20"></label>
+                    <input type="checkbox" name="20" id="role_<%= role.id %>_20" <% if get_access_control_list_value(20, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_20"></label>
                 </div>
             </div>
         </div>
@@ -178,16 +178,16 @@
                     Home Loan Banks
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="21" name="21" value="<%= get_access_control_list_value(21, role) %>">
-                    <label for="21"></label>
+                    <input type="checkbox" name="21" id="role_<%= role.id %>_21" <% if get_access_control_list_value(21, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_21"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="22" name="22" value="<%= get_access_control_list_value(22, role) %>">
-                    <label for="22"></label>
+                    <input type="checkbox" name="22" id="role_<%= role.id %>_22" <% if get_access_control_list_value(22, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_22"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="23" name="23" value="<%= get_access_control_list_value(23, role) %>">
-                    <label for="23"></label>
+                    <input type="checkbox" name="23" id="role_<%= role.id %>_23" <% if get_access_control_list_value(23, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_23"></label>
                 </div>
             </div>
         </div>
@@ -199,16 +199,16 @@
                     Approval Types
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="24" name="24" value="<%= get_access_control_list_value(24, role) %>">
-                    <label for="24"></label>
+                    <input type="checkbox" name="24" id="role_<%= role.id %>_24" <% if get_access_control_list_value(24, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_24"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="25" name="25" value="<%= get_access_control_list_value(25, role) %>">
-                    <label for="25"></label>
+                    <input type="checkbox" name="25" id="role_<%= role.id %>_25" <% if get_access_control_list_value(25, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_25"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="26" name="26" value="<%= get_access_control_list_value(26, role) %>">
-                    <label for="26"></label>
+                    <input type="checkbox" name="26" id="role_<%= role.id %>_26" <% if get_access_control_list_value(26, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_26"></label>
                 </div>
             </div>
         </div>
@@ -220,16 +220,16 @@
                     Location
                 </b>
                 <div class="col s3">
-                    <input type="checkbox" id="27" name="27" value="<%= get_access_control_list_value(27, role) %>">
-                    <label for="27"></label>
+                    <input type="checkbox" name="27" id="role_<%= role.id %>_27" <% if get_access_control_list_value(27, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_27"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="28" name="28" value="<%= get_access_control_list_value(28, role) %>">
-                    <label for="28"></label>
+                    <input type="checkbox" name="28" id="role_<%= role.id %>_28" <% if get_access_control_list_value(28, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_28"></label>
                 </div>
                 <div class="col s3">
-                    <input type="checkbox" id="29" name="29" value="<%= get_access_control_list_value(29, role) %>">
-                    <label for="29"></label>
+                    <input type="checkbox" name="29" id="role_<%= role.id %>_29" <% if get_access_control_list_value(29, role) %>checked<% end%>>
+                    <label for="role_<%= role.id %>_29"></label>
                 </div>
             </div>
         </div>
