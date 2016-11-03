@@ -22,7 +22,7 @@ class Manager < ActiveRecord::Base
 				if manager.password == password
 					if manager.verified
 						response, status = VERIFIED, 200
-						params = {:response => response, :status => status, :id => manager.id}
+						output = {:response => response, :status => status, :id => manager.id}
 					else
 						response, status = NOTVERIFIED, 403
 					end
@@ -37,7 +37,7 @@ class Manager < ActiveRecord::Base
 			response, status = MISSINGFIELDS, 403
 		end
 
-		params = {:response => response, :status => status} unless params
-		params
+		output = {:response => response, :status => status} unless output
+		output
 	end
 end

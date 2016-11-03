@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 	    	safe_urls = ["/login", "/register", "/verify_user", "/register_user"]
 	    	safe_url = safe_urls.include? request.env['PATH_INFO']
 	    	unless safe_url
-	      		redirect_to login_url
+	      		# redirect_to login_url
 	    	end
 	    end
   	end

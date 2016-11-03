@@ -29,7 +29,7 @@ class PanelController < ApplicationController
 
 	def verify_user
 		response = Manager.verify_user(manager_params)
-
+		@notice = response[:notice]
 		respond_to do |format|
 			if response[:status] == 200
 				session[:manager_id] = response[:id]
