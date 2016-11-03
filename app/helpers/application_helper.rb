@@ -2,33 +2,37 @@ module ApplicationHelper
 
 	def get_countries
 		@countries = Country.all.map { |country| [country.name, country.id] }
+    @countries
 	end
 
 	def get_states_for country_id
-		states = []
-		if country_id
-			country = Country.find(country_id)
-			states = country.states.all.map { |state| [state.name, state.id] }
-		end
-		states
+		# states = []
+		# if country_id
+		# 	country = Country.find(country_id)
+		# 	states = country.states.all.map { |state| [state.name, state.id] }
+		# end
+    @states = State.all.map { |state| [state.name, state.id] }
+		@states
 	end
 
 	def get_cities_for state_id
-		cities = []
-		if state_id
-			state = State.find(state_id)
-			cities = state.cities.all.map { |city| [city.name, city.id] }
-		end
-		cities
+		# cities = []
+		# if state_id
+		# 	state = State.find(state_id)
+		# 	cities = state.cities.all.map { |city| [city.name, city.id] }
+		# end
+    @cities = City.all.map { |city| [city.name, city.id] }
+		@cities
 	end
 
 	def get_localities_for city_id
-		localities = []
-		if city_id
-			city = City.find(city_id)
-			localities = city.localities.all.map { |locality| [locality.name, locality.id] }
-		end
-		localities
+		# localities = []
+		# if city_id
+		# 	city = City.find(city_id)
+		# 	localities = city.localities.all.map { |locality| [locality.name, locality.id] }
+		# end
+    @localities = Locality.all.map { |locality| [locality.name, locality.id] }
+		@localities
 	end
 
 	def link_to_remove_fields(name, f)

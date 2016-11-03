@@ -130,7 +130,6 @@ class ProjectsController < ApplicationController
       @building_stages = Stage.where(:stage_parent => "Building")
       @building_stages_array = @building_stages.map { |stage| [stage.name, stage.id] }
 
-
       @floor_stages = Stage.where(:stage_parent => "Floor")
       @floor_stages_array = @floor_stages.map { |stage| [stage.name, stage.id] }
 
