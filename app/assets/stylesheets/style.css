@@ -2455,7 +2455,7 @@ tr.group:hover {
 
 .side-nav .collapsible-body,
 ul.side-nav.leftside-navigation ul.collapsible-accordion{
-  background-color: transparent; !important;
+  background-color: transparent !important;
 } 
 
 ul.side-nav.leftside-navigation{
