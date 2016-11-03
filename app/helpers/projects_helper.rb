@@ -20,6 +20,10 @@ module ProjectsHelper
 		["Wing A Floor 1 - 101 - 2BHK", "Wing A Floor 1 - 102 - 3BHK", "Wing A Floor 1 - 103 - 2BHK", "Wing A Floor 1 - 104 - #BHK"]
 	end
 
+	def get_approval_types
+		["Water Approval", "Municipality Approval", "Environment Clearance"]
+	end
+
 	def link_to_add_buildings(name, project_instance, project_form, association)
 		new_object = Project.new.class.reflect_on_association(association).klass.new
     	fields = project_form.fields_for(association, new_object, :child_index => "new_#{association}") do |form_builder|

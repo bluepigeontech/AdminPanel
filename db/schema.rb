@@ -315,6 +315,7 @@ ActiveRecord::Schema.define(version: 20161101152714) do
     t.boolean  "status"
     t.string   "project_type"
     t.string   "property_type"
+    t.string   "approval_type"
     t.integer  "company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

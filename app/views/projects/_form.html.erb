@@ -76,6 +76,8 @@
      
 
       <%= render :partial => 'layouts/partials/map_details_form', :locals => {:f => project_form }  %>
+      <%= project_form.label(:approval_type, "Approval Type") %>
+      <%= project_form.select(:approval_type, options_for_select(get_approval_types, :selected => project_form.object.approval_type), :prompt => 'Select Approval Type') %>
     </div>
     <% if project.id.present? %>
       <br/>

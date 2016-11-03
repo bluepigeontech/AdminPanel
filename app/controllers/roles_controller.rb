@@ -28,7 +28,7 @@ class RolesController < ApplicationController
     role_params
     access_control_list = Role.get_access_control_list params
     response = {:name => params[:name], :access_control_list => access_control_list}
-    if params[:id]
+    if params[:id] && params[:id].present?
       @role = Role.find(params[:id])
       respond_to do |format|
         if @role.update(response)
