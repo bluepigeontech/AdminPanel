@@ -2536,7 +2536,10 @@ select{
     border-top-right-radius: 6px;
     padding-right: 10px;
 }
-
+.referral-panel .header i{
+    font-size: 1.5rem;
+    margin-top: 3px;
+}
 .referral-panel .textarea{
     bottom: 0px;
     position: absolute;
@@ -2546,3 +2549,4 @@ select{
 .referral-panel .referral-content{
   height: 400px;
 }
+
