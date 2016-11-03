@@ -18,8 +18,8 @@
               
             </div>
             <div class="col s4">
-              <%= manager_form.check_box :verified %>
-              <%= manager_form.label(:verified, "Verified") %>
+              <%= manager_form.check_box :verified, :id => "manager-"+manager_form.object.id.to_s %>
+              <%= manager_form.label(:verified, "Verified", :for => "manager-"+manager_form.object.id.to_s) %>
             </div>
             <div class="col s3">
             </div>
