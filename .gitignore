@@ -16,3 +16,5 @@
 !/log/.keep
 /tmp
 bluepigeon-admin-aws-ec2.pem
+.byebug_history
+ ubuntu@ec2-35-160-177-190.us-west-2.compute.amazonaws.com
