@@ -22,3 +22,19 @@ function add_fields(link, association, content) {
 
   $(link).before(content);
 }
+
+$(document).ready(function(){
+  $('.handle-referral-panel').on('click', function(){
+    $('.referral-content').toggle();
+    if($('.handle-referral-panel').children()[0].hasClass('mdi-navigation-close')){
+      $('.handle-referral-panel').children()[0].removeClass('mdi-navigation-close');
+      $('.handle-referral-panel').children()[0].addClass(); 
+    }
+    else{
+      $('.handle-referral-panel').children()[0].removeClass('');
+      $('.handle-referral-panel').children()[0].addClass('mdi-navigation-close'); 
+    }
+
+  });
+
+});

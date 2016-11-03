@@ -27,6 +27,7 @@ localities = Locality.create([{:name => "Sector-49", :city_id => cities.first.id
 
 Builder.create([:group_name => "DLF", :companies_attributes => {0 => {:name => "DLF Company"}}])
 
+Tax.create([{:name => "Random Tax", :percentage => 12.3}])
 
 Ammenity.create([
 	{:name => "Play area", :ammenity_type => "Project"},

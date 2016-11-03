@@ -2516,3 +2516,33 @@ select{
 .collapsible.bp-popin > li.active > .collapsible-header{
   background-color: transparent;
 }
+
+.referral-panel{
+    position: fixed;
+    width: 500px;
+    bottom: -12px;
+    right: 100px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.referral-panel .header{
+      width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding-right: 10px;
+}
+
+.referral-panel .textarea{
+    bottom: 0px;
+    position: absolute;
+    width: 80%;
+}
+
+.referral-panel .referral-content{
+  height: 400px;
+}
