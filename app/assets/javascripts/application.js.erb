@@ -14,6 +14,7 @@
 //= require refile
 
 var builder_companies = new Array();
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
 <% for builder_company in get_builder_companies %>
   builder_companies.push(new Array(<%= builder_company.builder_id %>, '<%= builder_company.name %>', <%= builder_company.id %>));
 <% end %>
