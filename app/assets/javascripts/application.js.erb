@@ -14,7 +14,7 @@
 //= require refile
 
 var builder_companies = new Array();
-<% for builder_company in Builder::Company.all %>
+<% for builder_company in get_builder_companies %>
   builder_companies.push(new Array(<%= builder_company.builder_id %>, '<%= builder_company.name %>', <%= builder_company.id %>));
 <% end %>
 
@@ -52,8 +52,27 @@ function builderSelected() {
   }
 }
 
+function handle_content_blocks(){
+  $('.content-header').on('click', function(){
+
+    var content_header = $(this)
+    var content_wrapper = content_header.parent();
+    var content_block = $(content_wrapper.find('.content-block')[0]);
+
+    content_block.toggle();
+    if($(content_header.children()[0]).hasClass('mdi-navigation-close')){
+      $(content_header.children()[0]).removeClass('mdi-navigation-close');
+      $(content_header.children()[0]).addClass('mdi-content-add'); 
+    }
+    else{
+      $(content_header.children()[0]).removeClass('mdi-content-add');
+      $(content_header.children()[0]).addClass('mdi-navigation-close'); 
+    }
+  });
+}
+
 $(document).ready(function(){
   // builderSelected();
   $('#project_builder_id').on('change', builderSelected);
-  
+  handle_content_blocks();
 })

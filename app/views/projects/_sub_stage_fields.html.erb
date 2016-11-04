@@ -1,6 +1,6 @@
-<%= stage_form.fields_for :sub_stages  do |sub_stage_form| %>
-<div class="lighten-3 white-text pink card-panel">
-  <div class="row">
+<div class="card-panel">
+  <%= stage_form.fields_for :sub_stages  do |sub_stage_form| %>
+    <div class="row">
       <div class="col s12">
           <div class="row">
               <div class="col s3">
@@ -15,5 +15,5 @@
           </div>
       </div>
   </div>
-</div>
 <% end %>
+</div>

@@ -14,6 +14,12 @@
           </div>
       </div>
   </div>
-  
-  <%= render :partial => 'floors/sub_stage_fields', :locals => { :stage_form => stage_form}  %>
+  <div class="content-wrapper">
+    <div class="content-header"><h6 class="col mdi-content-add">Floor Sub Stages</h6></div>
+    <div class="content-block">
+      <%= render :partial => 'floors/sub_stage_fields', :locals => { :stage_form => stage_form}  %>
+    </div>
+  </div>
+  <br/>
+  <br/>
 <% end %>

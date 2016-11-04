@@ -2548,5 +2548,21 @@ select{
 
 .referral-panel .referral-content{
   height: 400px;
+  display: none;
 }
 
+
+
+.content-wrapper{
+  margin-top: 10px;
+}
+
+.content-wrapper .content-header{
+  cursor: default;
+}
+
+.content-wrapper .content-block{
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: none;
+}

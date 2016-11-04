@@ -176,4 +176,9 @@ module ApplicationHelper
   		cookies[:access_control_list][29] == "1"
   	end
 
+    def get_builder_companies
+      builder_companies = Builder::Company.all
+      builder_companies
+    end
+
 end
