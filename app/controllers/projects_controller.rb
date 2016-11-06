@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
     @project_stage = Project::Stage.new
 
-    @projects = Project.all
+    
     @projects.each do |project|
       # ProjectsStages.build project
 
@@ -120,6 +120,7 @@ class ProjectsController < ApplicationController
     end
 
     def init_params
+      @projects = Project.all
       @builders = Builder.all.map { |builder| [builder.group_name, builder.id] }
       @builder_companies = Builder::Company.all.map { |builder_company| [builder_company.name, builder_company.id] }
       @countries = Country.all.map { |country| [country.name, country.id] }
