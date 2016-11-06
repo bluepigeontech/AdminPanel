@@ -1,4 +1,4 @@
-class StagesController < ApplicationController
+class BaseStagesController < ApplicationController
   before_action :set_stage, only: [:show, :edit, :update, :destroy]
 
   # GET /stages
@@ -11,7 +11,7 @@ class StagesController < ApplicationController
 
     @stages = BaseStage.all
     @stages.each do |stage|
-      collection = BaseStage::SubStage.where(stage_id: stage.id)
+      collection = BaseStage::SubStage.where(base_stage_id: stage.id)
       collection.any? ? collection : stage.sub_stages.build
     end
   end
@@ -19,7 +19,7 @@ class StagesController < ApplicationController
   # GET /stages/1
   # GET /stages/1.json
   def show
-    redirect_to stages_url
+    redirect_to base_stages_url
   end
 
   # GET /stages/new
@@ -29,7 +29,7 @@ class StagesController < ApplicationController
 
   # GET /stages/1/edit
   def edit
-    redirect_to stages_url
+    redirect_to base_stages_url
   end
 
   # POST /stages
@@ -52,7 +52,7 @@ class StagesController < ApplicationController
   def update
     respond_to do |format|
       if @stage.update(stage_params)
-        format.html { redirect_to stages_url, notice: 'Stage was successfully updated.' }
+        format.html { redirect_to base_stages_url, notice: 'Stage was successfully updated.' }
         format.json { render :show, status: :ok, location: @stage }
       else
         @stages = BaseStage.all.map{ |c| c = (c.id == @stage.id)? @stage:c}
@@ -68,7 +68,7 @@ class StagesController < ApplicationController
   def destroy
     @stage.destroy
     respond_to do |format|
-      format.html { redirect_to stages_url, notice: 'Stage was successfully destroyed.' }
+      format.html { redirect_to base_stages_url, notice: 'Stage was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +81,6 @@ class StagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stage_params
-      params.fetch(:stage, {})
+      params.fetch(:base_stage, {})
     end
 end

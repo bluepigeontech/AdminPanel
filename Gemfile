@@ -31,6 +31,7 @@ gem 'protected_attributes'
 gem 'refile', require: "refile/rails", git: 'https://github.com/refile/refile.git', branch: 'master'
 gem "refile-mini_magick"
 gem "refile-s3"
+gem 'aws'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

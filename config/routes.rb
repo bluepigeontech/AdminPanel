@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   namespace :project do
     resources :approval_types
   end
-  resources :ammenities
+  resources :base_ammenities
   resources :managers
   get 'dynamic_builder_companies' => 'javascripts#dynamic_builder_companies'
 
-  namespace :stage do
+  namespace :base_stage do
     resources :sub_stages
   end
-  resources :stages
+  resources :base_stages
   namespace :builder do
     namespace :company do
       resources :contact_people
