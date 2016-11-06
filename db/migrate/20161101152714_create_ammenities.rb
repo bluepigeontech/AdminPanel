@@ -1,6 +1,6 @@
 class CreateAmmenities < ActiveRecord::Migration
   def change
-    create_table :ammenities do |t|
+    create_table :base_ammenities do |t|
     	t.string :name, :null => false
     	t.boolean :status
     	t.string :ammenity_type

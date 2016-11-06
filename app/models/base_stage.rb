@@ -1,5 +1,5 @@
-class Stage < ActiveRecord::Base
-	has_many :sub_stages, :class_name => "::Stage::SubStage"
+class BaseStage < ActiveRecord::Base
+	has_many :sub_stages, :class_name => "::BaseStage::SubStage"
 	accepts_nested_attributes_for :sub_stages, allow_destroy: true
 
 	attr_accessible :name, :order, :stage_parent, :percentage, :sub_stages_attributes
@@ -26,5 +26,13 @@ class Stage < ActiveRecord::Base
 				Flat::Stage.new(:flat_id => flat.id, :stage_id => self.id).save
 			end
 		end
+	end
+
+	def self.get_flat_stages
+		where(:stage_parent => "Flat")
+	end
+
+	def self.get_ammenity_stages
+		where(:ammenity_type => "Flat")
 	end
 end

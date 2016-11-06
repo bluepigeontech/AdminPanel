@@ -1,6 +1,6 @@
 class CreateStages < ActiveRecord::Migration
   def change
-    create_table :stages do |t|
+    create_table :base_stages do |t|
 
     	t.string :name, :null => false
     	t.integer :order, :null => false

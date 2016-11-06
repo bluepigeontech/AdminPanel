@@ -4,8 +4,8 @@ class AmmenitiesController < ApplicationController
   # GET /ammenities
   # GET /ammenities.json
   def index
-    @ammenities = Ammenity.all
-    @ammenity = Ammenity.new
+    @ammenities = BaseAmmenity.all
+    @ammenity = BaseAmmenity.new
   end
 
   # GET /ammenities/1
@@ -15,7 +15,7 @@ class AmmenitiesController < ApplicationController
 
   # GET /ammenities/new
   def new
-    @ammenity = Ammenity.new
+    @ammenity = BaseAmmenity.new
   end
 
   # GET /ammenities/1/edit
@@ -25,7 +25,7 @@ class AmmenitiesController < ApplicationController
   # POST /ammenities
   # POST /ammenities.json
   def create
-    @ammenity = Ammenity.new(ammenity_params)
+    @ammenity = BaseAmmenity.new(ammenity_params)
 
     respond_to do |format|
       if @ammenity.save
@@ -46,8 +46,8 @@ class AmmenitiesController < ApplicationController
         format.html { redirect_to ammenities_url, notice: 'Ammenity was successfully updated.' }
         format.json { render :show, status: :ok, location: @ammenity }
       else
-        @ammenities = Ammenity.all.map{ |c| c = (c.id == @ammenity.id)? @ammenity:c}
-        @ammenity = Ammenity.new
+        @ammenities = BaseAmmenity.all.map{ |c| c = (c.id == @ammenity.id)? @ammenity:c}
+        @ammenity = BaseAmmenity.new
         format.html { render :index }
         format.json { render json: @ammenity.errors, status: :unprocessable_entity }
       end
@@ -67,7 +67,7 @@ class AmmenitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ammenity
-      @ammenity = Ammenity.find(params[:id])
+      @ammenity = BaseAmmenity.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

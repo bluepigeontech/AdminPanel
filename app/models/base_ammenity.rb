@@ -1,4 +1,4 @@
-class Ammenity < ActiveRecord::Base
+class BaseAmmenity < ActiveRecord::Base
 
 	attr_accessible :name, :status, :ammenity_type
 
@@ -24,4 +24,10 @@ class Ammenity < ActiveRecord::Base
 			end
 		end
 	end
+
+	def self.get_flat_ammenities
+		where(:ammenity_type => "Flat")
+	end
+
+	
 end

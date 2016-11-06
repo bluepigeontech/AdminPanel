@@ -1,10 +1,10 @@
-class Stage::SubStagesController < ApplicationController
+class BaseStage::SubStagesController < ApplicationController
   before_action :set_stage_sub_stage, only: [:show, :edit, :update, :destroy]
 
   # GET /stage/sub_stages
   # GET /stage/sub_stages.json
   def index
-    @stage_sub_stages = Stage::SubStage.all
+    @stage_sub_stages = BaseStage::SubStage.all
   end
 
   # GET /stage/sub_stages/1
@@ -14,7 +14,7 @@ class Stage::SubStagesController < ApplicationController
 
   # GET /stage/sub_stages/new
   def new
-    @stage_sub_stage = Stage::SubStage.new
+    @stage_sub_stage = BaseStage::SubStage.new
   end
 
   # GET /stage/sub_stages/1/edit
@@ -24,7 +24,7 @@ class Stage::SubStagesController < ApplicationController
   # POST /stage/sub_stages
   # POST /stage/sub_stages.json
   def create
-    @stage_sub_stage = Stage::SubStage.new(stage_sub_stage_params)
+    @stage_sub_stage = BaseStage::SubStage.new(stage_sub_stage_params)
 
     respond_to do |format|
       if @stage_sub_stage.save
@@ -64,7 +64,7 @@ class Stage::SubStagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stage_sub_stage
-      @stage_sub_stage = Stage::SubStage.find(params[:id])
+      @stage_sub_stage = BaseStage::SubStage.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

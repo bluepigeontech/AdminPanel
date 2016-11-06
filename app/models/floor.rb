@@ -26,18 +26,18 @@ class Floor < ActiveRecord::Base
 	end
 
 	def add_stages
-		Stage.where(:stage_parent => "Floor").each do |stage|
-			floor_stage = Floor::Stage.new(:floor_id => self.id, :stage_id => stage.id)
+		BaseStage.where(:stage_parent => "Floor").each do |stage|
+			floor_stage = Floor::Stage.new(:floor_id => self.id, :base_stage_id => stage.id)
 			floor_stage.save
-			Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-				Floor::Stage::SubStage.new(:stage_id => floor_stage.id, :sub_stage_id => sub_stage.id).save
+			BaseStage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
+				Floor::Stage::SubStage.new(:stage_id => floor_stage.id, :base_sub_stage_id => sub_stage.id).save
 			end
 		end
 	end
 
 	def add_ammenities
-		Ammenity.where(:ammenity_type => "Building").each do |ammenity|
-			building_ammenity = Building::Ammenity.new(:building_id => self.id, :ammenity_id => ammenity.id)
+		BaseAmmenity.where(:ammenity_type => "Building").each do |ammenity|
+			building_ammenity = Building::Ammenity.new(:building_id => self.id, :base_ammenity_id => ammenity.id)
 			building_ammenity.save
 		end
 	end

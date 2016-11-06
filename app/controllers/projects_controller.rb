@@ -125,16 +125,16 @@ class ProjectsController < ApplicationController
       @builder_companies = Builder::Company.all.map { |builder_company| [builder_company.name, builder_company.id] }
       @countries = Country.all.map { |country| [country.name, country.id] }
 
-      @project_stages = Stage.where(:stage_parent => "Project")
+      @project_stages = BaseStage.where(:stage_parent => "Project")
       @project_stages_array = @project_stages.map { |stage| [stage.name, stage.id] }
 
-      @building_stages = Stage.where(:stage_parent => "Building")
+      @building_stages = BaseStage.where(:stage_parent => "Building")
       @building_stages_array = @building_stages.map { |stage| [stage.name, stage.id] }
 
-      @floor_stages = Stage.where(:stage_parent => "Floor")
+      @floor_stages = BaseStage.where(:stage_parent => "Floor")
       @floor_stages_array = @floor_stages.map { |stage| [stage.name, stage.id] }
 
-      @flat_stages = Stage.where(:stage_parent => "Flat")
+      @flat_stages = BaseStage.where(:stage_parent => "Flat")
       @flat_stages_array = @flat_stages.map { |stage| [stage.name, stage.id] }
 
     end

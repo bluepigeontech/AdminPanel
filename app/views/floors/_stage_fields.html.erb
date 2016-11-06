@@ -3,8 +3,8 @@
       <div class="col s12">
           <div class="row">
               <div class="col s3">
-                <%= label_tag(:stage_id, "Stage") %>
-                <%= stage_form.select(:stage_id, options_for_select(@floor_stages_array, :selected => stage_form.object.stage_id), :prompt => 'Select Stage') %>
+                <%= label_tag(:base_stage_id, "Stage") %>
+                <%= stage_form.select(:base_stage_id, options_for_select(@floor_stages_array, :selected => stage_form.object.base_stage_id), :prompt => 'Select Stage') %>
                 
               </div>
               <div class="col s3">

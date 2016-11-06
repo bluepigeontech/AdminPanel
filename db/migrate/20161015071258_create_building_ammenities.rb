@@ -3,7 +3,7 @@ class CreateBuildingAmmenities < ActiveRecord::Migration
     create_table :building_ammenities do |t|
 
     	t.belongs_to :building
-    	t.belongs_to :ammenity
+    	t.belongs_to :base_ammenity
     	t.boolean :status
 
       t.timestamps null: false

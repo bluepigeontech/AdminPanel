@@ -4,14 +4,14 @@ class StagesController < ApplicationController
   # GET /stages
   # GET /stages.json
   def index
-    @stages = Stage.all
+    @stages = BaseStage.all
 
-    @stage = Stage.new
+    @stage = BaseStage.new
     @stage.sub_stages.build
 
-    @stages = Stage.all
+    @stages = BaseStage.all
     @stages.each do |stage|
-      collection = Stage::SubStage.where(stage_id: stage.id)
+      collection = BaseStage::SubStage.where(stage_id: stage.id)
       collection.any? ? collection : stage.sub_stages.build
     end
   end
@@ -24,7 +24,7 @@ class StagesController < ApplicationController
 
   # GET /stages/new
   def new
-    @stage = Stage.new
+    @stage = BaseStage.new
   end
 
   # GET /stages/1/edit
@@ -35,7 +35,7 @@ class StagesController < ApplicationController
   # POST /stages
   # POST /stages.json
   def create
-    @stage = Stage.new(stage_params)
+    @stage = BaseStage.new(stage_params)
     respond_to do |format|
       if @stage.save
         format.html { redirect_to @stage, notice: 'Stage was successfully created.' }
@@ -55,8 +55,8 @@ class StagesController < ApplicationController
         format.html { redirect_to stages_url, notice: 'Stage was successfully updated.' }
         format.json { render :show, status: :ok, location: @stage }
       else
-        @stages = Stage.all.map{ |c| c = (c.id == @stage.id)? @stage:c}
-        @stage = Stage.new
+        @stages = BaseStage.all.map{ |c| c = (c.id == @stage.id)? @stage:c}
+        @stage = BaseStage.new
         format.html { render :index }
         format.json { render json: @stage.errors, status: :unprocessable_entity }
       end
@@ -76,7 +76,7 @@ class StagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stage
-      @stage = Stage.find(params[:id])
+      @stage = BaseStage.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

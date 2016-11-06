@@ -13,7 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20161104093711) do
 
-  create_table "ammenities", force: :cascade do |t|
+  create_table "approval_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "base_ammenities", force: :cascade do |t|
     t.string   "name",          null: false
     t.boolean  "status"
     t.string   "ammenity_type"
@@ -21,10 +27,22 @@ ActiveRecord::Schema.define(version: 20161104093711) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "approval_types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "base_stage_sub_stages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "order"
+    t.integer  "base_stage_id"
+    t.float    "percentage"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "base_stages", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.integer  "order",        null: false
+    t.string   "stage_parent"
+    t.float    "percentage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "builder_companies", force: :cascade do |t|
@@ -52,10 +70,10 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "building_ammenities", force: :cascade do |t|
     t.integer  "building_id"
-    t.integer  "ammenity_id"
+    t.integer  "base_ammenity_id"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "building_ammenity_photos", force: :cascade do |t|
@@ -74,18 +92,18 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "building_stage_sub_stages", force: :cascade do |t|
     t.integer  "stage_id"
-    t.integer  "sub_stage_id"
+    t.integer  "base_sub_stage_id"
     t.float    "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "building_stages", force: :cascade do |t|
     t.integer  "building_id"
-    t.integer  "stage_id"
+    t.integer  "base_stage_id"
     t.float    "percentage"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -123,10 +141,10 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "flat_ammenities", force: :cascade do |t|
     t.integer  "flat_id"
-    t.integer  "ammenity_id"
+    t.integer  "base_ammenity_id"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "flat_ammenity_p_hotos", force: :cascade do |t|
@@ -145,18 +163,18 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "flat_stage_sub_stages", force: :cascade do |t|
     t.integer  "stage_id"
-    t.integer  "sub_stage_id"
+    t.integer  "base_sub_stage_id"
     t.float    "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "flat_stages", force: :cascade do |t|
     t.integer  "flat_id"
-    t.integer  "stage_id"
+    t.integer  "base_stage_id"
     t.float    "percentage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "flats", force: :cascade do |t|
@@ -173,10 +191,10 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "floor_ammenities", force: :cascade do |t|
     t.integer  "floor_id"
-    t.integer  "ammenity_id"
+    t.integer  "base_ammenity_id"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "floor_ammenity_photos", force: :cascade do |t|
@@ -195,18 +213,18 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "floor_stage_sub_stages", force: :cascade do |t|
     t.integer  "stage_id"
-    t.integer  "sub_stage_id"
+    t.integer  "base_sub_stage_id"
     t.float    "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "floor_stages", force: :cascade do |t|
     t.integer  "floor_id"
-    t.integer  "stage_id"
+    t.integer  "base_stage_id"
     t.float    "percentage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "floors", force: :cascade do |t|
@@ -262,10 +280,10 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "project_ammenities", force: :cascade do |t|
     t.integer  "project_id"
-    t.integer  "ammenity_id"
+    t.integer  "base_ammenity_id"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "project_ammenity_photos", force: :cascade do |t|
@@ -291,18 +309,18 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "project_stage_sub_stages", force: :cascade do |t|
     t.integer  "stage_id"
-    t.integer  "sub_stage_id"
+    t.integer  "base_sub_stage_id"
     t.float    "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "project_stages", force: :cascade do |t|
     t.integer  "project_id"
-    t.integer  "stage_id"
+    t.integer  "base_stage_id"
     t.float    "percentage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -333,24 +351,6 @@ ActiveRecord::Schema.define(version: 20161104093711) do
     t.text     "access_control_list"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-  end
-
-  create_table "stage_sub_stages", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "order"
-    t.integer  "stage_id"
-    t.float    "percentage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "stages", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.integer  "order",        null: false
-    t.string   "stage_parent"
-    t.float    "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "states", force: :cascade do |t|

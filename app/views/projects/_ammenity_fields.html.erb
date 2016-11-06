@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col s3">
 
-                  <%= ammenity_form.object.ammenity.name %>
+                  <%= ammenity_form.object.base_ammenity.name %>
                 </div>
                 <div class="col s3">
-                  <%= ammenity_form.check_box :status, :placeholder => "true" %>
-                  <%= ammenity_form.label(:status, "Status") %>
+                  <%= ammenity_form.check_box :status, :placeholder => "true", :id => f.object.id.to_s+ammenity_form.object.base_ammenity.name+"-ammenity" %>
+                  <%= ammenity_form.label(:status, "Select Ammenity", :for => f.object.id.to_s+ammenity_form.object.base_ammenity.name+"-ammenity") %>
                   
                 </div>
             </div>

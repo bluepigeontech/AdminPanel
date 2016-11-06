@@ -30,18 +30,18 @@ class Project < ActiveRecord::Base
 	end
 
 	def add_stages
-		Stage.where(:stage_parent => "Project").each do |stage|
-			project_stage = Project::Stage.new(:project_id => self.id, :stage_id => stage.id)
+		BaseStage.where(:stage_parent => "Project").each do |stage|
+			project_stage = Project::Stage.new(:project_id => self.id, :base_stage_id => stage.id)
 			project_stage.save
-			Stage::SubStage.where(:stage_id => stage.id).each do |sub_stage|
-				Project::Stage::SubStage.new(:stage_id => project_stage.id, :sub_stage_id => sub_stage.id).save
+			BaseStage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
+				Project::Stage::SubStage.new(:stage_id => project_stage.id, :base_sub_stage_id => sub_stage.id).save
 			end
 		end
 	end
 
 	def add_ammenities
-		Ammenity.where(:ammenity_type => "Project").each do |ammenity|
-			project_ammenity = Project::Ammenity.new(:project_id => self.id, :ammenity_id => ammenity.id)
+		BaseAmmenity.where(:ammenity_type => "Project").each do |ammenity|
+			project_ammenity = Project::Ammenity.new(:project_id => self.id, :base_ammenity_id => ammenity.id)
 			project_ammenity.save
 		end
 	end

@@ -1,4 +1,4 @@
-module StagesHelper
+module BaseStagesHelper
 
 	def get_stage_parents
 		["Project", "Building", "Floor", "Flat"]

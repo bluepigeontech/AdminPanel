@@ -5,8 +5,8 @@
           <div class="row">
               <div class="col s3">
               
-                <%= label_tag(:sub_stage_id, "Sub Stage") %>
-                <%= sub_stage_form.select(:sub_stage_id, options_for_select(stage_form.object.stage.sub_stages.map {|a| [a.name, a.id]}, :selected => sub_stage_form.object.sub_stage_id), :prompt => 'Select Sub Stage') %>
+                <%= label_tag(:base_sub_stage_id, "Sub Stage") %>
+                <%= sub_stage_form.select(:base_sub_stage_id, options_for_select(stage_form.object.base_stage.sub_stages.map {|a| [a.name, a.id]}, :selected => sub_stage_form.object.base_sub_stage_id), :prompt => 'Select Sub Stage') %>
               </div>
               <div class="col s3">
                 <%= sub_stage_form.label(:percentage, "Percentage") %>

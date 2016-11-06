@@ -1,5 +1,5 @@
-module Stages
+module BaseStages
   def self.table_name_prefix
-    'stages_'
+    'base_stages_'
   end
 end
