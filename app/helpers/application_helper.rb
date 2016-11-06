@@ -181,11 +181,5 @@ module ApplicationHelper
       builder_companies
     end
 
-    # def presigned_url(expires_in = 7.days, photo)
-    #   return nil if photo.attachment_id.blank?
-    #   obj = Aws::S3::Object.new(S3_CONFIG['bucket'], "#{S3_CONFIG['prefix']}/#{photo.attachment_id}")
-    #   obj.presigned_url(:get, expires_in: expires_in)
-    # end
-
 
 end
