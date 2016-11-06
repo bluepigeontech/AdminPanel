@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20161104093711) do
   end
 
   create_table "buildings", force: :cascade do |t|
-    t.string   "name",             null: false
+    t.string   "name"
     t.string   "status"
     t.integer  "number_of_floors"
     t.integer  "project_id"
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 20161104093711) do
   end
 
   create_table "flats", force: :cascade do |t|
-    t.string   "name",               null: false
+    t.string   "name"
     t.date     "possession_date"
     t.boolean  "status"
     t.string   "flat_configuration"
@@ -228,7 +228,7 @@ ActiveRecord::Schema.define(version: 20161104093711) do
   end
 
   create_table "floors", force: :cascade do |t|
-    t.string   "name",            null: false
+    t.string   "name"
     t.integer  "building_id"
     t.boolean  "status"
     t.integer  "number_of_flats"

@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
       else
         @projects = Project.all.map{ |c| c = (c.id == @project.id)? @project:c}
         @project = Project.new
-        format.html { render :edit }
+        format.html { render :index }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end

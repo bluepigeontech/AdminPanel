@@ -5,7 +5,7 @@ class Floor < ActiveRecord::Base
 
 	attr_accessible :name, :status, :number_of_flats, :flats_attributes, :floor_id, :stages_attributes, :ammenities_attributes, :photos_files
 
-  	validates :name, :presence => {:message => "is blank or is invalid "}
+  	# validates :name, :presence => {:message => "is blank or is invalid "}
 
   	has_many :stages, :class_name => "Floor::Stage"
 	accepts_nested_attributes_for :stages
@@ -36,9 +36,9 @@ class Floor < ActiveRecord::Base
 	end
 
 	def add_ammenities
-		BaseAmmenity.where(:ammenity_type => "Building").each do |ammenity|
-			building_ammenity = Building::Ammenity.new(:building_id => self.id, :base_ammenity_id => ammenity.id)
-			building_ammenity.save
+		BaseAmmenity.where(:ammenity_type => "Floor").each do |ammenity|
+			floor_ammenity = Floor::Ammenity.new(:floor_id => self.id, :base_ammenity_id => ammenity.id)
+			floor_ammenity.save
 		end
 	end
 end

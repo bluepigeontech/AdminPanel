@@ -13,7 +13,7 @@ class Flat < ActiveRecord::Base
 
 	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files
 
-  	validates :name, :presence => {:message => "is blank or is invalid "}
+  	# validates :name, :presence => {:message => "is blank or is invalid "}
   	after_create :add_stages
 	after_create :add_ammenities
 

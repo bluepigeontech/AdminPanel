@@ -2,7 +2,7 @@ class CreateFlats < ActiveRecord::Migration
   def change
     create_table :flats do |t|
 
-    	t.string :name, :null => false
+    	t.string :name
     	t.date :possession_date
     	t.boolean :status
     	t.string :flat_configuration

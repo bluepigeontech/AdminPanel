@@ -16,7 +16,7 @@ class Building < ActiveRecord::Base
 
 	attr_accessible :name, :status, :number_of_floors, :floors_attributes, :project_id, :stages_attributes, :ammenities_attributes, :photos_files
 
-  	validates :name, :presence => {:message => "is blank or is invalid "}
+  	# validates :name, :presence => {:message => "is blank or is invalid "}
 
   	def floors_for_form
 	    collection = floors.where(building_id: id)
