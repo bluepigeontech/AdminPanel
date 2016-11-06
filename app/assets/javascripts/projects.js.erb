@@ -23,8 +23,7 @@ function add_fields(link, association, content) {
   $(link).before(content);
 }
 
-
-$(document).ready(function(){
+function handle_referral_panel(){
   $('.handle-referral-panel').on('click', function(){
     $('.referral-content').toggle();
     if($($('.handle-referral-panel').children()[0]).hasClass('mdi-navigation-close')){
@@ -37,5 +36,15 @@ $(document).ready(function(){
     }
 
   });
+}
 
+function create_buildings_form(){
+  $('.create-buildings_form .mdi-content-send').on('click', function(){
+    "<%= %>"
+  })
+}
+
+$(document).ready(function(){
+  handle_referral_panel();
+  create_buildings_form();
 });

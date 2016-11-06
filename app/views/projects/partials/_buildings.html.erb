@@ -1,0 +1,9 @@
+<div class="content-wrapper card-panel">
+  <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+    <h6 class="col mdi-content-add">Project Buildings</h6>
+  </div>
+  <div class="content-block">
+    <%= render :partial => 'projects/building_fields', :locals => { :project => project, :project_form => project_form }  %>
+    <%= link_to_add_buildings "Add Buildings", project, project_form, :buildings %>
+  </div>
+</div>

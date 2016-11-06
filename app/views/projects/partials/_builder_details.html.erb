@@ -1,0 +1,13 @@
+ <div class="card-panel content-wrapper">
+    <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+      <h6 class="col mdi-content-add">Builder Details</h6>
+    </div>
+    <div class="content-block">
+      <%= label_tag(:builder_id, "Builder") %>
+
+      <%= project_form.select(:builder_id, options_for_select(@builders, :selected => project_form.object.builder_id), :prompt => 'Select Builder') %>
+
+      <%= label_tag(:company_id, "Company") %>
+      <%= project_form.select(:company_id, options_for_select(@builder_companies, :selected => project_form.object.company_id), :prompt => 'Select Builder Company') %>
+    </div>
+  </div>

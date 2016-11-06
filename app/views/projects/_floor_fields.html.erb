@@ -22,21 +22,24 @@
     </div>
     <% if floor_form.object && floor_form.object.id.present? %>
       <div class="content-wrapper">
-        <div class="content-header"><h6 class="col mdi-content-add ">Floor Stages</h6></div>
+        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+        <h6 class="col mdi-content-add ">Floor Stages</h6></div>
         <div class="content-block">
           <%= render :partial => 'floors/stage_fields', :locals => {:floor_form => floor_form }  %>
         </div>
       </div>
       
       <div class="content-wrapper">
-        <div class="content-header"><h6 class="col mdi-content-add ">Floor Ammenities</h6></div>
+        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+        <h6 class="col mdi-content-add ">Floor Ammenities</h6></div>
         <div class="content-block">
           <%= render :partial => 'projects/ammenity_fields', :locals => {:f => floor_form}  %>
         </div>
       </div>
       
       <div class="content-wrapper">
-        <div class="content-header"><h6 class="col mdi-content-add ">Floor Photos</h6></div>
+        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+        <h6 class="col mdi-content-add ">Floor Photos</h6></div>
         <div class="content-block">
           <%= floor_form.label :photos_files %>
           <%= floor_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
@@ -50,7 +53,8 @@
 
 
     <div class="content-wrapper">
-      <div class="content-header"><h6 class="col mdi-content-add ">Flat Details</h6></div>
+      <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+      <h6 class="col mdi-content-add ">Flat Details</h6></div>
       <div class="content-block">
         <ul>
           <%= render :partial => 'projects/flat_fields', :locals => { :floor_form => floor_form}  %>

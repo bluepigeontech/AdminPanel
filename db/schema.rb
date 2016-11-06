@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101152714) do
+ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "ammenities", force: :cascade do |t|
     t.string   "name",          null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161101152714) do
   end
 
   create_table "approval_types", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -272,6 +273,13 @@ ActiveRecord::Schema.define(version: 20161101152714) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_approval_types", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "approval_type_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "project_photos", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
@@ -315,7 +323,6 @@ ActiveRecord::Schema.define(version: 20161101152714) do
     t.boolean  "status"
     t.string   "project_type"
     t.string   "property_type"
-    t.string   "approval_type"
     t.integer  "company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

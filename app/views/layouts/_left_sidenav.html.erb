@@ -14,14 +14,17 @@
       	<!-- <li class="bold"> -->
             <!-- <a href="/dashboard" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a> -->
       	<!-- </li> -->
-
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-              	<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-maps-store-mall-directory"></i> Projects </a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-week"></i> Project Properties </a>
                     <div class="collapsible-body">
                         <ul>
-                          <% if access_projects_view %>
-                            <li><a href="/projects">List</a>
+                          <% if access_taxes_view %>
+                            <li><a href="/taxes">Taxes</a>
+                            </li>
+                          <% end %>
+                          <% if access_home_loan_banks_view %>
+                            <li><a href="/home_loan_banks">Home Loan Banks</a>
                             </li>
                           <% end %>
                           <% if access_projects_view %>
@@ -31,13 +34,20 @@
                           <% if access_projects_view %>
                             <li><a href="/ammenities">Ammenities</a>
                             </li>
+                            <li><a href="/approval_types">Approval Types</a>
+                            </li>
                           <% end %>
                         </ul>
                     </div>
-              	</li>
+                </li>
                 
             </ul>
         </li>
+        
+        <% if access_projects_view %>
+          <li class="bold"><a href="/projects" class="waves-effect waves-cyan"><i class="mdi-maps-store-mall-directory"></i>Projects</a>
+          </li>
+        <% end %>
         <% if access_builders_view %>
         	<li class="bold"><a href="/builders" class="waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> Builders</a>
         	</li>
@@ -62,24 +72,7 @@
               </ul>
           </li>
         <% end %>
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-navigation-apps"></i> Others</a>
-                    <div class="collapsible-body">
-                        <ul>
-                          <% if access_taxes_view %>
-                            <li><a href="/taxes">Taxes</a>
-                            </li>
-                          <% end %>
-                          <% if access_home_loan_banks_view %>
-                            <li><a href="/home_loan_banks">Home Loan Banks</a>
-                            </li>
-                          <% end %>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
+       
         
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">

@@ -1,0 +1,1 @@
+json.partial! "project_approval_types/project_approval_type", project_approval_type: @project_approval_type

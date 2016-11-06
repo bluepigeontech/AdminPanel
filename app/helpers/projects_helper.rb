@@ -21,8 +21,13 @@ module ProjectsHelper
 	end
 
 	def get_approval_types
-		["Water Approval", "Municipality Approval", "Environment Clearance"]
+		ApprovalType.all.map {|a| [a.name, a.id]}
 	end
+
+	def create_building_forms project, count
+		
+	end
+
 
 	def link_to_add_buildings(name, project_instance, project_form, association)
 		new_object = Project.new.class.reflect_on_association(association).klass.new

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :project do
+    resources :approval_types
+  end
   resources :ammenities
   resources :managers
   get 'dynamic_builder_companies' => 'javascripts#dynamic_builder_companies'

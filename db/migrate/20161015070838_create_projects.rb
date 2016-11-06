@@ -19,7 +19,6 @@ class CreateProjects < ActiveRecord::Migration
       	t.boolean :status
         t.string :project_type
         t.string :property_type
-        t.string :approval_type
 
         t.belongs_to :builder
         t.belongs_to :company

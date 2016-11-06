@@ -1,0 +1,12 @@
+<div class="content-wrapper">
+    <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+      <h6 class="col mdi-content-add">Building Photos</h6>
+    </div>
+    <div class="content-block">
+        <%= building_form.label :photos_files %>
+        <%= building_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        <% building_form.object.photos.each do |photo|%>
+          <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
+        <% end %>
+    </div>
+  </div>

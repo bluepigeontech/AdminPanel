@@ -1,71 +1,17 @@
 <%= project_form.fields_for :buildings  do |building_form| %>
   <li class="fields">
-    <div class="row">
-        <div class="col s12">
-            <div class="row">
-                <div class="col s6">
-                  <%= building_form.label(:name, "Name") %>
-                  <%= building_form.text_field :name, :placeholder => "Building 1" %>
-                </div>
-                <div class="col s3">
-                    <p>
-                      <%= building_form.check_box :status, :placeholder => "true" %>
-                      <%= building_form.label(:status, "Status") %>
-                      
-                    </p>
-                    
-                </div>
-                <div class="col s3">
-                  <%= building_form.label(:number_of_floors, "Number of Floors") %>
-                  <%= building_form.number_field :number_of_floors, :placeholder => "3" %>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <%= render :partial => 'buildings/partials/details', :locals => {:building_form => building_form }  %>
     <% if building_form.object && building_form.object.id.present? %>
-      <div class="content-wrapper">
-        <div class="content-header">
-          <h6 class="col mdi-content-add">Stages</h6>
-        </div>
-        <div class="content-block">
-          <%= render :partial => 'buildings/stage_fields', :locals => {:building_form => building_form }  %>
-        </div>
-      </div>
+      
+      <%= render :partial => 'buildings/partials/stages', :locals => {:building_form => building_form }  %>
+      <%= render :partial => 'buildings/partials/ammenities', :locals => {:building_form => building_form }  %>
+      <%= render :partial => 'buildings/partials/photos', :locals => {:building_form => building_form }  %>
 
-      <div class="content-wrapper">
-        <div class="content-header">
-          <h6 class="col mdi-content-add">Building Ammenities</h6>
-        </div>
-        <div class="content-block">
-          <%= render :partial => 'projects/ammenity_fields', :locals => {:f => building_form}  %>
-        </div>
-      </div>
-
-      <div class="content-wrapper">
-        <div class="content-header">
-          <h6 class="col mdi-content-add">Building Photos</h6>
-        </div>
-        <div class="content-block">
-            <%= building_form.label :photos_files %>
-            <%= building_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
-            <% building_form.object.photos.each do |photo|%>
-              <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
-            <% end %>
-        </div>
-      </div>
+      
     <% end %>
+    <%= render :partial => 'buildings/partials/floors', :locals => {:building_form => building_form }  %>    
     
-    <div class="content-wrapper">
-      <div class="content-header"><h6 class="col mdi-content-add">Floor Details</h6></div>
-      <div class="content-block">
-        <ul>
-          <%= render :partial => 'projects/floor_fields', :locals => { :building_form => building_form}  %>
-          <%= link_to_add_floors "Add Floors", building_form, :floors %>
-        </ul>
-      </div>
-    </div>    
-      <%= link_to_remove_buildings "Remove Building", building_form %>
+    <%= link_to_remove_buildings "Remove Building", building_form %>
   </li>
   <br/>
 <% end %>

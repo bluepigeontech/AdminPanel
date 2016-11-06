@@ -7,9 +7,9 @@ module LinkToFunctionHelper
      href = html_options[:href] || '#'
 
      if name && name.length < 2
-     	classes = "right btn-floating red darken-2 waves-effect waves-light"
+     	classes = "right btn-floating red darken-1 waves-effect waves-light"
      else
-     	classes = "right btn red darken-2 waves-effect waves-light"
+     	classes = "right btn red darken-1 waves-effect waves-light"
      end
 
      content_tag(:button, name, html_options.merge(:href => href, :onclick => onclick, :class => classes))

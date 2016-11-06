@@ -1,0 +1,9 @@
+<div class="content-wrapper card-panel">
+<div class="content-header" type="button" onClick="handle_content_blocks(this);">
+<h6 class="col mdi-content-add">Project Approval Types</h6>
+</div>
+<div class="content-block">
+<%#= project_form.collection_select :approval_types, get_approval_types %>
+<%#= render :partial => 'projects/approval_type_fields', :locals => { :f => project_form }  %>
+</div>
+</div>

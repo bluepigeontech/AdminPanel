@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s6">
+              <%= building_form.label(:name, "Name") %>
+              <%= building_form.text_field :name, :placeholder => "Building 1" %>
+            </div>
+            <div class="col s3">
+                <p>
+                  <%= building_form.check_box :status, :placeholder => "true" %>
+                  <%= building_form.label(:status, "Status") %>
+                  
+                </p>
+                
+            </div>
+            <div class="col s3">
+              <%= building_form.label(:number_of_floors, "Number of Floors") %>
+              <%= building_form.number_field :number_of_floors, :placeholder => "3" %>
+            </div>
+        </div>
+    </div>
+</div>

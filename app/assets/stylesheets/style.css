@@ -2524,6 +2524,7 @@ select{
     right: 100px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    z-index: 999999;
 }
 
 .referral-panel .header{
@@ -2561,8 +2562,29 @@ select{
   cursor: default;
 }
 
+.content-wrapper .content-header:hover h6{
+  font-weight: 600;
+}
+
 .content-wrapper .content-block{
   padding-top: 20px;
   padding-bottom: 30px;
   display: none;
 }
+
+.create-buildings-form{
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+
+.relative{
+  position: relative;
+}
+
+.fields{
+  border: 1px solid #ececec;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+}
+

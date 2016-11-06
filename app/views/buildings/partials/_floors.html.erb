@@ -1,0 +1,9 @@
+<div class="content-wrapper">
+  <div class="content-header" type="button" onClick="handle_content_blocks(this);"><h6 class="col mdi-content-add">Floor Details</h6></div>
+  <div class="content-block">
+    <ul>
+      <%= render :partial => 'projects/floor_fields', :locals => { :building_form => building_form}  %>
+      <%= link_to_add_floors "Add Floors", building_form, :floors %>
+    </ul>
+  </div>
+</div>

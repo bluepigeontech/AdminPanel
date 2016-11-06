@@ -1,17 +1,21 @@
-<%= form_for(@approval_type) do |f| %>
-  <% if @approval_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@approval_type.errors.count, "error") %> prohibited this approval_type from being saved:</h2>
+<%= form_for(approval_type) do |approval_type_form| %>
+   <% if approval_type.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(approval_type.errors.count, "error") %> prohibited this approval_type from being saved:</div>
 
-      <ul>
-      <% @approval_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% approval_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= label_tag(:name, "Name") %>
+    <%= approval_type_form.text_field :name, :placeholder => "Water Approval" %>
+    
+      
+    <% if access_projects_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
 <% end %>

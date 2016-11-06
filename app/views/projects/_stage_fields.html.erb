@@ -16,7 +16,8 @@
   </div>
 
   <div class="content-wrapper">
-    <div class="content-header"><h6 class="col mdi-content-add">Sub Stages</h6></div>
+    <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+    <h6 class="col mdi-content-add">Sub Stages</h6></div>
     <div class="content-block">
       <%= render :partial => 'projects/sub_stage_fields', :locals => { :stage_form => stage_form}  %>
     </div>

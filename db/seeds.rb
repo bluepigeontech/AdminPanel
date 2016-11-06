@@ -25,7 +25,7 @@ cities = City.create([{:name => "Faridabad", :state_id => states.first.id},
 
 localities = Locality.create([{:name => "Sector-49", :city_id => cities.first.id}])
 
-Builder.create([:group_name => "DLF", :companies_attributes => {0 => {:name => "DLF Company"}}])
+Builder.create([{:group_name => "DLF", :companies_attributes => {0 => {:name => "DLF Company"}}}, {:group_name => "DLF 2", :companies_attributes => {0 => {:name => "DLF Company 2"}}}, {:group_name => "DLF3", :companies_attributes => {0 => {:name => "DLF Company 3"}}}])
 
 Tax.create([{:name => "Random Tax", :percentage => 12.3}])
 
@@ -198,3 +198,5 @@ Ammenity.where(:ammenity_type => "Flat").each do |ammenity|
 	require 'flat/ammenity'
 	Flat::Ammenity.create([{:ammenity_id => ammenity.id, :flat_id => Flat.first.id}]) 
 end
+
+ApprovalType.create([{:name => "Water Approval"}, {:name => "Municipality Approval"}, {:name => "Environment Clearance"}])

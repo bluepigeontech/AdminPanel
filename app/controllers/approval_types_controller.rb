@@ -5,11 +5,13 @@ class ApprovalTypesController < ApplicationController
   # GET /approval_types.json
   def index
     @approval_types = ApprovalType.all
+    @approval_type = ApprovalType.new
   end
 
   # GET /approval_types/1
   # GET /approval_types/1.json
   def show
+    redirect_to approval_types_url
   end
 
   # GET /approval_types/new
@@ -19,16 +21,18 @@ class ApprovalTypesController < ApplicationController
 
   # GET /approval_types/1/edit
   def edit
+    redirect_to approval_types_url
   end
 
   # POST /approval_types
   # POST /approval_types.json
   def create
     @approval_type = ApprovalType.new(approval_type_params)
+    @approval_types = ApprovalType.all
 
     respond_to do |format|
       if @approval_type.save
-        format.html { redirect_to @approval_type, notice: 'Approval type was successfully created.' }
+        format.html { redirect_to approval_types_url, notice: 'Approval type was successfully created.' }
         format.json { render :show, status: :created, location: @approval_type }
       else
         format.html { render :new }
@@ -42,9 +46,11 @@ class ApprovalTypesController < ApplicationController
   def update
     respond_to do |format|
       if @approval_type.update(approval_type_params)
-        format.html { redirect_to @approval_type, notice: 'Approval type was successfully updated.' }
+        format.html { redirect_to approval_types_url, notice: 'Approval type was successfully updated.' }
         format.json { render :show, status: :ok, location: @approval_type }
       else
+        @approval_types = ApprovalType.all.map{ |c| c = (c.id == @approval_type.id)? @approval_type:c}
+        @approval_type = ApprovalType.new
         format.html { render :edit }
         format.json { render json: @approval_type.errors, status: :unprocessable_entity }
       end
