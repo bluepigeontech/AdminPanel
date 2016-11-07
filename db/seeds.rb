@@ -53,6 +53,23 @@ BaseAmmenity.create([
 
 BaseApprovalType.create([{:name => "Water Approval"}, {:name => "Municipality Approval"}, {:name => "Environment Clearance"}])
 
+BasePropertyType.create([{:name => "Bunglow"},
+	{:name => "Flats"},
+	{:name => "Weekend Homes"},
+	{:name => "Plots"},
+	{:name => "Shops"},
+	{:name => "Row houses"}
+])
+
+BaseProjectType.create([
+	{:name => "Residential"},
+	{:name => "Commercial"}
+])
+
+BasePropertyConfiguration.create([
+	{:name => "1 RK"}, {:name => "Studio"}, {:name => "1 BHK"}, {:name => "2 BHK"}
+])
+
 BaseStatus.create([{:name => "Prelaunch", :status_type => "Project"},
 		{:name => "Launch", :status_type => "Project"},
 	{:name => "Under Construction", :status_type => "Project"},

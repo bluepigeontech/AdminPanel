@@ -1,0 +1,1 @@
+json.array! @project_property_types, partial: 'project_property_types/project_property_type', as: :project_property_type

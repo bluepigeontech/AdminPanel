@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Project Property Configurations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_property_configurations.each do |project_property_configuration| %>
+      <tr>
+        <td><%= link_to 'Show', project_property_configuration %></td>
+        <td><%= link_to 'Edit', edit_project_property_configuration_path(project_property_configuration) %></td>
+        <td><%= link_to 'Destroy', project_property_configuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property configuration', new_project_property_configuration_path %>

@@ -1,0 +1,2 @@
+module Project::PropertyTypesHelper
+end

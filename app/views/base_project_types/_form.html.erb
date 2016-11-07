@@ -1,0 +1,21 @@
+<%= form_for(project_type) do |project_type_form| %>
+   <% if project_type.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(project_type.errors.count, "error") %> prohibited this project_type from being saved:</div>
+
+        <ul>
+        <% project_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= project_type_form.text_field :name, :placeholder => "Residential" %>
+    
+      
+    <% if access_projects_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

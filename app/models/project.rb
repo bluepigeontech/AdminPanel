@@ -9,12 +9,24 @@ class Project < ActiveRecord::Base
 	after_create :add_ammenities
 	after_create :add_approval_types
 	after_create :add_statuses
+	after_create :add_property_types
+	after_create :add_project_types
+	after_create :add_property_configurations
 
 	has_many :stages, :class_name => "Project::Stage"
 	accepts_nested_attributes_for :stages
 
 	has_many :approval_types, :class_name => "Project::ApprovalType"
 	accepts_nested_attributes_for :approval_types
+
+	has_many :property_types, :class_name => "Project::PropertyType"
+	accepts_nested_attributes_for :property_types
+
+	has_many :project_types, :class_name => "Project::ProjectType"
+	accepts_nested_attributes_for :project_types
+
+	has_many :property_configurations, :class_name => "Project::PropertyConfiguration"
+	accepts_nested_attributes_for :property_configurations
 
 	has_many :ammenities, :class_name => "Project::Ammenity"
 	accepts_nested_attributes_for :ammenities
@@ -25,7 +37,7 @@ class Project < ActiveRecord::Base
 	has_many :statuses, :class_name => "Project::Status"
 	accepts_nested_attributes_for :statuses
 	
-	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files, :approval_types_attributes, :statuses_attributes
+	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files, :approval_types_attributes, :statuses_attributes, :property_types_attributes, :project_types_attributes, :property_configurations_attributes
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
 
@@ -53,8 +65,8 @@ class Project < ActiveRecord::Base
 
 	def add_approval_types
 		BaseApprovalType.all.each do |approval_type|
-			approval_type = Project::ApprovalType.new(:project_id => self.id, :base_approval_type_id => approval_type.id)
-			approval_type.save
+			project_approval_type = Project::ApprovalType.new(:project_id => self.id, :base_approval_type_id => approval_type.id)
+			project_approval_type.save
 		end
 	end
 
@@ -62,6 +74,27 @@ class Project < ActiveRecord::Base
 		BaseStatus.where(:status_type => "Project").each do |base_status|
 			project_status = Project::Status.new(:project_id => self.id, :base_status_id => base_status.id)
 			project_status.save
+		end
+	end
+
+	def add_property_types
+		BasePropertyType.all.each do |property_type|
+			project_property_type = Project::PropertyType.new(:project_id => self.id, :base_property_type_id => property_type.id)
+			project_property_type.save
+		end
+	end
+
+	def add_project_types
+		BaseProjectType.all.each do |project_type| 
+			project_project_type = Project::ProjectType.new(:project_id =>  self.id, :base_project_type_id => project_type.id)
+			project_project_type.save
+		end
+	end
+
+	def add_property_configurations
+		BasePropertyConfiguration.all.each do |property_configuration|
+			project_property_configuration = Project::PropertyConfiguration.new(:project_id => self.id, :base_property_configuration_id => property_configuration.id)
+			project_property_configuration.save
 		end
 	end
 

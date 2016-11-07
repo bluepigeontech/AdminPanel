@@ -1,0 +1,1 @@
+json.partial! "project_property_types/project_property_type", project_property_type: @project_property_type

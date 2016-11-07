@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :project do
+    resources :property_configurations
+  end
+  resources :base_property_configurations
+  resources :base_project_types
+  namespace :project do
+    resources :project_types
+  end
+  namespace :project do
+    resources :property_types
+  end
+  resources :base_property_types
   namespace :flat do
     resources :statuses
   end

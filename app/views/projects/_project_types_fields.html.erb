@@ -1,0 +1,18 @@
+<div class="grey-text">
+  <%= f.fields_for :project_types  do |project_type_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= project_type_form.object.base_project_type.name %>
+                </div>
+                <div class="col s3">
+                  <%= project_type_form.check_box :status, :placeholder => "true", :id => f.object.id.to_s+project_type_form.object.base_project_type.name+"-project-type" %>
+                  <%= project_type_form.label(:status, "Select Project Type", :for => f.object.id.to_s+project_type_form.object.base_project_type.name+"-project-type") %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

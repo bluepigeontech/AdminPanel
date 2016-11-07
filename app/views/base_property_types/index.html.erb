@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+     <li>
+        <div class="collapsible-header <% if @property_type.errors.any? %>active<% end %>">
+            Add a new Property Type
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :property_type => @property_type }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @property_types.each do |property_type| %>
+        <li>
+            <div class="collapsible-header header-info <% if property_type.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s3">
+                                <%= property_type.name %>
+                            </div>
+                            <div class="col s4">
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :property_type => property_type }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>

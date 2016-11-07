@@ -1,0 +1,1 @@
+json.array! @project_property_configurations, partial: 'project_property_configurations/project_property_configuration', as: :project_property_configuration

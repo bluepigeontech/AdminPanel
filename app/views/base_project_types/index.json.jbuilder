@@ -1,0 +1,1 @@
+json.array! @base_project_types, partial: 'base_project_types/base_project_type', as: :base_project_type

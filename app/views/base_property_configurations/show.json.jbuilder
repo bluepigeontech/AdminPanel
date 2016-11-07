@@ -1,0 +1,1 @@
+json.partial! "base_property_configurations/base_property_configuration", base_property_configuration: @base_property_configuration

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107023315) do
+ActiveRecord::Schema.define(version: 20161107054236) do
 
   create_table "base_ammenities", force: :cascade do |t|
     t.string   "name",          null: false
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 20161107023315) do
   end
 
   create_table "base_approval_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "base_project_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "base_property_configurations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "base_property_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -337,6 +355,30 @@ ActiveRecord::Schema.define(version: 20161107023315) do
     t.integer  "file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_project_types", force: :cascade do |t|
+    t.boolean  "status"
+    t.integer  "project_id"
+    t.integer  "base_project_type_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "project_property_configurations", force: :cascade do |t|
+    t.boolean  "status"
+    t.integer  "project_id"
+    t.integer  "base_property_configuration_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "project_property_types", force: :cascade do |t|
+    t.boolean  "status"
+    t.integer  "project_id"
+    t.integer  "base_property_type_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "project_stage_sub_stages", force: :cascade do |t|

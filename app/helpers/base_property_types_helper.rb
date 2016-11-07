@@ -1,0 +1,2 @@
+module BasePropertyTypesHelper
+end

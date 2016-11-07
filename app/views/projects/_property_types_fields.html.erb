@@ -1,0 +1,18 @@
+<div class="grey-text">
+  <%= f.fields_for :property_types  do |property_type_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= property_type_form.object.base_property_type.name %>
+                </div>
+                <div class="col s3">
+                  <%= property_type_form.check_box :status, :placeholder => "true", :id => f.object.id.to_s+property_type_form.object.base_property_type.name+"-property-type" %>
+                  <%= property_type_form.label(:status, "Select Property Type", :for => f.object.id.to_s+property_type_form.object.base_property_type.name+"-property-type") %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

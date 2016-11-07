@@ -1,0 +1,1 @@
+json.partial! "base_property_types/base_property_type", base_property_type: @base_property_type
