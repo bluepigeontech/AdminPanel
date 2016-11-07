@@ -75,6 +75,6 @@ class BaseStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def base_status_params
-      params.fetch(:base_base_status, {})
+      params.fetch(:base_status, {})
     end
 end

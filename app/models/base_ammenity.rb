@@ -4,6 +4,7 @@ class BaseAmmenity < ActiveRecord::Base
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
   	after_create :bind_to_existing_types
+  	after_update :change_bindings
 	
 	def bind_to_existing_types
 		if self.ammenity_type == "Project"
@@ -29,5 +30,19 @@ class BaseAmmenity < ActiveRecord::Base
 		where(:ammenity_type => "Flat")
 	end
 
-	
+	def change_bindings
+		if self.ammenity_type_changed?
+			if self.ammenity_type_was == "Project"
+				Project::Ammenity.where(:base_ammenity_id =>  self.id).delete_all
+			elsif self.ammenity_type_was == "Building"
+				Building::Ammenity.where(:base_ammenity_id =>  self.id).delete_all
+			elsif self.ammenity_type_was == "Floor"
+				Floor::Ammenity.where(:base_ammenity_id =>  self.id).delete_all
+			elsif self.ammenity_type_was == "Flat"
+				Flat::Ammenity.where(:base_ammenity_id =>  self.id).delete_all
+			end
+		end
+		bind_to_existing_types
+	end
+
 end
