@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :base_approval_types
   namespace :project do
     resources :approval_types
   end
@@ -87,7 +88,6 @@ Rails.application.routes.draw do
   namespace :project do
     resources :photos
   end
-  resources :approval_types
   resources :home_loan_banks
   resources :localities
   resources :cities

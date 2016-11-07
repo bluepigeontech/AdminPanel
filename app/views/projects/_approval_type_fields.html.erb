@@ -4,11 +4,11 @@
         <div class="col s12">
             <div class="row">
                 <div class="col s3">
-
+                  <%= approval_type_form.object.base_approval_type.name %>
                 </div>
                 <div class="col s3">
-                  <%= approval_type_form.collection :status, :placeholder => "true" %>
-                  <%= approval_type_form.label(:status, "Status") %>
+                  <%= approval_type_form.check_box :status, :placeholder => "true", :id => f.object.id.to_s+approval_type_form.object.base_approval_type.name+"-approval-type" %>
+                  <%= approval_type_form.label(:status, "Select Approval Type", :for => f.object.id.to_s+approval_type_form.object.base_approval_type.name+"-approval-type") %>
                   
                 </div>
             </div>

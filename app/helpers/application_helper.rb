@@ -181,5 +181,11 @@ module ApplicationHelper
       builder_companies
     end
 
+    def presigned_url(photo, expires_in = 7.days)
+      return nil if photo.file_id.blank?
+      obj = Aws::S3::Object.new("bluepigeon", "store/2e77036efb60cb002c642dd25378cc3e046f4a150932c0234d02c381031b", :region => "us-west-2", credentials: Aws::Credentials.new('AKIAIIZ5OZ6SIQSRMQCQ', 'oqyl7f0BxLN3BYGNGAIjRNEjvw5PVE5vXzAr38dB'))
+      obj.presigned_url(:get, expires_in: expires_in)
+    end
+
 
 end

@@ -7,12 +7,13 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :buildings, allow_destroy: true
 	after_create :add_stages
 	after_create :add_ammenities
+	after_create :add_approval_types
 
 	has_many :stages, :class_name => "Project::Stage"
 	accepts_nested_attributes_for :stages
 
-	has_many :approval_type, :class_name => "Project::ApprovalType"
-	accepts_attachments_for :approval_types
+	has_many :approval_types, :class_name => "Project::ApprovalType"
+	accepts_nested_attributes_for :approval_types
 
 	has_many :ammenities, :class_name => "Project::Ammenity"
 	accepts_nested_attributes_for :ammenities
@@ -43,6 +44,13 @@ class Project < ActiveRecord::Base
 		BaseAmmenity.where(:ammenity_type => "Project").each do |ammenity|
 			project_ammenity = Project::Ammenity.new(:project_id => self.id, :base_ammenity_id => ammenity.id)
 			project_ammenity.save
+		end
+	end
+
+	def add_approval_types
+		BaseApprovalType.all.each do |approval_type|
+			approval_type = Project::ApprovalType.new(:project_id => self.id, :base_approval_type_id => approval_type.id)
+			approval_type.save
 		end
 	end
 

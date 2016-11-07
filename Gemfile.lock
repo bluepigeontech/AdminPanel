@@ -211,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   byebug
   capistrano (~> 3.4.0)
   capistrano-bundler (~> 1.1.2)

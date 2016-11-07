@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104093711) do
-
-  create_table "approval_types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20161107015445) do
 
   create_table "base_ammenities", force: :cascade do |t|
     t.string   "name",          null: false
@@ -25,6 +19,12 @@ ActiveRecord::Schema.define(version: 20161104093711) do
     t.string   "ammenity_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "base_approval_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "base_stage_sub_stages", force: :cascade do |t|
@@ -293,9 +293,10 @@ ActiveRecord::Schema.define(version: 20161104093711) do
 
   create_table "project_approval_types", force: :cascade do |t|
     t.integer  "project_id"
-    t.integer  "approval_type_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "base_approval_type_id"
+    t.boolean  "status"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "project_photos", force: :cascade do |t|

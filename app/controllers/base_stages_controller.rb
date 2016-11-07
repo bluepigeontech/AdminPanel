@@ -50,6 +50,7 @@ class BaseStagesController < ApplicationController
   # PATCH/PUT /stages/1
   # PATCH/PUT /stages/1.json
   def update
+    debugger
     respond_to do |format|
       if @stage.update(stage_params)
         format.html { redirect_to base_stages_url, notice: 'Stage was successfully updated.' }

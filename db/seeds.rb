@@ -51,7 +51,7 @@ BaseAmmenity.create([
 	{:name => "Power Backup", :ammenity_type => "Flat"}
 ])
 
-
+BaseApprovalType.create([{:name => "Water Approval"}, {:name => "Municipality Approval"}, {:name => "Environment Clearance"}])
 
 
 BaseStage.create([{:name => " Project Stage 1", :order => 1, :stage_parent => "Project", :percentage => 23.4, :sub_stages_attributes => {0 => {:order => 1, :name => " Project 1 Sub Stage 1", :percentage => 10.5}, 
@@ -135,68 +135,3 @@ Project.create([
 		:builder_id => Builder.first.id, :company_id => Builder::Company.first.id, :name => "Project 2", :status => true, :seller_type => "Seller Type", :description => "description", :usp => "usp", :launch_data => "13/10/2016", :project_type => "industrial", :property_type => "weekend hoems", :number_of_buildings => 3, :country_id => Country.first.id, :state_id => State.first.id, :city_id => City.first.id, :locality_id => Locality.first.id, :address => "address", :latitude => 23.4, :longitude => 23.5, :buildings_attributes => {0 => {:name => "Building 1", :status => true, :number_of_floors => 4, :floors_attributes => {0 => {:name => "Floor 1", :status => true, :number_of_flats => 4, :flats_attributes => {0 => {:name => "Flat 1", :status => true, :possession_date => "", :saleable_area => 12, :carpet_area => 24}}}}}}
 	}
 	])
-
-
-# Project.all.each do |project| 
-# 	BaseStage.where(:stage_parent => "Project").each do |stage|
-# 		require 'project/stage'
-# 		project_stage = Project::Stage.new(:project_id => project.id, :base_stage_id => stage.id, :percentage => rand(5..30))
-# 		project_stage.save
-# 		BaseStage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
-# 			Project::Stage::SubStage.new(:stage_id => project_stage.id, :base_sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-# 		end 
-# 	end 
-# end
-
-# Building.all.each do |building| 
-# 	BaseStage.where(:stage_parent => "Building").each do |stage|
-# 		require 'building/stage'
-# 		building_stage = Building::Stage.new(:building_id => building.id, :base_stage_id => stage.id, :percentage => rand(5..30))
-# 		building_stage.save
-# 		BaseStage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
-# 			Building::Stage::SubStage.new(:stage_id => building_stage.id, :base_sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-# 		end 
-# 	end 
-# end
-
-# Floor.all.each do |floor| 
-# 	BaseStage.where(:stage_parent => "Floor").each do |stage|
-# 		require 'floor/stage'
-# 		floor_stage = Floor::Stage.new(:floor_id => floor.id, :base_stage_id => stage.id, :percentage => rand(5..30))
-# 		floor_stage.save
-# 		Stage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
-# 			Floor::Stage::SubStage.new(:stage_id => floor_stage.id, :base_sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-# 		end 
-# 	end 
-# end
-
-
-# Flat.all.each do |flat| 
-# 	BaseStage.where(:stage_parent => "Flat").each do |stage|
-# 		require 'flat/stage'
-# 		flat_stage = Flat::Stage.new(:flat_id => flat.id, :base_stage_id => stage.id, :percentage => rand(5..30))
-# 		flat_stage.save
-# 		BaseStage::SubStage.where(:base_stage_id => stage.id).each do |sub_stage|
-# 			Flat::Stage::SubStage.new(:stage_id => flat_stage.id, :base_sub_stage_id => sub_stage.id, :percentage => rand(5..30)).save
-# 		end 
-# 	end 
-# end
-
-# BaseAmmenity.where(:ammenity_type => "Project").each do |ammenity| 
-# 	require 'project/ammenity'
-# 	Project::Ammenity.create([{:base_ammenity_id => ammenity.id, :project_id => Project.first.id}]) 
-# end
-# BaseAmmenity.where(:ammenity_type => "Building").each do |ammenity| 
-# 	require 'building/ammenity'
-# 	Building::Ammenity.create([{:base_ammenity_id => ammenity.id, :building_id => Building.first.id}]) 
-# end
-# BaseAmmenity.where(:ammenity_type => "Floor").each do |ammenity| 
-# 	require 'floor/ammenity'
-# 	Floor::Ammenity.create([{:base_ammenity_id => ammenity.id, :floor_id => Floor.first.id}]) 
-# end
-# BaseAmmenity.where(:ammenity_type => "Flat").each do |ammenity| 
-# 	require 'flat/ammenity'
-# 	Flat::Ammenity.create([{:base_ammenity_id => ammenity.id, :flat_id => Flat.first.id}]) 
-# end
-
-ApprovalType.create([{:name => "Water Approval"}, {:name => "Municipality Approval"}, {:name => "Environment Clearance"}])

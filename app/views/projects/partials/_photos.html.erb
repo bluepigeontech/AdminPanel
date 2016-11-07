@@ -1,12 +1,16 @@
 <div class="content-wrapper card-panel">
     <div class="content-header" type="button" onClick="handle_content_blocks(this);">
       <h6 class="col mdi-content-add">Project Photos</h6>
+      <div class="col">
+        <div class="row">
+          <% project.photos.each do |photo|%>
+            <img src="<%= presigned_url photo %>" class="thumbnails"/>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="content-block ">
       <%= project_form.label :photos_files %>
       <%= project_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
-      <% project.photos.each do |photo|%>
-        <%= attachment_image_tag(photo, :file, :fill, 350, 350) %>
-      <% end %>
     </div>
   </div>

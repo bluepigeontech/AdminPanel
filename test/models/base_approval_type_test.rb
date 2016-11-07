@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ApprovalTypeTest < ActiveSupport::TestCase
+class BaseApprovalTypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
