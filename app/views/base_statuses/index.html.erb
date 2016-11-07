@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+     <li>
+        <div class="collapsible-header <% if @status.errors.any? %>active<% end %>">
+            Add a new Status
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :status => @status }  %>
+        </div>
+     </li>
+    <% end %>
+    <% @statuses.each do |status| %>
+        <li>
+            <div class="collapsible-header header-info <% if status.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s4">
+                                <%= status.name %>
+                            </div>
+                            <div class="col s3">
+                              <%= status.status_type %>
+                            </div>
+                            <div class="right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :status => status }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>

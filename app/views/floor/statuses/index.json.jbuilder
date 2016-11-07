@@ -1,0 +1,1 @@
+json.array! @floor_statuses, partial: 'floor_statuses/floor_status', as: :floor_status

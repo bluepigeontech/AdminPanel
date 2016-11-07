@@ -3,7 +3,7 @@ class Floor < ActiveRecord::Base
 	has_many :flats, :class_name => "Flat"
 	accepts_nested_attributes_for :flats, allow_destroy: true
 
-	attr_accessible :name, :status, :number_of_flats, :flats_attributes, :floor_id, :stages_attributes, :ammenities_attributes, :photos_files
+	attr_accessible :name, :status, :number_of_flats, :flats_attributes, :floor_id, :stages_attributes, :ammenities_attributes, :photos_files, :statuses_attributes
 
   	# validates :name, :presence => {:message => "is blank or is invalid "}
 
@@ -16,8 +16,12 @@ class Floor < ActiveRecord::Base
 	has_many :photos, :class_name => "Floor::Photo", dependent: :destroy
 	accepts_attachments_for :photos
 
+	has_many :statuses, :class_name => "Floor::Status"
+	accepts_nested_attributes_for :statuses
+
 	after_create :add_stages
 	after_create :add_ammenities
+	after_create :add_statuses
 
   	
   	def flats_for_form
@@ -39,6 +43,13 @@ class Floor < ActiveRecord::Base
 		BaseAmmenity.where(:ammenity_type => "Floor").each do |ammenity|
 			floor_ammenity = Floor::Ammenity.new(:floor_id => self.id, :base_ammenity_id => ammenity.id)
 			floor_ammenity.save
+		end
+	end
+
+	def add_statuses
+		BaseStatus.where(:status_type => "Floor").each do |base_status|
+			floor_status = Floor::Status.new(:floor_id => self.id, :base_status_id => base_status.id)
+			floor_status.save
 		end
 	end
 end

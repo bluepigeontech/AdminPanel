@@ -1,0 +1,17 @@
+<%= form_for(@flat_status) do |f| %>
+  <% if @flat_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flat_status.errors.count, "error") %> prohibited this flat_status from being saved:</h2>
+
+      <ul>
+      <% @flat_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -8,19 +8,19 @@ class BaseAmmenity < ActiveRecord::Base
 	def bind_to_existing_types
 		if self.ammenity_type == "Project"
 			Project.all.each do |project|
-				Project::Ammenity.new(:project_id => project.id, :ammenity_id => self.id).save
+				Project::Ammenity.new(:project_id => project.id, :base_ammenity_id => self.id).save
 			end
 		elsif self.ammenity_type == "Building"
 			Building.all.each do |building|
-				Building::Ammenity.new(:building_id => building.id, :ammenity_id => self.id).save
+				Building::Ammenity.new(:building_id => building.id, :base_ammenity_id => self.id).save
 			end
 		elsif self.ammenity_type == "Floor"
 			Floor.all.each do |floor|
-				Floor::Ammenity.new(:floor_id => floor.id, :ammenity_id => self.id).save
+				Floor::Ammenity.new(:floor_id => floor.id, :base_ammenity_id => self.id).save
 			end
 		elsif self.ammenity_type == "Flat"
 			Flat.all.each do |flat|
-				Flat::Ammenity.new(:flat_id => flat.id, :ammenity_id => self.id).save
+				Flat::Ammenity.new(:flat_id => flat.id, :base_ammenity_id => self.id).save
 			end
 		end
 	end

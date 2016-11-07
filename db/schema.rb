@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107015445) do
+ActiveRecord::Schema.define(version: 20161107023315) do
 
   create_table "base_ammenities", force: :cascade do |t|
     t.string   "name",          null: false
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20161107015445) do
     t.float    "percentage"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "base_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "status_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "builder_companies", force: :cascade do |t|
@@ -104,6 +111,14 @@ ActiveRecord::Schema.define(version: 20161107015445) do
     t.float    "percentage"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "building_statuses", force: :cascade do |t|
+    t.date     "associated_date"
+    t.integer  "base_status_id"
+    t.integer  "building_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -177,6 +192,14 @@ ActiveRecord::Schema.define(version: 20161107015445) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "flat_statuses", force: :cascade do |t|
+    t.date     "associated_date"
+    t.integer  "base_status_id"
+    t.integer  "flat_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "flats", force: :cascade do |t|
     t.string   "name"
     t.date     "possession_date"
@@ -225,6 +248,14 @@ ActiveRecord::Schema.define(version: 20161107015445) do
     t.float    "percentage"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "floor_statuses", force: :cascade do |t|
+    t.date     "associated_date"
+    t.integer  "base_status_id"
+    t.integer  "floor_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "floors", force: :cascade do |t|
@@ -322,6 +353,14 @@ ActiveRecord::Schema.define(version: 20161107015445) do
     t.float    "percentage"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "project_statuses", force: :cascade do |t|
+    t.date     "associated_date"
+    t.integer  "base_status_id"
+    t.integer  "project_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "projects", force: :cascade do |t|

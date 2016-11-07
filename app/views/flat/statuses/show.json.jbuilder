@@ -1,0 +1,1 @@
+json.partial! "flat_statuses/flat_status", flat_status: @flat_status

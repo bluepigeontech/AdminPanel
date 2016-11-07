@@ -1,0 +1,1 @@
+json.partial! "floor_statuses/floor_status", floor_status: @floor_status

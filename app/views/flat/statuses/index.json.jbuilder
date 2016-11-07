@@ -1,0 +1,1 @@
+json.array! @flat_statuses, partial: 'flat_statuses/flat_status', as: :flat_status

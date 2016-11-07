@@ -47,39 +47,10 @@
   </div>
     
     <% if flat_form.object && flat_form.object.id.present? %>
-      <div class="content-wrapper">
-        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
-          <h6 class="col mdi-content-add">Flat Stages</h6>    
-        </div>
-        <div class="content-block">
-          <%= render :partial => 'flats/stage_fields', :locals => {:flat_form => flat_form }  %>
-        </div>
-      </div>
-
-      <div class="content-wrapper">
-        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
-        <h6 class="col mdi-content-add">Flat Ammenities</h6></div>
-        <div class="content-block">
-          <%= render :partial => 'projects/ammenity_fields', :locals => {:f => flat_form}  %>
-        </div>
-      </div>
-      
-
-      <div class="content-wrapper">
-        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
-        <h6 class="col mdi-content-add">Flat Photos</h6>
-        <div class="col">
-          <div class="row">
-            <% flat_form.object.photos.each do |photo|%>
-              <img src="<%= presigned_url photo %>" class="thumbnails"/>
-            <% end %>
-          </div>
-        </div>
-        <div class="content-block">
-          <%= flat_form.label :photos_files %>
-          <%= flat_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
-        </div>
-      </div>
+      <%= render :partial => 'flats/partials/stages', :locals => {:flat_form => flat_form }  %>
+      <%= render :partial => 'flats/partials/ammenities', :locals => {:flat_form => flat_form }  %>
+      <%= render :partial => 'flats/partials/photos', :locals => {:flat_form => flat_form }  %>
+      <%= render :partial => 'flats/partials/statuses', :locals => {:flat_form => flat_form }  %>
 
     <% end %>
 

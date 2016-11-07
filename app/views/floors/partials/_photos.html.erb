@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+        <div class="content-header" type="button" onClick="handle_content_blocks(this);">
+        <h6 class="col mdi-content-add ">Floor Photos</h6>
+        <div class="col">
+        <div class="row">
+          <% floor_form.object.photos.each do |photo|%>
+            <img src="<%= presigned_url photo %>" class="thumbnails"/>
+          <% end %>
+        </div>
+      </div>
+        </div>
+        <div class="content-block">
+          <%= floor_form.label :photos_files %>
+          <%= floor_form.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+        </div>
+      </div>

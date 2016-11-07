@@ -11,11 +11,15 @@ class Flat < ActiveRecord::Base
 	has_many :photos, :class_name => "Flat::Photo", dependent: :destroy
 	accepts_attachments_for :photos
 
-	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files
+	has_many :statuses, :class_name => "Flat::Status"
+	accepts_nested_attributes_for :statuses
+
+	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files, :statuses_attributes
 
   	# validates :name, :presence => {:message => "is blank or is invalid "}
   	after_create :add_stages
 	after_create :add_ammenities
+	after_create :add_statuses
 
 
 	def add_stages
@@ -32,6 +36,13 @@ class Flat < ActiveRecord::Base
 		BaseAmmenity.where(:ammenity_type => "Flat").each do |ammenity|
 			flat_ammenity = Flat::Ammenity.new(:flat_id => self.id, :base_ammenity_id => ammenity.id)
 			flat_ammenity.save
+		end
+	end
+
+	def add_statuses
+		BaseStatus.where(:status_type => "Flat").each do |base_status|
+			flat_status = Flat::Status.new(:flat_id => self.id, :base_status_id => base_status.id)
+			flat_status.save
 		end
 	end
 

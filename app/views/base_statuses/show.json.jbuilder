@@ -1,0 +1,1 @@
+json.partial! "base_statuses/base_status", base_status: @base_status

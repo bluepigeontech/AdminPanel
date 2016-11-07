@@ -1,0 +1,1 @@
+json.partial! "building_statuses/building_status", building_status: @building_status

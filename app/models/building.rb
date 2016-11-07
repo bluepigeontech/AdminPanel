@@ -4,6 +4,7 @@ class Building < ActiveRecord::Base
 	accepts_nested_attributes_for :floors, allow_destroy: true
 	after_create :add_stages
 	after_create :add_ammenities
+	after_create :add_statuses
 
 	has_many :stages, :class_name => "Building::Stage"
 	accepts_nested_attributes_for :stages
@@ -14,7 +15,10 @@ class Building < ActiveRecord::Base
 	has_many :photos, :class_name => "Building::Photo", dependent: :destroy
 	accepts_attachments_for :photos
 
-	attr_accessible :name, :status, :number_of_floors, :floors_attributes, :project_id, :stages_attributes, :ammenities_attributes, :photos_files
+	has_many :statuses, :class_name => "Building::Status"
+	accepts_nested_attributes_for :statuses
+
+	attr_accessible :name, :status, :number_of_floors, :floors_attributes, :project_id, :stages_attributes, :ammenities_attributes, :photos_files, :statuses_attributes
 
   	# validates :name, :presence => {:message => "is blank or is invalid "}
 
@@ -38,6 +42,13 @@ class Building < ActiveRecord::Base
 		BaseAmmenity.where(:ammenity_type => "Building").each do |ammenity|
 			building_ammenity = Building::Ammenity.new(:building_id => self.id, :base_ammenity_id => ammenity.id)
 			building_ammenity.save
+		end
+	end
+
+	def add_statuses
+		BaseStatus.where(:status_type => "Building").each do |base_status|
+			building_status = Building::Status.new(:building_id => self.id, :base_status_id => base_status.id)
+			building_status.save
 		end
 	end
 

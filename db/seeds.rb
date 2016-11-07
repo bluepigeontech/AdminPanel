@@ -53,6 +53,18 @@ BaseAmmenity.create([
 
 BaseApprovalType.create([{:name => "Water Approval"}, {:name => "Municipality Approval"}, {:name => "Environment Clearance"}])
 
+BaseStatus.create([{:name => "Prelaunch", :status_type => "Project"},
+		{:name => "Launch", :status_type => "Project"},
+	{:name => "Under Construction", :status_type => "Project"},
+	{:name => "Near Possession", :status_type => "Project"},
+	{:name => "Ready to Move", :status_type => "Project"},
+	{:name => "Launched", :status_type => "Building"},
+	{:name => "UnderConstruction", :status_type => "Building"},
+	{:name => "Future Launch", :status_type => "Building"},
+	{:name => "Ready to move", :status_type => "Building"},
+	{:name => "Available", :status_type => "Flat"},
+	{:name => "Hold or Sold", :status_type => "Flat"}
+])
 
 BaseStage.create([{:name => " Project Stage 1", :order => 1, :stage_parent => "Project", :percentage => 23.4, :sub_stages_attributes => {0 => {:order => 1, :name => " Project 1 Sub Stage 1", :percentage => 10.5}, 
 		1 => {:order => 2, :name => " Sub Stage 2", :percentage => 15.5}

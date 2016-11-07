@@ -1,0 +1,25 @@
+<%= form_for(status) do |status_form| %>
+    <% if status.errors.any? %>
+        <div id="error_explanation">
+            <div><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</div>
+
+            <ul>
+                <% status.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= label_tag(:status_type, "Type") %>
+    <%= status_form.select(:status_type, options_for_select(get_status_types, :selected => status_form.object.status_type), :prompt => 'Select status Type') %>
+
+
+    <%= label_tag(:name, "Name") %>
+    <%= status_form.text_field :name, :placeholder => "Status Name" %>
+    
+    
+    <% if access_projects_edit %>
+    <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

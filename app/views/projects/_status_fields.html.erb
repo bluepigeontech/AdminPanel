@@ -1,0 +1,17 @@
+<div class="grey-text">
+  <%= f.fields_for :statuses  do |status_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= status_form.object.base_status.name %>
+                </div>
+                <div class="col s3">
+                    <%= status_form.label(:associated_date, "Associated Date") %>
+                    <%= status_form.date_field :associated_date, :placeholder => "Associated Date" %>
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

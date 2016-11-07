@@ -1,0 +1,8 @@
+<div class="content-wrapper">
+<div class="content-header" type="button" onClick="handle_content_blocks(this);">
+  <h6 class="col mdi-content-add">Building Statuses</h6>
+</div>
+<div class="content-block">
+  <%= render :partial => 'projects/status_fields', :locals => { :f => building_form }  %>
+</div>
+</div>

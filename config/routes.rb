@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  namespace :flat do
+    resources :statuses
+  end
+  namespace :floor do
+    resources :statuses
+  end
+  namespace :building do
+    resources :statuses
+  end
+  namespace :project do
+    resources :statuses
+  end
+  resources :base_statuses
   resources :base_approval_types
   namespace :project do
     resources :approval_types
