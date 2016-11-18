@@ -45,7 +45,9 @@
           </div>
       </div>
   </div>
-    
+    <%= flat_form.label(:offer, "Offer") %>
+    <%= flat_form.text_field :offer, :placeholder => "Offer examples..." %>
+
     <% if flat_form.object && flat_form.object.id.present? %>
       <%= render :partial => 'flats/partials/stages', :locals => {:flat_form => flat_form }  %>
       <%= render :partial => 'flats/partials/ammenities', :locals => {:flat_form => flat_form }  %>

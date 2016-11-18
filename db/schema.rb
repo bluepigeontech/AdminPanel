@@ -245,6 +245,7 @@ ActiveRecord::Schema.define(version: 20161118134609) do
     t.string   "flat_configuration"
     t.text     "saleable_area"
     t.text     "carpet_area"
+    t.text     "offer"
     t.integer  "floor_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false

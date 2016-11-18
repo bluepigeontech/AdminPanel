@@ -14,7 +14,7 @@ class Flat < ActiveRecord::Base
 	has_many :statuses, :class_name => "Flat::Status"
 	accepts_nested_attributes_for :statuses
 
-	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files, :statuses_attributes
+	attr_accessible :name, :status, :flat_configuration, :saleable_area, :carpet_area, :possession_date, :stages_attributes, :ammenities_attributes, :photos_files, :statuses_attributes, :offer
 
   	# validates :name, :presence => {:message => "is blank or is invalid "}
   	after_create :add_stages

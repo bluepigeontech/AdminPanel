@@ -8,6 +8,7 @@ class CreateFlats < ActiveRecord::Migration
     	t.string :flat_configuration
     	t.text :saleable_area
     	t.text :carpet_area
+      t.text :offer
       t.belongs_to :floor
     	
 
