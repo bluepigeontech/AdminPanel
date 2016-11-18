@@ -5,7 +5,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    unless session[:access_control_list]
+      manager = Manager.find(session[:manager_id])
+      cookies[:access_control_list] = manager.role.access_control_list
+    end
 
+    
     @project = Project.new
     @project.buildings.build
     @project.buildings.each do |building|

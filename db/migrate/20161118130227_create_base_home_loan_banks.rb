@@ -1,6 +1,6 @@
-class CreateHomeLoanBanks < ActiveRecord::Migration
+class CreateBaseHomeLoanBanks < ActiveRecord::Migration
   def change
-    create_table :home_loan_banks do |t|
+    create_table :base_home_loan_banks do |t|
     	t.string :name, :null => false
       	t.belongs_to :country
       	t.belongs_to :state

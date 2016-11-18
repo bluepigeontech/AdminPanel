@@ -1,0 +1,1 @@
+json.array! @base_home_loan_banks, partial: 'base_home_loan_banks/base_home_loan_bank', as: :base_home_loan_bank

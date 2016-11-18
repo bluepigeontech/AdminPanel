@@ -2,7 +2,7 @@ class PanelController < ApplicationController
 
 	def login
 		if session[:manager_id]
-			redirect_to dashboard_url
+			redirect_to projects_url
 		else
 			@manager = Manager.new
 			render layout: "basic"
@@ -32,7 +32,7 @@ class PanelController < ApplicationController
 		respond_to do |format|
 			if response[:status] == 200
 				session[:manager_id] = response[:id]
-				format.html { redirect_to dashboard_url, notice: response[:notice]}
+				format.html { redirect_to projects_url, notice: response[:notice]}
 			else
 				format.html { redirect_to login_url, notice: response[:notice]}
 			end

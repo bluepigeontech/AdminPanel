@@ -1,0 +1,1 @@
+json.partial! "base_home_loan_banks/base_home_loan_bank", base_home_loan_bank: @base_home_loan_bank

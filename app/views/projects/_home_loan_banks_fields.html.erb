@@ -1,0 +1,18 @@
+<div class="grey-text">
+  <%= f.fields_for :home_loan_banks  do |home_loan_bank_form| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= home_loan_bank_form.object.base_home_loan_bank.name %>
+                </div>
+                <div class="col s3">
+                  <%= home_loan_bank_form.check_box :status, :placeholder => "true", :id => f.object.id.to_s+home_loan_bank_form.object.base_home_loan_bank.name+"-home-loan-bank" %>
+                  <%= home_loan_bank_form.label(:status, "Select Home Loan Bank", :for => f.object.id.to_s+home_loan_bank_form.object.base_home_loan_bank.name+"-home-loan-bank") %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

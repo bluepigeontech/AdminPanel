@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :base_home_loan_banks
+  namespace :project do
+    end
+  # mount Ckeditor::Engine => '/ckeditor'
+  
   namespace :project do
     resources :property_configurations
   end
@@ -31,6 +36,7 @@ Rails.application.routes.draw do
   resources :base_ammenities
   resources :managers
   get 'dynamic_builder_companies' => 'javascripts#dynamic_builder_companies'
+  
 
   namespace :base_stage do
     resources :sub_stages
@@ -113,7 +119,6 @@ Rails.application.routes.draw do
   namespace :project do
     resources :photos
   end
-  resources :home_loan_banks
   resources :localities
   resources :cities
   resources :states

@@ -1,0 +1,17 @@
+<%= form_for(@project_home_loan_bank) do |f| %>
+  <% if @project_home_loan_bank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_home_loan_bank.errors.count, "error") %> prohibited this project_home_loan_bank from being saved:</h2>
+
+      <ul>
+      <% @project_home_loan_bank.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

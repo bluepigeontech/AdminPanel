@@ -26,17 +26,18 @@
       
       <%= render :partial => 'projects/partials/approval_types', :locals => { :project => project, :project_form => project_form }  %>    
 
-       <%= render :partial => 'projects/partials/property_types', :locals => { :project => project, :project_form => project_form }  %>    
-        <%= render :partial => 'projects/partials/project_types', :locals => { :project => project, :project_form => project_form }  %>    
-         <%= render :partial => 'projects/partials/property_configurations', :locals => { :project => project, :project_form => project_form }  %>    
+      <%= render :partial => 'projects/partials/property_types', :locals => { :project => project, :project_form => project_form }  %>    
+      <%= render :partial => 'projects/partials/project_types', :locals => { :project => project, :project_form => project_form }  %>    
+      <%= render :partial => 'projects/partials/property_configurations', :locals => { :project => project, :project_form => project_form }  %>    
+      <%= render :partial => 'projects/partials/project_types', :locals => { :project => project, :project_form => project_form }  %>    
       
-      <%= render :partial => 'projects/partials/photos', :locals => { :project => project, :project_form => project_form }  %>
+      <%= render :partial => 'projects/partials/home_loan_banks', :locals => { :project => project, :project_form => project_form }  %>
       
     <% else %>
       <div>
         <br/>
         <h6 class="col">
-          Submit Project to add Stages, Photos, Ammenities and Approval Types
+          Submit Project to add Stages, Photos, Ammenities, Home Loan Banks, Project Types, Property Types, Statuses and Approval Types
         </h6>
         <br/>
       </div>

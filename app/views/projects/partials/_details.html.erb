@@ -26,7 +26,8 @@
       <%= project_form.text_field :description, :placeholder => "Description about the project..." %>
 
       <%= label_tag(:usp, "USP") %>
-      <%= project_form.text_field :usp, :placeholder => "USP" %>
+
+      <%= project_form.cktext_area :usp, :placeholder => "USP", cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
 
       
       <%= render :partial => 'layouts/partials/location_form', :locals => {:f => project_form }  %>

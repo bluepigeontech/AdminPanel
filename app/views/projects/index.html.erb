@@ -18,16 +18,17 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
-                            <div class="col s4">
+                            <div class="col s3 ellipsis">
                                 <%= project.name %>
                             </div>
-                            <div class="col s4">
-                                
+                            <div class="col s3 ellipsis">
+                                <%= project.builder.group_name %>
                             </div>
-                            <div class="col s3">
+                            <div class="col s3 ellipsis">
+                                <h7>Launching on </h7><%= project.launch_date %>
                             </div>
-                            <div class="right">
-                                <!-- <i class="mdi-action-delete"></i> -->
+                            <div class="col s3 ellipsis">
+                                <%= project.buildings.count %> Buildings
                             </div>
                         </div>
                     </div>

@@ -12,9 +12,13 @@ class Project < ActiveRecord::Base
 	after_create :add_property_types
 	after_create :add_project_types
 	after_create :add_property_configurations
+	after_create :add_home_loan_banks
 
 	has_many :stages, :class_name => "Project::Stage"
 	accepts_nested_attributes_for :stages
+
+	has_many :home_loan_banks, :class_name => "Project::HomeLoanBank"
+	accepts_nested_attributes_for :home_loan_banks
 
 	has_many :approval_types, :class_name => "Project::ApprovalType"
 	accepts_nested_attributes_for :approval_types
@@ -37,7 +41,7 @@ class Project < ActiveRecord::Base
 	has_many :statuses, :class_name => "Project::Status"
 	accepts_nested_attributes_for :statuses
 	
-	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files, :approval_types_attributes, :statuses_attributes, :property_types_attributes, :project_types_attributes, :property_configurations_attributes
+	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files, :approval_types_attributes, :statuses_attributes, :property_types_attributes, :project_types_attributes, :property_configurations_attributes, :home_loan_banks_attributes
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
 
@@ -95,6 +99,13 @@ class Project < ActiveRecord::Base
 		BasePropertyConfiguration.all.each do |property_configuration|
 			project_property_configuration = Project::PropertyConfiguration.new(:project_id => self.id, :base_property_configuration_id => property_configuration.id)
 			project_property_configuration.save
+		end
+	end
+
+	def add_home_loan_banks
+		BaseHomeLoanBank.all.each do |home_loan_bank|
+			project_home_loan_bank = Project::HomeLoanBank.new(:project_id =>  self.id, :base_home_loan_bank_id => home_loan_bank.id)
+			project_home_loan_bank.save
 		end
 	end
 

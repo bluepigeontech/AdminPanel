@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107054236) do
+ActiveRecord::Schema.define(version: 20161118130227) do
 
   create_table "base_ammenities", force: :cascade do |t|
     t.string   "name",          null: false
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20161107054236) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "base_home_loan_banks", force: :cascade do |t|
+    t.string   "name",                 null: false
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.integer  "city_id"
+    t.integer  "locality_id"
+    t.text     "address"
+    t.string   "contact_person_name"
+    t.string   "contact_person_email"
+    t.text     "contact_person_phone"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "base_project_types", force: :cascade do |t|
@@ -285,20 +299,6 @@ ActiveRecord::Schema.define(version: 20161107054236) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "home_loan_banks", force: :cascade do |t|
-    t.string   "name",                 null: false
-    t.integer  "country_id"
-    t.integer  "state_id"
-    t.integer  "city_id"
-    t.integer  "locality_id"
-    t.text     "address"
-    t.string   "contact_person_name"
-    t.string   "contact_person_email"
-    t.text     "contact_person_phone"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "leads", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -346,6 +346,14 @@ ActiveRecord::Schema.define(version: 20161107054236) do
     t.boolean  "status"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "project_home_loan_banks", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "base_home_loan_bank_id"
+    t.boolean  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "project_photos", force: :cascade do |t|
