@@ -1,0 +1,18 @@
+<div class="grey-text">
+  <%= f.fields_for :offers  do |offer| %>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s3">
+                  <%= offer.object.base_offer.name %>
+                </div>
+                <div class="col s3">
+                  <%= offer.check_box :status, :placeholder => "true", :id => f.object.id.to_s+offer.object.base_offer.name+"-home-loan-bank" %>
+                  <%= offer.label(:status, "Select Home Loan Bank", :for => f.object.id.to_s+offer.object.base_offer.name+"-home-loan-bank") %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

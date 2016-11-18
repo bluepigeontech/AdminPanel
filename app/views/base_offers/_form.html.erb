@@ -1,0 +1,21 @@
+<%= form_for(base_offer) do |base_offer_form| %>
+   <% if base_offer.errors.any? %>
+      <div id="error_explanation">
+        <div><%= pluralize(base_offer.errors.count, "error") %> prohibited this offer from being saved:</div>
+
+        <ul>
+        <% base_offer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= base_offer_form.text_field :name, :placeholder => "Offer example..." %>
+    
+      
+    <% if access_projects_edit %>
+     <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit</button>
+    <% end %>
+<% end %>

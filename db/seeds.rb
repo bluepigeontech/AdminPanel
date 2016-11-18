@@ -35,6 +35,10 @@ BaseHomeLoanBank.create([
 	{:name => "PNB"}
 ])
 
+BaseOffer.create([
+	{:name => "Test Offer"}
+])
+
 BaseAmmenity.create([
 	{:name => "Play area", :ammenity_type => "Project"},
 	{:name => "Community Hall", :ammenity_type => "Project"},

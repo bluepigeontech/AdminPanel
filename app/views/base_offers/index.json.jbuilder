@@ -1,0 +1,1 @@
+json.array! @base_offers, partial: 'base_offers/base_offer', as: :base_offer

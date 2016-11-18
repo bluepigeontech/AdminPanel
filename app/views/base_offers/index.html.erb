@@ -1,0 +1,44 @@
+<h6>Offers</h6>
+<p id="notice"><%= notice %></p>
+
+<ul class="collapsible popout" data-collapsible="accordion" watch>
+    <% if access_projects_edit %>
+    <li>
+        <div class="collapsible-header <% if @base_offer.errors.any? %>active<% end %>">
+            Add a new Offer
+        </div>
+        <div class="collapsible-body card-panel">
+            <%= render :partial => 'form', :locals => { :base_offer => @base_offer }  %>
+        </div>
+    </li>
+    <% end %>
+    <% @base_offers.each do |base_offer| %>
+        <li>
+            <div class="collapsible-header header-info <% if base_offer.errors.any? %>active<% end %>">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s2">
+                                <%= base_offer.name %>
+                            </div>
+                            <div class="col s2">
+
+                            </div>
+                            <div class="col s3">
+                            </div>
+                            <div class="right">
+                                <!-- <i class="mdi-action-delete"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapsible-body card-panel">
+                <%= render :partial => 'form', :locals => { :base_offer => base_offer }  %>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<br>

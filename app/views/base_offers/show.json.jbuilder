@@ -1,0 +1,1 @@
+json.partial! "base_offers/base_offer", base_offer: @base_offer

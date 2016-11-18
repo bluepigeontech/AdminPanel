@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :base_offers
+  namespace :project do
+    resources :offers
+  end
   resources :base_home_loan_banks
   namespace :project do
     end

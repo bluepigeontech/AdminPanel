@@ -1,0 +1,1 @@
+json.array! @project_offers, partial: 'project_offers/project_offer', as: :project_offer
