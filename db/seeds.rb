@@ -166,6 +166,17 @@ BaseStage.create([{:name => " Project Stage 1", :order => 1, :stage_parent => "P
 		}
 		}])
 
+Buyer.create([
+	{:name => "Mr X"}
+])
+
+buyer = Buyer.first
+
+Buyer::ReferralLead.create([
+	{:content => "INR 5000 per Referral Booking", :buyer_id => buyer.id}, 
+	{:content => "INR 15000 per Referral Booking", :buyer_id => buyer.id}
+])
+
 Project.create([
 	{
 		:builder_id => Builder.first.id, :company_id => Builder::Company.first.id, :name => "Project 1", :status => true, :seller_type => "Seller Type", :description => "description", :usp => "usp <br/> <b>USP</b>", :launch_data => "13/10/2016", :project_type => "industrial", :property_type => "weekend hoems", :number_of_buildings => 3, :country_id => Country.first.id, :state_id => State.first.id, :city_id => City.first.id, :locality_id => Locality.first.id, :address => "address", :latitude => 23.4, :longitude => 23.5, :buildings_attributes => {0 => {:name => "Building 1", :status => true, :number_of_floors => 4, :floors_attributes => {0 => {:name => "Floor 1", :status => true, :number_of_flats => 4, :flats_attributes => {0 => {:name => "Flat 1", :status => true, :possession_date => "", :saleable_area => 12, :carpet_area => 24}}}}}}

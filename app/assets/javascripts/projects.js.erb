@@ -1,3 +1,5 @@
+var project_ids = [];
+
 function remove_fields(link) {
   $(link)[0].previousSibling.value = "1"
   $(link).parent('.fields').hide();
@@ -23,7 +25,14 @@ function add_fields(link, association, content) {
   $(link).before(content);
 }
 
-function handle_referral_panel(){
+
+function create_buildings_form(){
+  $('.create-buildings_form .mdi-content-send').on('click', function(){
+    "<%= %>"
+  })
+}
+
+function handle_referral_links(){
   $('.handle-referral-panel').on('click', function(){
     $('.referral-content').toggle();
     if($($('.handle-referral-panel').children()[0]).hasClass('mdi-navigation-close')){
@@ -34,17 +43,53 @@ function handle_referral_panel(){
       $($('.handle-referral-panel').children()[0]).removeClass('mdi-content-add');
       $($('.handle-referral-panel').children()[0]).addClass('mdi-navigation-close'); 
     }
-
   });
 }
 
-function create_buildings_form(){
-  $('.create-buildings_form .mdi-content-send').on('click', function(){
-    "<%= %>"
-  })
+function save_referral_lead(item, event){
+  if(project_ids.length != 0){
+    var content = $('#referral').val();
+    var buyers = project_ids.toString();
+    $('#referral').val("");
+    $('.referral-content-block').append("<div class='referral-content-item'><div>"+content+"</div><div><h7>Referred to "+buyers+"</h7></div></div><hr/>");
+    
+    var height = 0;
+    for(var i=0; i<$('.referral-content-block').children('.referral-content-item').length; i++){
+      height = height + $($('.referral-content-block').children('.referral-content-item')[i]).outerHeight();
+    }
+    $('.referral-content-block').scrollTop(height);
+
+  }
+  else{
+    alert("Select a project");
+  }
+}
+
+function handle_referral_project_checkbox(item, event){
+  // var this = $(item);
+  var isChecked = $(item).parent().children('input').is(":checked");
+  var project_id = $(item).attr("for").split("project-")[1];
+  if(isChecked){
+    var index = project_ids.indexOf(project_id);
+    project_ids.splice(index, 1);
+  }
+  else{
+    project_ids.push(project_id);
+  }
+  $(item).parent().children('input').attr("checked", !isChecked);
+  event.stopPropagation();
+}
+
+function bind_referral_enter_event(){
+  $('#referral').bind('keypress', function(e){
+    if(e.which == 13){
+      save_referral_lead();
+    }
+  });
 }
 
 $(document).ready(function(){
-  handle_referral_panel();
+  handle_referral_links();
   create_buildings_form();
+  bind_referral_enter_event();
 });

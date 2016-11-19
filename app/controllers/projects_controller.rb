@@ -142,5 +142,7 @@ class ProjectsController < ApplicationController
       @flat_stages = BaseStage.where(:stage_parent => "Flat")
       @flat_stages_array = @flat_stages.map { |stage| [stage.name, stage.id] }
 
+      @referral_leads = Buyer::ReferralLead.all
+
     end
 end

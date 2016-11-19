@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
 	after_create :add_home_loan_banks
 	after_create :add_offers
 
+
 	has_many :stages, :class_name => "Project::Stage"
 	accepts_nested_attributes_for :stages
 

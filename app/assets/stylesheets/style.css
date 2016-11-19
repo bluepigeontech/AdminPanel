@@ -2544,12 +2544,22 @@ select{
 .referral-panel .textarea{
     bottom: 0px;
     position: absolute;
-    width: 80%;
+    width: 100%;
 }
 
 .referral-panel .referral-content{
   height: 400px;
   display: none;
+  position: relative;
+}
+
+.referral-panel .referral-content .referral-content-block{
+    position: absolute;
+    height: 300px;
+    width: 460px;
+    top: 25px;
+    padding: 20px 10px;
+    overflow-y: scroll;
 }
 
 
@@ -2605,4 +2615,8 @@ h7{
   /* Required for text-overflow to do anything */
   white-space: nowrap;
   overflow: hidden;
+}
+
+.checkbox-custom{
+  margin-top: 15px;
 }

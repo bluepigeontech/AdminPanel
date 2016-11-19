@@ -1,0 +1,17 @@
+<%= form_for(@buyer_referral_lead) do |f| %>
+  <% if @buyer_referral_lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buyer_referral_lead.errors.count, "error") %> prohibited this buyer_referral_lead from being saved:</h2>
+
+      <ul>
+      <% @buyer_referral_lead.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

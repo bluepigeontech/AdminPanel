@@ -78,4 +78,10 @@ module ProjectsHelper
 	    sub_stages
 	end
 
+	def get_project_details project_id
+		project = Project.new project_id
+		params = {:name => project.name, :builder_name => project.builder.group_name}
+		params
+	end
+
 end

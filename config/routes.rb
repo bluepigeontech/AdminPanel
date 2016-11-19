@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :buyer do
+    resources :referral_leads
+  end
+  resources :buyers
   resources :base_offers
   namespace :project do
     resources :offers

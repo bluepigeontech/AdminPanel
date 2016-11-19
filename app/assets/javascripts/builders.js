@@ -1,3 +1,4 @@
+var builder_ids = [];
 
 function remove_fields(link) {
   // $(link).previous("input[type=hidden]").value = "1";
@@ -23,28 +24,3 @@ function add_fields(link, association, content) {
   $(link).before(content);
 }
 
-function handle_referral_links(){
-  $('.handle-referral-panel').on('click', function(){
-    $('.referral-content').toggle();
-    if($('.handle-referral-panel').children()[0].hasClass('mdi-navigation-close')){
-      $('.handle-referral-panel').children()[0].removeClass('mdi-navigation-close');
-      $('.handle-referral-panel').children()[0].addClass(); 
-    }
-    else{
-      $('.handle-referral-panel').children()[0].removeClass('');
-      $('.handle-referral-panel').children()[0].addClass('mdi-navigation-close'); 
-    }
-
-  });
-}
-
-function handle_referral_builder_checkbox(){
-  $('#referral-builder-').on('click', function(){
-    
-  });
-}
-
-$(document).ready(function(){
-  handle_referral_links();
-  handle_referral_builder_checkbox();
-});

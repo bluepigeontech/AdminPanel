@@ -1,0 +1,1 @@
+json.partial! "buyer_referral_leads/buyer_referral_lead", buyer_referral_lead: @buyer_referral_lead

@@ -1,0 +1,2 @@
+module Buyer::ReferralLeadsHelper
+end

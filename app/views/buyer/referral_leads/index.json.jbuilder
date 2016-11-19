@@ -1,0 +1,1 @@
+json.array! @buyer_referral_leads, partial: 'buyer_referral_leads/buyer_referral_lead', as: :buyer_referral_lead

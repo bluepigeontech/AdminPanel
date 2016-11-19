@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Buyer Referral Leads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buyer_referral_leads.each do |buyer_referral_lead| %>
+      <tr>
+        <td><%= link_to 'Show', buyer_referral_lead %></td>
+        <td><%= link_to 'Edit', edit_buyer_referral_lead_path(buyer_referral_lead) %></td>
+        <td><%= link_to 'Destroy', buyer_referral_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referral lead', new_buyer_referral_lead_path %>
