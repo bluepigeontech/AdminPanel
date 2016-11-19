@@ -26,10 +26,34 @@ function add_fields(link, association, content) {
 }
 
 
-function create_buildings_form(){
-  $('.create-buildings_form .mdi-content-send').on('click', function(){
-    "<%= %>"
-  })
+function create_forms(item, type, wrapper_id){
+  var count = $(item).parent().find('input#project_number_of_'+type+'s').val();
+  var new_forms_count = parseInt(count) || "x";
+
+  if(new_forms_count != "x" && new_forms_count > 50){
+    alert("Can't add so many "+type+"s, max number is 50");
+  }
+  else if(new_forms_count != "x"){
+    var button_to_add = $('#'+wrapper_id).find('button.add_'+type+'s');
+    var buttons_to_remove = $('#'+wrapper_id).find('.'+type+'-fields:visible button.remove_'+type+'');
+
+    var visible_forms_count = $("#"+wrapper_id).find('.'+type+'-fields:visible').length;
+    if(visible_forms_count > new_forms_count){
+      new_forms_count = visible_forms_count - new_forms_count;
+      for(var i=0; i<new_forms_count; i++){
+        $($(buttons_to_remove[i])).click();
+      }
+    }
+    else if(visible_forms_count < new_forms_count){
+      new_forms_count = new_forms_count - visible_forms_count; 
+      for(var i=0; i<new_forms_count; i++){
+        $(button_to_add).click();
+      }
+    }
+  }
+  else{
+    alert("Add valid number");
+  }
 }
 
 function handle_referral_links(){
@@ -90,6 +114,5 @@ function bind_referral_enter_event(){
 
 $(document).ready(function(){
   handle_referral_links();
-  create_buildings_form();
   bind_referral_enter_event();
 });

@@ -43,7 +43,7 @@ class BaseStage < ActiveRecord::Base
 				Flat::Stage.where(:base_stage_id =>  self.id).delete_all
 			end
 		end
-		bind_to_existing_types
+		bind_to_existing_parents
 	end
 
 	def self.get_flat_stages

@@ -1,6 +1,6 @@
 <%= project_form.fields_for :buildings  do |building_form| %>
-  <li class="fields">
-    <%= render :partial => 'buildings/partials/details', :locals => {:building_form => building_form }  %>
+  <li class="fields building-fields">
+    <%= render :partial => 'buildings/partials/details', :locals => {:building_form => building_form, :project => project }  %>
     <% if building_form.object && building_form.object.id.present? %>
       
       <%= render :partial => 'buildings/partials/stages', :locals => {:building_form => building_form }  %>
@@ -13,5 +13,4 @@
     
     <%= link_to_remove_buildings "Remove Building", building_form %>
   </li>
-  <br/>
 <% end %>
