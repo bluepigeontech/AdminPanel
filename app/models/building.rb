@@ -1,7 +1,9 @@
 class Building < ActiveRecord::Base
 	belongs_to :project, :class_name => "Project"
+	
 	has_many :floors, :class_name => "Floor"
 	accepts_nested_attributes_for :floors, allow_destroy: true
+
 	after_create :add_stages
 	after_create :add_ammenities
 	after_create :add_statuses

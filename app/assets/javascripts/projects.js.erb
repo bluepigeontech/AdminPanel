@@ -22,12 +22,23 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("\\[buildings_attributes\\]\\[_destroy\\]", "g");
   content = content.replace(regexp, "[buildings_attributes]["+new_id+"][_destroy]");
 
+  var regexp = new RegExp("\\[floors_attributes\\]\\[_destroy\\]", "g");
+  content = content.replace(regexp, "[floors_attributes]["+new_id+"][_destroy]");
+
+  var regexp = new RegExp("\\[flats_attributes\\]\\[_destroy\\]", "g");
+  content = content.replace(regexp, "[flats_attributes]["+new_id+"][_destroy]");
+
   $(link).before(content);
+}
+
+function open_field_containers(wrapper_id){
+  show_content_block($('#'+wrapper_id).find('.content_blocks'));
 }
 
 
 function create_forms(item, type, wrapper_id){
-  var count = $(item).parent().find('input#project_number_of_'+type+'s').val();
+  show_content_block($('#'+wrapper_id).find('.content_blocks'));
+  var count = $(item).parent().find('input').val();
   var new_forms_count = parseInt(count) || "x";
 
   if(new_forms_count != "x" && new_forms_count > 50){
@@ -36,8 +47,8 @@ function create_forms(item, type, wrapper_id){
   else if(new_forms_count != "x"){
     var button_to_add = $('#'+wrapper_id).find('button.add_'+type+'s');
     var buttons_to_remove = $('#'+wrapper_id).find('.'+type+'-fields:visible button.remove_'+type+'');
-
     var visible_forms_count = $("#"+wrapper_id).find('.'+type+'-fields:visible').length;
+    
     if(visible_forms_count > new_forms_count){
       new_forms_count = visible_forms_count - new_forms_count;
       for(var i=0; i<new_forms_count; i++){
@@ -115,4 +126,5 @@ function bind_referral_enter_event(){
 $(document).ready(function(){
   handle_referral_links();
   bind_referral_enter_event();
+  $('[class^=tab-project-]').show().tabs();
 });

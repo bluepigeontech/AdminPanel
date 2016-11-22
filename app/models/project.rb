@@ -3,8 +3,11 @@ class Project < ActiveRecord::Base
 
 	has_many :buildings, :class_name => "Building"
 	belongs_to :builder
+	
 	belongs_to :company, :class_name => "Builder::Company"
 	accepts_nested_attributes_for :buildings, allow_destroy: true
+
+	before_create :vaildate_building_floor_flat_count
 	after_create :add_stages
 	after_create :add_ammenities
 	after_create :add_approval_types
@@ -49,6 +52,9 @@ class Project < ActiveRecord::Base
 	attr_accessible :name, :seller_type, :builder_id, :country_id, :state_id, :locality_id, :city_id, :address, :latitude, :longitude, :description, :usp, :launch_date, :number_of_buildings, :status, :buildings_attributes, :company_id, :project_type, :property_type, :stages_attributes, :ammenities_attributes, :photos_files, :approval_types_attributes, :statuses_attributes, :property_types_attributes, :project_types_attributes, :property_configurations_attributes, :home_loan_banks_attributes, :offers_attributes
 
   	validates :name, :presence => {:message => "is blank or is invalid "}
+
+  	def vaildate_building_floor_flat_count
+  	end
 
   	def buildings_for_form
 	    collection = buildings.where(project_id: id)

@@ -2,20 +2,41 @@
    <% if project.errors.any? %>
       <div id="error_explanation">
         <div><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</div>
-
         <ul>
-        <% project.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>
 
     <%= render :partial => 'projects/partials/builder_details', :locals => { :project => project, :project_form => project_form }  %>   
 
-     <%= render :partial => 'projects/partials/details', :locals => { :project => project, :project_form => project_form }  %>
+    <div class="row card-panel">
+      <h7>Project: <%= project.id %></h7>
+          <div class="col s12">
+              <div class="row">
+                  <div class="col s6">
+                    <%= label_tag(:name, "Name") %>
+                    <%= project_form.text_field :name, :placeholder => "DLF" %>
+                      
+                  </div>
+                  <div class="col s3 relative">
+                    <%= project_form.label(:number_of_buildings, "Number of Buildings") %>
+                    <%= project_form.number_field :number_of_buildings, :placeholder => "3" %>
+                    <div class="create-form-icon" type="button" onClick="create_forms(this, 'building', '<%= project_wrapper_id %>')">
+                      <i class="mdi-content-send small right blue-text "></i>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-      <%= render :partial => 'projects/partials/buildings', :locals => { :project => project, :project_form => project_form }  %>
+      
+
+     <%= render :partial => 'projects/partials/details', :locals => { :project => project, :project_form => project_form, :index => index, :project_wrapper_id => project_wrapper_id }  %>
+
+      <%= render :partial => 'projects/partials/buildings', :locals => { :project_form => project_form, :project_wrapper_id => project_wrapper_id}  %>
     
 
     <% if project.id.present? %>

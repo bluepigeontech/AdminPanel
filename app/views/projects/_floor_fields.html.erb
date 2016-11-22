@@ -1,5 +1,7 @@
 <%= building_form.fields_for :floors  do |floor_form| %>
-  <li class=" fields">
+  <% floor_wrapper_id =  get_floor_wrapper_id(building_wrapper_id, building_form, floor_form) %>
+  <li class="floor-fields fields" id="<%= floor_wrapper_id %>">
+    <h7 class="blue-color">Floor: <%= floor_wrapper_id %></h7>
     <div class="row">
         <div class="col s12">
             <div class="row">
@@ -7,19 +9,18 @@
                   <%= floor_form.label(:name, "Name") %>
                   <%= floor_form.text_field :name, :placeholder => "Floor 1" %>
                 </div>
-                <div class="col s3">
-                  <p>
-                    <%= floor_form.check_box :status, :placeholder => "true" %>
-                    <%= floor_form.label(:status, "Status") %>
-                  </p>          
-                </div>
-                <div class="col s3">
+                <div class="col s3 relative">
                   <%= floor_form.label(:number_of_flats, "Number of Flats") %>
                   <%= floor_form.number_field :number_of_flats, :placeholder => "3" %>
+
+                  <div class="create-form-icon" type="button" onClick="create_forms(this, 'flat', '<%= floor_wrapper_id %>')">
+                    <i class="mdi-content-send small right blue-text "></i>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
+    <%= render :partial => 'floors/partials/flats', :locals => {:floor_form => floor_form }  %>    
     <% if floor_form.object && floor_form.object.id.present? %>
       
       <%= render :partial => 'floors/partials/stages', :locals => {:floor_form => floor_form }  %>
@@ -29,11 +30,7 @@
       
       
     <% end %>
-
-
-    <%= render :partial => 'floors/partials/flats', :locals => {:floor_form => floor_form }  %>    
     
     <%= link_to_remove_floors "Remove Floor", floor_form %>
   </li>
-  <br/>
 <% end %>

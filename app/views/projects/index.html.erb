@@ -3,17 +3,19 @@
 
 <ul class="collapsible popout bp-popin" data-collapsible="accordion" watch>
     <% if access_projects_edit %>
-     <li id="project-wrapper-">
+    <% project_wrapper_id = "-project-wrapper-" %>
+     <li id="<%= project_wrapper_id %>">
         <div class="collapsible-header <% if @project.errors.any? %>active<% end %>">
             Add a new Project
         </div>
         <div class="collapsible-body">
-            <%= render :partial => 'form', :locals => { :project => @project }  %>
+            <%= render :partial => 'form', :locals => { :project => @project, :index => nil, :project_wrapper_id => project_wrapper_id }  %>
         </div>
      </li>
     <% end %>
-    <% @projects.each do |project| %>
-        <li id="project-wrapper-<%= project.id %>">
+    <% @projects.each_with_index do |project, index| %>
+        <% project_wrapper_id = get_project_wrapper_id(index, project) %>
+        <li id="<%= project_wrapper_id %>">
             <div class="collapsible-header header-info <% if project.errors.any? %>active<% end %>">
                 <div class="row">
                     <div class="col s12">
@@ -39,7 +41,7 @@
 
             </div>
             <div class="collapsible-body">
-                <%= render :partial => 'form', :locals => { :project => project }  %>
+                <%= render :partial => 'form', :locals => { :project => project, :index => index, :project_wrapper_id => project_wrapper_id }  %>
             </div>
         </li>
     <% end %>

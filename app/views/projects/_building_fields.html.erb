@@ -1,6 +1,9 @@
 <%= project_form.fields_for :buildings  do |building_form| %>
-  <li class="fields building-fields">
-    <%= render :partial => 'buildings/partials/details', :locals => {:building_form => building_form, :project => project }  %>
+  <% building_wrapper_id = get_building_wrapper_id(project_wrapper_id, building_form, project_form) %>
+  <li class="fields building-fields" id="<%= building_wrapper_id %>">
+    <h7>Building: <%= building_wrapper_id %></h7>
+    <%= render :partial => 'buildings/partials/details', :locals => {:building_form => building_form, :project_form => project_form, :building_wrapper_id => building_wrapper_id}  %>
+    <%= render :partial => 'buildings/partials/floors', :locals => {:building_form => building_form, :building_wrapper_id => building_wrapper_id }  %>    
     <% if building_form.object && building_form.object.id.present? %>
       
       <%= render :partial => 'buildings/partials/stages', :locals => {:building_form => building_form }  %>
@@ -9,7 +12,6 @@
       <%= render :partial => 'buildings/partials/statuses', :locals => {:building_form => building_form }  %>
       
     <% end %>
-    <%= render :partial => 'buildings/partials/floors', :locals => {:building_form => building_form }  %>    
     
     <%= link_to_remove_buildings "Remove Building", building_form %>
   </li>

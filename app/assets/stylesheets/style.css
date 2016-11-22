@@ -2582,7 +2582,7 @@ select{
   display: none;
 }
 
-.create-buildings-form{
+.create-form-icon{
     position: absolute;
     right: 15px;
     top: 20px;
@@ -2619,4 +2619,20 @@ h7{
 
 .checkbox-custom{
   margin-top: 15px;
+}
+
+.floor-fields{
+  border-left: 2px solid #2196F3;
+}
+
+.building-fields{
+  border-left: 2px solid #ff4081;
+}
+
+.flat-fields{
+  border-left: 2px solid #88D2B0;
+}
+
+.add_floors, .add_flats, .add_buildings{
+  display: none;
 }

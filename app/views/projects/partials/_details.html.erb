@@ -3,21 +3,7 @@
       <h6 class="col mdi-content-add">Project Details</h6>
     </div>
     <div class="content-block">
-       <div class="row">
-          <div class="col s12">
-              <div class="row">
-                  <div class="col s9">
-                    <%= label_tag(:name, "Name") %>
-                    <%= project_form.text_field :name, :placeholder => "DLF" %>
-                      
-                  </div>
-                  <div class="col s3">
-                    <%= project_form.check_box :status, :placeholder => "true" %>
-                    <%= project_form.label(:status, "Status") %>
-                  </div>
-              </div>
-          </div>
-      </div>
+       
 
       <%= label_tag(:seller_type, "Seller Type") %>
       <%= project_form.text_field :seller_type, :placeholder => "Builder, Sole Seller, Broker, Property Management Firm etc." %>
@@ -45,21 +31,7 @@
                     <%= project_form.label(:launch_date, "Launch Date") %>
                     <%= project_form.date_field :launch_date, :placeholder => "Launch Date" %>
                   </div>
-                  <div class="col s3">
-                    <%= project_form.label(:project_type, "Project Type") %>
-                    <%= project_form.select(:project_type, options_for_select(get_types, :selected => project_form.object.project_type), :prompt => 'Select Project Type') %>
-                  </div>
-                  <div class="col s3">
-                    <%= project_form.label(:property_type, "Property Type") %>
-                    <%= project_form.select(:property_type, options_for_select(get_property_types, :selected => project_form.object.property_type), :prompt => 'Select Property Type') %>
-                  </div>
-                  <div class="col s3 relative">
-                    <%= project_form.label(:number_of_buildings, "Number of Buildings") %>
-                    <%= project_form.number_field :number_of_buildings, :placeholder => "3" %>
-                    <div class="create-buildings-form" type="button" onClick="create_forms(this, 'building', 'project-wrapper-<%= project.id %>')">
-                      <i class="mdi-content-send small right blue-text "></i>
-                    </div>
-                  </div>
+                 
               </div>
           </div>
       </div>

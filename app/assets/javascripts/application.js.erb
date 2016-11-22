@@ -54,6 +54,17 @@ function builderSelected() {
   }
 }
 
+function show_content_block(item){
+  var content_header = $(item);
+  var content_wrapper = content_header.parent();
+  var content_block = $(content_wrapper.find('.content-block')[0]);
+  content_block.show();
+  if($(content_header.children()[0]).hasClass('mdi-content-add')){
+    $(content_header.children()[0]).removeClass('mdi-content-add');
+    $(content_header.children()[0]).addClass('mdi-navigation-close'); 
+  }
+}
+
 function handle_content_blocks(item){
   var content_header = $(item);
   var content_wrapper = content_header.parent();

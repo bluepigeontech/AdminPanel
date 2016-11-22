@@ -28,19 +28,31 @@ module ProjectsHelper
 		
 	end
 
+	def get_building_wrapper_id project_wrapper_id, building_form, project_form
+		project_wrapper_id + "-"+ get_form_object_id(building_form) + "-" + get_form_child_index(project_form)
+	end
 
-	def link_to_add_buildings(name, project_instance, project_form, association)
+	def get_floor_wrapper_id building_wrapper_id, building_form, floor_form
+		building_wrapper_id + "-" + get_form_index(building_form) + "-" + get_form_object_id(building_form) + "-" + get_form_child_index(floor_form)
+	end
+
+	def get_project_wrapper_id index, project
+		get_index(index) + "-" + get_id(project)
+	end
+
+
+	def link_to_add_buildings(name, project_form, association, project_wrapper_id)
 		new_object = Project.new.class.reflect_on_association(association).klass.new
     	fields = project_form.fields_for(association, new_object, :child_index => "new_#{association}") do |form_builder|
-      		render(association.to_s.singularize + "_fields", :project_form => form_builder, :project => project_instance)
+      		render(association.to_s.singularize + "_fields", :project_form => form_builder, :project_wrapper_id => project_wrapper_id)
     	end
     	link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
 	end
 
-	def link_to_add_floors(name, building_form, association)
+	def link_to_add_floors(name, building_form, association, building_wrapper_id)
 		new_object = Building.new.class.reflect_on_association(association).klass.new
     	fields = building_form.fields_for(association, new_object, :child_index => "new_#{association}") do |form_builder|
-      		render(association.to_s.singularize + "_fields", :building_form => form_builder)
+      		render(association.to_s.singularize + "_fields", :building_form => form_builder, :building_wrapper_id => building_wrapper_id)
     	end
     	link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
 	end
@@ -82,6 +94,27 @@ module ProjectsHelper
 		project = Project.new project_id
 		params = {:name => project.name, :builder_name => project.builder.group_name}
 		params
+	end
+
+	private
+	def get_index index
+		(index || [*10000..1000000].sample).to_s 
+	end
+
+	def get_form_index form
+		(form.index || [*10000..1000000].sample).to_s 
+	end
+
+	def get_form_object_id form
+		((form.object.id || [*10000..1000000].sample) rescue [*10000..1000000].sample).to_s
+	end
+
+	def get_form_child_index form
+		(form.options[:child_index] || [*10000..1000000].sample).to_s
+	end
+
+	def get_id instance
+		(instance.id || [*10000..1000000].sample).to_s
 	end
 
 end

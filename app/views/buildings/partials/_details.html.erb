@@ -5,17 +5,12 @@
               <%= building_form.label(:name, "Name") %>
               <%= building_form.text_field :name, :placeholder => "Building 1" %>
             </div>
-            <div class="col s3">
-                <p>
-                  <%= building_form.check_box :status, :placeholder => "true" %>
-                  <%= building_form.label(:status, "Status") %>
-                  
-                </p>
-                
-            </div>
-            <div class="col s3">
+            <div class="col s3 relative">
               <%= building_form.label(:number_of_floors, "Number of Floors") %>
               <%= building_form.number_field :number_of_floors, :placeholder => "3" %>
+              <div class="create-form-icon" type="button" onClick="create_forms(this, 'floor', '<%= building_wrapper_id %>')">
+                <i class="mdi-content-send small right blue-text "></i>
+              </div>
             </div>
         </div>
     </div>
